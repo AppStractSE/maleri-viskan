@@ -11,8 +11,8 @@ export interface DropdownItem {
 
 export const data: NavItem[] = [
   {
-    href: "/om",
-    label: "Om",
+    href: "/projekt",
+    label: "Projekt",
   },
   {
     href: "/kontakt",
