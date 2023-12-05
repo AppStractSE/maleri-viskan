@@ -7,7 +7,9 @@ const Footer = () => {
     <footer className="p-4 py-12 md:px-16 md:pt-24 md:pb-12 bg-gradient-to-b from-cyan-700 to-cyan-950 ">
       <div className="gap-10 md:flex">
         <div>
-          <Image src="/logo.png" alt="" width={140} height={140} className="rounded" />
+          <a href="/">
+            <Image src="/logo.png" alt="" width={140} height={140} className="rounded" />
+          </a>
         </div>
 
         <div className="flex md:justify-center flex-1 mt-10 md:mt-0">
