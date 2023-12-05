@@ -7,7 +7,7 @@ import { data as services } from "./data";
 const BigServices = () => {
   const [currentService, setCurrentService] = useState(services[0]);
   return (
-    <div className="grid grid-cols-12 gap-8 xl:gap-24 border-t pt-8">
+    <div className="lg:grid lg:grid-cols-12 gap-8 xl:gap-24 border-t pt-8">
       <div className="col-span-12 w-full lg:col-span-5 transition-all duration-500">
         <div className="space-y-4">
           {services.map((service, index) => {
@@ -28,16 +28,18 @@ const BigServices = () => {
                 <div className="h-full col-span-4">
                   <img src={service.image} className="h-full w-full object-cover" />
                 </div>
-                <div className="col-span-8 p-4">
-                  <div className="text-lg lg:text-xl tracking-tight font-bold">{service.name}</div>
-                  <p>{service.shortDescription}</p>
+                <div className="col-span-8 p-2 lg:p-4">
+                  <div className="text-center sm:text-left text-md md:text-lg lg:text-xl md:tracking-tight md:font-bold">
+                    {service.name}
+                  </div>
+                  <p className="hidden sm:block">{service.shortDescription}</p>
                 </div>
               </div>
             );
           })}
         </div>
       </div>
-      <div className="flex flex-col col-span-12 lg:col-span-7 pr-4">
+      <div className="flex flex-col col-span-12 lg:col-span-7 mt-8 lg:mt-0">
         <h5 className="text-4xl tracking-tight font-bold">{currentService.name}</h5>
         <h6 className="my-8 text-lg lg:text-xl xl:text-2xl whitespace-pre-line">
           {currentService.description}
