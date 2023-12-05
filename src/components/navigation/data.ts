@@ -1,17 +1,43 @@
 export interface NavItem {
   href: string;
   label: string;
-  isActive?: boolean;
-  isScrolled?: boolean;
+  dropdownItems?: DropdownItem[];
 }
 
-export const navItems: NavItem[] = [
+export interface DropdownItem {
+  href: string;
+  label: string;
+}
+
+export const data: NavItem[] = [
   {
-    href: "/about",
-    label: "About",
+    href: "/om",
+    label: "Om",
   },
   {
-    href: "/contact",
-    label: "Contact",
+    href: "/kontakt",
+    label: "Kontakt",
+  },
+  {
+    href: "/tjanster",
+    label: "Tjänster",
+    dropdownItems: [
+      {
+        href: "/tjanster/malning",
+        label: "Målning",
+      },
+      {
+        href: "/tjanster/gipsning",
+        label: "Tapetsering",
+      },
+      {
+        href: "/tjanster/spackling",
+        label: "Spackling",
+      },
+      {
+        href: "/tjanster/renovering",
+        label: "Fönsterrenovering",
+      },
+    ],
   },
 ];
