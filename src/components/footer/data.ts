@@ -12,11 +12,11 @@ interface FooterLink {
 
 export const data: FooterLink[] = [
   {
-    label: 'Links',
+    label: 'Om företaget',
     links: [
       {
-        label: 'About',
-        href: '/about',
+        label: 'Om Måleri Viskan',
+        href: '/om-maleri-viskan',
         internal: true,
       },
       {
@@ -52,8 +52,8 @@ export const data: FooterLink[] = [
         href: 'tel:0500-33 10 18',
       },
       {
-        label: 'maleri-viskan@viskan.se',
-        href: 'mailto:maleri-viskan@viskan.se',
+        label: 'info@maleriviskan.se',
+        href: 'mailto:info@maleriviskan.se',
       },
     ],
   },

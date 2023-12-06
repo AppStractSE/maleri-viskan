@@ -5,15 +5,9 @@ import { data as footerData } from './data';
 const Footer = () => {
   return (
     <footer className="p-4 py-12 md:px-16 md:pt-24 md:pb-12 bg-gradient-to-b from-cyan-700 to-cyan-950 ">
-      <div className="gap-10 md:flex">
-        <div>
-          <a href="/">
-            <Image src="/logo.png" alt="" width={140} height={140} className="rounded" />
-          </a>
-        </div>
-
-        <div className="flex md:justify-center flex-1 mt-10 md:mt-0">
-          <div className="grid grid-cols-3 gap-8 sm:gap-6">
+      <div className="gap-10 flex flex-wrap">
+        <div className="flex justify-start flex-1">
+          <div className="flex sm:grid sm:grid-cols-3 sm:gap-6 gap-8 ">
             {footerData.map(({ label, links }) => (
               <div key={label}>
                 <h2 className="mb-6 text-sm font-semibold uppercase">{label}</h2>
@@ -31,17 +25,22 @@ const Footer = () => {
             ))}
           </div>
         </div>
+        <div className="flex">
+          <a href="/">
+            <Image src="/logo.png" alt="" width={140} height={140} className="rounded" />
+          </a>
+        </div>
       </div>
       <div className="h-[1px] bg-white opacity-10 w-full my-6 sm:mx-auto lg:my-8" />
       <a
         href="https://appstract.se/"
         target="_blank"
-        className="hover:underline text-sm sm:text-center flex gap-1 items-center"
+        className="hover:underline text-sm sm:text-center flex gap-1 items-center "
       >
-        Made with{' '}
+        Made with{" "}
         <span className="text-red-500 ">
           <HiMiniHeart />
-        </span>{' '}
+        </span>{" "}
         by Appstract © 2023
       </a>
     </footer>
