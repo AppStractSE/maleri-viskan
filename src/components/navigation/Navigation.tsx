@@ -18,7 +18,9 @@ const Navigation = () => {
           className="bg-cyan-800 flex items-center justify-between rounded-md px-4 bg-opacity-60"
         >
           <div className="flex items-center">
-            <Image src="/logo.png" alt="" width={80} height={80} className="mr-12 rounded" />
+            <Link href={"/"}>
+              <Image src="/logo.png" alt="" width={80} height={80} className="mr-12 rounded" />
+            </Link>
             <nav className="flex gap-4 py-2 font-bold">
               {navItems.map((navItem) => (
                 <div
