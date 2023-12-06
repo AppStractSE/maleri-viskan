@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { data as aboutData } from "./data";
-
 const About = () => {
   return (
     <div className="max-w-screen-xl px-4 py-8 mx-auto lg:py-16 w-full">

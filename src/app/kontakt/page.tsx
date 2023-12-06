@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { BsFillEnvelopeFill, BsFillTelephoneFill } from "react-icons/bs";
 
 export const metadata: Metadata = {
   title: "Create Next App ASdasd",
@@ -6,7 +7,37 @@ export const metadata: Metadata = {
 };
 
 const page = () => {
-  return <div style={{minHeight: "100vh", background: "lightgray", paddingTop: "24rem"}} >Contact page</div>;
+  return (
+    <div style={{ minHeight: "100vh", background: "lightgray", paddingTop: "9rem" }}>
+      <div className="grid max-w-screen-2xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 w-full">
+        <div className="mr-auto place-self-center lg:col-span-7">
+          <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl [text-shadow:1px_1px_4px_var(--tw-shadow-color)] shadow-black">
+            Kom i kontakt med oss
+          </h1>
+          <p className="max-w-2xl mb-6 lg:my-10 md:text-lg lg:text-xl whitespace-pre-line">
+            Välkommen att kontakta måleri viskan.
+            {"\n"}
+            Har du några frågor, funderingar eller ett projekt planerat för din bostad, tveka inte
+            att höra av dig för att göra idé till verklighet.{"\n"}
+            {"\n"} Du kan nå oss på telefon:
+            <div className="mt-4 flex gap-6 align-center">
+              <BsFillTelephoneFill size={25} />
+              <p>0500-33 10 18</p>
+            </div>
+            <div>
+              {"\n"} Eller via mail:
+              <a href="mailto:info@maleriviskan.se">
+                <div className="mt-4 flex gap-6 align-center">
+                  <BsFillEnvelopeFill size={25} />
+                  <p>info@maleriviskan.se</p>
+                </div>
+              </a>
+            </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default page;
