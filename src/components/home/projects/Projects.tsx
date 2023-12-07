@@ -50,7 +50,7 @@ const ProjectsSection = () => {
             genom att leverera professionella målningstjänster.
           </p>
         </div>
-        <div className="grid lg:grid-cols-12 gap-y-12 gap-x-6 lg:grid-rows-2">
+        <div className="grid lg:grid-cols-12 gap-4 lg:grid-rows-2">
           {projects.map((project, i) => (
             <div
               key={i}
@@ -58,7 +58,7 @@ const ProjectsSection = () => {
                 i === 0 || i === projects.length - 1 || i === projects.length - 2
                   ? "row-span-2 col-span-6"
                   : "col-span-3"
-              } text-white`}
+              } text-white flex flex-col`}
             >
               <div
                 className={`min-h-[250px] h-full bg-cover bg-no-repeat bg-center text-white rounded-sm shadow-lg`}
