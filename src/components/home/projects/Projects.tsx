@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const ProjectsSection = () => {
@@ -77,11 +78,19 @@ const ProjectsSection = () => {
                   </div>
                 </div>
               </div>
-
               <h2 className="text-xl font-bold text-black">{project.title}</h2>
             </div>
           ))}
         </div>
+        <Link
+          href="/projekt"
+          className="flex items-center p-4 pr-0 gap-2 duration-200 transition-all w-fit ml-auto group"
+        >
+          Visa alla projekt
+          <div className="group-hover:translate-x-1 transition-all duration-400 delay-200">
+            <FaArrowRightLong />
+          </div>
+        </Link>
       </div>
     </section>
   );
