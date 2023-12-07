@@ -32,8 +32,7 @@ const HeroSection = () => {
               genom målning och renovering. Våra tjänster inkluderar tapetsering, spackling,
               fasadmålning, takmålning samt målning av kök och badrum.{"\n"}
               {"\n"}Lita på oss för att förvandla ditt hem eller företag med professionella och
-              pålitliga måleritjänster. Kontakta oss idag för att få en offert kostnadsfritt
-              idag!
+              pålitliga måleritjänster. Kontakta oss för att få en offert kostnadsfritt!
             </p>
             <div className="flex gap-4 flex-wrap">
               <Link

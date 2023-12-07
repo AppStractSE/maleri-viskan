@@ -1,3 +1,5 @@
+import { FaArrowRightLong } from "react-icons/fa6";
+
 const ProjectsSection = () => {
   const projects = [
     {
@@ -58,7 +60,7 @@ const ProjectsSection = () => {
                 i === 0 || i === projects.length - 1 || i === projects.length - 2
                   ? "row-span-2 col-span-6"
                   : "col-span-3"
-              } text-white flex flex-col`}
+              } text-white flex flex-col group cursor-pointer`}
             >
               <div
                 className={`min-h-[250px] h-full bg-cover bg-no-repeat bg-center text-white rounded-sm shadow-lg`}
@@ -66,8 +68,16 @@ const ProjectsSection = () => {
                   backgroundImage: `url('${project.image}')`,
                 }}
               >
-                <div className="flex flex-col justify-end h-full bg-gradient-to-t from-[#1919199f]" />
+                <div className="flex flex-col justify-end h-full bg-gradient-to-t from-[#1919199f]">
+                  <div className="flex opacity-0 group-hover:opacity-100 items-center p-4 gap-2 text-white duration-200 transition-all w-fit ml-auto">
+                    Läs mer
+                    <div className="group-hover:translate-x-1 transition-all duration-400 delay-200 ">
+                      <FaArrowRightLong />
+                    </div>
+                  </div>
+                </div>
               </div>
+
               <h2 className="text-xl font-bold text-black">{project.title}</h2>
             </div>
           ))}
