@@ -1,5 +1,7 @@
+import ProjectsSection from "@/components/home/projects/ProjectsSection";
+
 const page = () => {
-  return <div>about page</div>;
+  return <ProjectsSection showAll />;
 };
 
 export default page;

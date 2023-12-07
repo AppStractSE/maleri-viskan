@@ -37,14 +37,14 @@ const HeroSection = () => {
             <div className="flex gap-4 flex-wrap">
               <Link
                 href="/kontakt"
-                className="px-6 py-3 rounded-lg border flex items-center gap-2 hover:bg-white hover:text-black duration-200 transition-all"
+                className="px-6 py-3 rounded-sm border flex items-center gap-2 hover:bg-white hover:text-black duration-200 transition-all"
               >
                 Läs om våra tjänster
                 <FaArrowRightLong />
               </Link>
               <button
                 onClick={() => setShowModal(!showModal)}
-                className="px-6 py-3 rounded-lg bg-black text-white hover:invert duration-200 transition-all"
+                className="px-6 py-3 rounded-sm bg-black text-white hover:invert duration-200 transition-all"
               >
                 Kostnadsfri offert
               </button>

@@ -72,14 +72,14 @@ const ServicesSection = () => {
               <div className="flex justify-end gap-4 mt-auto">
                 <Link
                   href="/kontakt"
-                  className="px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-black hover:text-white duration-200 transition-all"
+                  className="px-6 py-3 rounded-sm flex items-center gap-2 hover:bg-black hover:text-white duration-200 transition-all"
                 >
                   Läs mer om {currentService.name.toLocaleLowerCase()}
                   <FaArrowRightLong />
                 </Link>
                 <button
                   onClick={() => setShowQuoteModal(!showQuoteModal)}
-                  className="px-6 py-3 rounded-lg bg-black border border-black text-white hover:bg-transparent hover:text-black duration-200 transition-all"
+                  className="px-6 py-3 rounded-sm bg-black border border-black text-white hover:bg-transparent hover:text-black duration-200 transition-all"
                 >
                   Kostnadsfri offert
                 </button>

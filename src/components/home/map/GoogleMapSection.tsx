@@ -14,7 +14,7 @@ const GoogleMapSection = () => {
       <div className=" max-w-screen-2xl px-5 py-24 mx-auto flex">
         <div
           style={{ backdropFilter: "blur(6px)" }}
-          className="lg:w-1/3 md:w-1/2 bg-cyan-950 bg-opacity-10 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative shadow-md"
+          className="lg:w-1/3 md:w-1/2 bg-cyan-950 bg-opacity-10 rounded-sm p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative shadow-md"
         >
           <h1 className="max-w-4xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl whitespace-pre-line">
             Här finns vi!

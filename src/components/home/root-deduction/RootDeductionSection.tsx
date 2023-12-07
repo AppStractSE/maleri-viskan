@@ -18,7 +18,7 @@ const RootDeductionSection = () => {
           <div className="col-span-2 flex justify-end">
             <Link
               href="/kontakt"
-              className="px-6 py-3 rounded-lg flex items-center gap-2 bg-white text-black hover:bg-black hover:text-white duration-200 transition-all"
+              className="px-6 py-3 rounded-sm flex items-center gap-2 bg-white text-black hover:bg-black hover:text-white duration-200 transition-all"
             >
               Läs mer om ROT
               <FaArrowRightLong />

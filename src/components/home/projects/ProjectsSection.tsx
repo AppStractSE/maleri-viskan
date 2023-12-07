@@ -1,44 +1,13 @@
+"use client";
 import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { projects } from "./projects";
 
-const ProjectsSection = () => {
-  const projects = [
-    {
-      title: "Björkenäsgatan 27",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.",
-      image: "https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg",
-    },
-    {
-      title: "Fågelvägen 12",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.",
-      image: "https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg",
-    },
-    {
-      title: "Retoftavägen 9",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.",
-      image: "https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg",
-    },
-    {
-      title: "Fasadrenovering i Mark",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.",
-      image: "https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg",
-    },
-    {
-      title: "Lingonvägen 39",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.",
-      image: "https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg",
-    },
-    {
-      title: "Åsbogatan 7",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.",
-      image: "https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg",
-    },
-    {
-      title: "Påskliljevägen 5",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.",
-      image: "https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg",
-    },
-  ];
+interface Props {
+  showAll?: boolean;
+}
+
+const ProjectsSection = ({ showAll }: Props) => {
   return (
     <section className="bg-white text-black">
       <div className="max-w-screen-2xl px-4 pt-8 pb-12 mx-auto lg:gap-8 xl:gap-0 lg:py-16 w-full">
@@ -54,8 +23,9 @@ const ProjectsSection = () => {
           </p>
         </div>
         <div className="grid lg:grid-cols-12 gap-4 lg:grid-rows-2">
-          {projects.map((project, i) => (
-            <div
+          {projects.slice(0, showAll ? projects.length : 5).map((project, i) => (
+            <Link
+              href={`/projekt/${project.id}`}
               key={i}
               className={`${
                 i === 0 || i === projects.length - 1 || i === projects.length - 2
@@ -79,18 +49,22 @@ const ProjectsSection = () => {
                 </div>
               </div>
               <h2 className="text-xl font-bold text-black">{project.title}</h2>
-            </div>
+            </Link>
           ))}
         </div>
-        <Link
-          href="/projekt"
-          className="flex items-center p-4 pr-0 gap-2 duration-200 transition-all w-fit ml-auto group"
-        >
-          Visa alla projekt
-          <div className="group-hover:translate-x-1 transition-all duration-400 delay-200">
-            <FaArrowRightLong />
-          </div>
-        </Link>
+        {showAll ? (
+          <></>
+        ) : (
+          <Link
+            href="/projekt"
+            className="flex items-center p-4 pr-0 gap-2 duration-200 transition-all w-fit ml-auto group"
+          >
+            Visa alla projekt
+            <div className="group-hover:translate-x-1 transition-all duration-400 delay-200">
+              <FaArrowRightLong />
+            </div>
+          </Link>
+        )}
       </div>
     </section>
   );

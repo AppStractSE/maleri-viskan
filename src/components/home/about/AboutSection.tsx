@@ -34,14 +34,14 @@ const AboutSection = () => {
                   }`}
                 >
                   {data.quoteButton && (
-                    <button className="px-6 py-3 rounded-lg bg-black border border-black text-white hover:bg-transparent hover:text-black duration-200 transition-all">
+                    <button className="px-6 py-3 rounded-sm bg-black border border-black text-white hover:bg-transparent hover:text-black duration-200 transition-all">
                       Kostnadsfri offert
                     </button>
                   )}
                   {data.readMoreButton && (
                     <Link
                       href="/kontakt"
-                      className="px-6 py-3 rounded-lg flex items-center gap-2 border border-transparent hover:border-black hover:bg-black hover:text-white duration-200 transition-all w-fit"
+                      className="px-6 py-3 rounded-sm flex items-center gap-2 border border-transparent hover:border-black hover:bg-black hover:text-white duration-200 transition-all w-fit"
                     >
                       Läs mer
                       <FaArrowRightLong />

@@ -15,7 +15,7 @@ const Navigation = () => {
       <header className="fixed z-10 top-4 w-full px-4">
         <div
           style={{ backdropFilter: "blur(6px)" }}
-          className="bg-cyan-800 flex items-center justify-between rounded-md px-4 bg-opacity-60"
+          className="bg-cyan-800 flex items-center justify-between rounded-sm px-4 bg-opacity-60"
         >
           <div className="flex items-center">
             <Link href={"/"}>
@@ -61,7 +61,7 @@ const Navigation = () => {
           </div>
           <button
             onClick={() => setShowModal(!showModal)}
-            className="px-6 py-3 rounded-lg bg-black text-white hover:invert duration-200 transition-all"
+            className="px-6 py-3 rounded-sm bg-black text-white hover:invert duration-200 transition-all"
           >
             Få offert
           </button>
