@@ -1,8 +1,8 @@
-import ContactForm from "../forms/ContactForm";
+import ContactForm from "../../forms/ContactForm";
 
-const GoogleMap = () => {
+const GoogleMapSection = () => {
   return (
-    <>
+    <section className="text-gray-600 body-font relative">
       <div className="absolute inset-0 bg-gray-300 overflow-hidden">
         <iframe
           width="100%"
@@ -26,8 +26,8 @@ const GoogleMap = () => {
           <ContactForm />
         </div>
       </div>
-    </>
+    </section>
   );
 };
 
-export default GoogleMap;
+export default GoogleMapSection;

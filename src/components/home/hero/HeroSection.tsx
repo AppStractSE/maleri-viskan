@@ -1,9 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
-import QuoteModal from "../modal/QuoteModal";
+import QuoteModal from "../../modal/QuoteModal";
 
-const Hero = () => {
+const HeroSection = () => {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
@@ -19,7 +21,7 @@ const Hero = () => {
         <div className="relative grid max-w-screen-2xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 w-full">
           <div className="mr-auto place-self-center lg:col-span-7">
             <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl [text-shadow:1px_1px_4px_var(--tw-shadow-color)] shadow-black">
-              Målerifirma med spetskompetens
+              Målare i Kinna och Marks kommun
             </h1>
             <p className="max-w-2xl mb-6 lg:my-10 md:text-lg lg:text-xl whitespace-pre-line">
               Välkommen till Måleri Viskan – din pålitliga målare i Sjuhärad, Mark och Kinna.
@@ -30,7 +32,7 @@ const Hero = () => {
               genom målning och renovering. Våra tjänster inkluderar tapetsering, spackling,
               fasadmålning, takmålning samt målning av kök och badrum.{"\n"}
               {"\n"}Lita på oss för att förvandla ditt hem eller företag med professionella och
-              pålitliga måleritjänster. Kontakta Måleri Viskan för att få en offert kostnadsfritt
+              pålitliga måleritjänster. Kontakta oss idag för att få en offert kostnadsfritt
               idag!
             </p>
             <div className="flex gap-4 flex-wrap">
@@ -56,4 +58,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default HeroSection;
