@@ -1,7 +1,7 @@
 "use client";
+import { projects } from "@/data/projects";
 import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { projects } from "./projects";
 
 interface Props {
   showAll?: boolean;
