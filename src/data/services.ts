@@ -6,10 +6,12 @@ export interface Service {
   image: string;
   colors: string[];
   features: string[];
+  id: string;
 }
 
-export const data: Service[] = [
+export const services: Service[] = [
   {
+    id: "malning",
     name: "Målning",
     image: "https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg",
     shortDescription: "Dags att måla om? Vi erbjuder allt från fasad- till takmålning.",
@@ -20,6 +22,7 @@ export const data: Service[] = [
     features: ["Inomhusmålning", "Fasadmålning", "Takmålning", "Fönstermålning"],
   },
   {
+    id: "tapetsering",
     name: "Tapetsering",
     image: "https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg",
     shortDescription: "Tapetseringstjänster som förhöjer din interiör och ger den önskade stilen.",
@@ -30,6 +33,7 @@ export const data: Service[] = [
     features: ["A", "B", "C"],
   },
   {
+    id: "spackling",
     name: "Spackling",
     image: "https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg",
     shortDescription:
@@ -41,6 +45,7 @@ export const data: Service[] = [
     features: ["D", "E", "F"],
   },
   {
+    id: "fonsterrenovering",
     name: "Fönsterrenovering",
     image: "https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg",
     shortDescription: "Fönsterrenovering för att förbättra funktion och utseende.",

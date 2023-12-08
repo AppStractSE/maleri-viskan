@@ -1,4 +1,4 @@
-import { projects } from "@/components/home/projects/projects";
+import { projects } from "@/data/projects";
 import { redirect } from "next/navigation";
 
 export async function generateStaticParams() {

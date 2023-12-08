@@ -1,7 +1,7 @@
 "use client";
+import { services as servicesData } from "@/data/services";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
-import { data as servicesData } from "../home/services/data";
 
 const ContactForm = () => {
   const [chosenService, setChosenService] = useState("Vilken tjänst är du intresserad av?");
