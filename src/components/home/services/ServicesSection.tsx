@@ -3,8 +3,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { TbPointFilled } from "react-icons/tb";
+import { services } from "@/data/services";
 import QuoteModal from "../../modal/QuoteModal";
-import { data as services } from "./data";
 
 const ServicesSection = () => {
   const [currentService, setCurrentService] = useState(services[0]);
@@ -71,7 +71,7 @@ const ServicesSection = () => {
               ))}
               <div className="flex justify-end gap-4 mt-auto">
                 <Link
-                  href="/kontakt"
+                  href={`/tjanster/${currentService.id}`}
                   className="px-6 py-3 rounded-sm flex items-center gap-2 hover:bg-black hover:text-white duration-200 transition-all"
                 >
                   Läs mer om {currentService.name.toLocaleLowerCase()}
