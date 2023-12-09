@@ -1,32 +1,33 @@
 "use client";
-import { projects } from "@/data/projects";
-import { services } from "@/data/services";
-import { capitalize } from "@/utils/text-utils";
+import { breadcrumbs } from "@/data/breadcrumbs";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import React from "react";
 import { HiHome } from "react-icons/hi2";
 
 const Breadcrumbs = () => {
   const pathname = usePathname();
   const pathnames = pathname.split("/").filter((path) => path !== "");
-
-  const [displayName, setDisplayName] = useState<string | null>(null);
-
-  useEffect(() => {
-    const lastPath = pathnames[pathnames.length - 1];
-    const project = projects.find((p) => p.id === lastPath);
-    if (project) {
-      setDisplayName(project.title);
-      return;
-    }
-    const service = services.find((s) => s.id === lastPath);
-    if (service) {
-      setDisplayName(service.name);
-      return;
-    }
-    setDisplayName(null);
-  }, [pathnames]);
+  
+  const renderedBreadcrumbs = breadcrumbs
+  .filter((breadcrumb) => pathname.includes(breadcrumb.path))
+  .map((breadcrumb, index) => {
+      const isCurrentBreadcrumb = index === pathnames.length - 1;
+      const className = isCurrentBreadcrumb && "text-cyan-600";
+      return (
+        <React.Fragment key={breadcrumb.path}>
+          <span> / </span>
+          <span className={`${className}`}>
+            <Link
+              href={`/${pathnames.slice(0, index + 1).join("/")}`}
+              className="hover:text-cyan-600"
+            >
+              {breadcrumb.label}
+            </Link>
+          </span>
+        </React.Fragment>
+      );
+    });
 
   return (
     <div className=" bg-white text-black">
@@ -35,30 +36,9 @@ const Breadcrumbs = () => {
           <HiHome />
           Hem
         </Link>
-        {pathnames.map((path, index) => (
-          <span key={index} className="">
-            {" / "}
-            <Link
-              href={`/${pathnames.slice(0, index + 1).join("/")}`}
-              className={`${
-                index === pathnames.length - 1 ? "text-cyan-600" : "hover:text-cyan-600"
-              }`}
-            >
-              {capitalize(
-                `${
-                  index === pathnames.length - 1
-                    ? displayName !== null
-                      ? displayName
-                      : path
-                    : path
-                }`
-              )}
-            </Link>
-          </span>
-        ))}
+        {renderedBreadcrumbs}
       </div>
     </div>
   );
 };
-
 export default Breadcrumbs;
