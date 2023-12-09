@@ -9,7 +9,7 @@ export interface DropdownItem {
   label: string;
 }
 
-export const data: NavItem[] = [
+export const navigation: NavItem[] = [
   {
     href: "/projekt",
     label: "Projekt",
@@ -27,7 +27,7 @@ export const data: NavItem[] = [
         label: "Målning",
       },
       {
-        href: "/tjanster/gipsning",
+        href: "/tjanster/tapetsering",
         label: "Tapetsering",
       },
       {
@@ -35,7 +35,7 @@ export const data: NavItem[] = [
         label: "Spackling",
       },
       {
-        href: "/tjanster/renovering",
+        href: "/tjanster/fonsterrenovering",
         label: "Fönsterrenovering",
       },
     ],

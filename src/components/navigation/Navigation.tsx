@@ -1,29 +1,30 @@
 "use client";
 
+import { navigation } from "@/data/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { HiChevronDown } from "react-icons/hi2";
 import { LuMenu } from "react-icons/lu";
+import MobileMenuDrawer from "../drawer/MobileMenuDrawer";
 import QuoteModal from "../modal/QuoteModal";
-import { data as navItems } from "./data";
 
 const Navigation = () => {
   const [showModal, setShowModal] = useState(false);
-
+  const [showDrawer, setShowDrawer] = useState(false);
   return (
     <>
       <header className="fixed z-10 top-0 md:top-4 w-full px-0 md:px-2 xl:px-4">
         <div
           style={{ backdropFilter: "blur(6px)" }}
-          className="bg-cyan-800 flex items-center justify-between rounded-sm pl-4 pr-0 py-2 md:px-4 bg-opacity-60"
+          className="bg-cyan-800 flex items-center justify-between rounded-sm pl-4 pr-0 md:py-2 md:px-4 bg-opacity-60"
         >
           <div className="flex items-center">
             <Link href={"/"}>
               <Image src="/logo.png" alt="" width={80} height={80} className="mr-12 rounded" />
             </Link>
             <nav className="hidden sm:flex gap-4 items-center py-2 font-bold">
-              {navItems.map((navItem) => (
+              {navigation.map((navItem) => (
                 <div
                   className={`${navItem.dropdownItems ? "group relative" : ""}`}
                   key={navItem.label}
@@ -68,12 +69,16 @@ const Navigation = () => {
           >
             Få offert
           </button>
-          <button className="block sm:hidden text-3xl hover:bg-white focus-within:bg-white focus-within:bg-opacity-20 hover:bg-opacity-20 p-2 m-2 rounded">
+          <button
+            onClick={() => setShowDrawer(!showDrawer)}
+            className="block sm:hidden text-3xl hover:bg-white focus-within:bg-white focus-within:bg-opacity-20 hover:bg-opacity-20 p-2 m-2 rounded"
+          >
             <LuMenu />
           </button>
         </div>
       </header>
       {showModal ? <QuoteModal showModal={showModal} setShowModal={setShowModal} /> : undefined}
+      <MobileMenuDrawer showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
     </>
   );
 };
