@@ -1,14 +1,13 @@
 "use client";
+import QuoteModalButtonWrapper from "@/components/modal/QuoteModalWrapper";
+import { services } from "@/data/services";
 import Link from "next/link";
 import { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { TbPointFilled } from "react-icons/tb";
-import { services } from "@/data/services";
-import QuoteModal from "../../modal/QuoteModal";
 
 const ServicesSection = () => {
   const [currentService, setCurrentService] = useState(services[0]);
-  const [showQuoteModal, setShowQuoteModal] = useState(false);
   return (
     <>
       <section className="bg-white text-black">
@@ -64,9 +63,9 @@ const ServicesSection = () => {
                 {currentService.description}
               </h6>
               {currentService.features.map((feature) => (
-                <div className="flex items-center gap-2" key={feature}>
+                <div className="flex items-center gap-2" key={feature.title}>
                   <TbPointFilled />
-                  {feature}
+                  {feature.title}
                 </div>
               ))}
               <div className="flex justify-end gap-4 mt-auto">
@@ -77,20 +76,13 @@ const ServicesSection = () => {
                   Läs mer om {currentService.name.toLocaleLowerCase()}
                   <FaArrowRightLong />
                 </Link>
-                <button
-                  onClick={() => setShowQuoteModal(!showQuoteModal)}
-                  className="px-6 py-3 rounded-sm bg-black border border-black text-white hover:bg-transparent hover:text-black duration-200 transition-all"
-                >
-                  Kostnadsfri offert
-                </button>
+
+                <QuoteModalButtonWrapper label="Kostnadsfri offert" />
               </div>
             </div>
           </div>
         </div>
       </section>
-      {showQuoteModal ? (
-        <QuoteModal showModal={showQuoteModal} setShowModal={setShowQuoteModal} />
-      ) : undefined}
     </>
   );
 };

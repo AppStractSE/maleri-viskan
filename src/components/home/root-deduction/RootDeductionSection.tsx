@@ -3,11 +3,11 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 const RootDeductionSection = () => {
   return (
-    <section className="bg-black text-white bg-gradient-to-br from-fuchsia-700 to-cyan-800">
+    <section className="bg-black text-white bg-gradient-to-br from-slate-900 to-cyan-700">
       <div className="max-w-screen-xl px-4 py-8 lg:gap-8 xl:gap-0 lg:py-16 w-full mx-auto">
         <div className="flex flex-col sm:flex-row items-center justify-between">
           <div className="basis-3/4">
-            <h1 className="max-w-4xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl whitespace-pre-line">
+            <h1 className="max-w-4xl mb-4 text-4xl  tracking-tight leading-none md:text-5xl xl:text-6xl whitespace-pre-line">
               Vill du använda ROT-avdrag?{"\n"}Vi hjälper dig!
             </h1>
             <p className="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-xl">

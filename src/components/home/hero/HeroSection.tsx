@@ -5,12 +5,18 @@ import { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import QuoteModal from "../../modal/QuoteModal";
 
-const HeroSection = () => {
+interface Props {
+  height?: string;
+}
+
+const HeroSection = ({ height }: Props) => {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
       <section
-        className="bg-white text-white h-screen flex justify-center relative"
+        className={`bg-white text-white ${
+          height ? height : "h-screen"
+        } flex justify-center relative`}
         style={{
           backgroundImage: `url("https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg")`,
           backgroundSize: "cover",
@@ -36,7 +42,7 @@ const HeroSection = () => {
             </p>
             <div className="flex gap-4 flex-wrap">
               <Link
-                href="/kontakt"
+                href="/tjanster"
                 className="px-6 py-3 rounded-sm border flex items-center gap-2 hover:bg-white hover:text-black duration-200 transition-all"
               >
                 Läs om våra tjänster

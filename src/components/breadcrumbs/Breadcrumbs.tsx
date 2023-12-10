@@ -31,7 +31,7 @@ const Breadcrumbs = () => {
 
   return (
     <div className=" bg-white text-black">
-      <div className="max-w-screen-2xl text-2xl px-4 pt-8 lg:pt-32 mx-auto w-full flex gap-2">
+      <div className="max-w-screen-2xl text-lg px-4 mx-auto w-full flex gap-2">
         <Link href="/" className="flex gap-2 items-center hover:text-cyan-600">
           <HiHome />
           Hem
