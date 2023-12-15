@@ -11,7 +11,11 @@ export const metadata: Metadata = {
 export default function ProjectLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <Breadcrumbs />
+      <section className="bg-white text-black">
+        <div className="max-w-screen-2xl mx-auto pt-24 md:pt-32 w-full">
+          <Breadcrumbs />
+        </div>
+      </section>
       {children}
       <GoogleMapSection />
     </>
