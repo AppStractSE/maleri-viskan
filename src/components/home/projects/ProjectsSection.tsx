@@ -10,7 +10,7 @@ interface Props {
 const ProjectsSection = ({ showAll }: Props) => {
   return (
     <section className="bg-white text-black">
-      <div className="max-w-screen-2xl px-4 pt-8 pb-12 mx-auto lg:gap-8 xl:gap-0 lg:py-16 w-full">
+      <div className="max-w-screen-2xl mx-auto px-4 py-8 w-full">
         <div>
           <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl">
             Projekt
@@ -22,7 +22,7 @@ const ProjectsSection = ({ showAll }: Props) => {
             genom att leverera professionella målningstjänster.
           </p>
         </div>
-        <div className="grid lg:grid-cols-12 gap-4 lg:grid-rows-2">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-4 lg:grid-rows-2">
           {projects.slice(0, showAll ? projects.length : 5).map((project, i) => (
             <Link
               href={`/projekt/${project.id}`}
@@ -34,13 +34,13 @@ const ProjectsSection = ({ showAll }: Props) => {
               } text-white flex flex-col group cursor-pointer`}
             >
               <div
-                className={`min-h-[250px] h-full bg-cover bg-no-repeat bg-center text-white rounded-sm shadow-lg`}
+                className={`min-h-[250px] h-full bg-cover bg-no-repeat bg-center text-white rounded-sm shadow-lg relative`}
                 style={{
                   backgroundImage: `url('${project.image}')`,
                 }}
               >
-                <div className="flex flex-col justify-end h-full bg-gradient-to-t from-[#1919199f]">
-                  <div className="flex opacity-0 group-hover:opacity-100 items-center p-4 gap-2 text-white duration-200 transition-all w-fit ml-auto">
+                <div className="flex flex-col justify-end h-full bg-gradient-to-t from-[#1919199f] absolute inset-0">
+                  <div className="flex lg:opacity-0 lg:group-hover:opacity-100 items-center p-4 gap-2 text-white duration-200 transition-all w-fit ml-auto">
                     Läs mer
                     <div className="group-hover:translate-x-1 transition-all duration-400 delay-200 ">
                       <FaArrowRightLong />
