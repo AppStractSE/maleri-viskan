@@ -11,14 +11,16 @@ const QuoteModal = ({ showModal, setShowModal }: Props) => {
         onClick={() => setShowModal(!showModal)}
         className={`${
           showModal ? "opacity-100 visible" : "opacity-0 invisible"
-        } fixed bg-black bg-opacity-50 inset-0 transition-all duration-200 z-40`}
+        } fixed bg-black bg-opacity-50 inset-0 transition-all duration-500 z-50`}
       ></div>
       <div
-        className={`${showModal ? "absolute" : "hidden"} inset-0 justify-center flex items-center`}
+        className={`${
+          showModal ? "absolute" : "hidden"
+        } h-screen inset-0 justify-center flex items-center transition-all delay-1000 duration-500`}
       >
-        <div className="w-full max-w-md max-h-full fixed z-50">
-          <div className="p-4 bg-gradient-to-br from-cyan-700 to-cyan-900 rounded-lg shadow relative z-50">
-            <div className="flex justify-between mb-8">
+        <div className="w-full max-w-md max-h-full fixed z-50 transition-all delay-1000 duration-500">
+          <div className="p-4 bg-gradient-to-br from-cyan-700 to-cyan-900 rounded-lg shadow relative z-50 transition-all delay-1000 duration-500">
+            <div className="flex justify-between mb-8 ">
               <h3 className="text-4xl font-semibold text-gray-900 dark:text-white">
                 Kontakta oss för rådgivning eller offert
               </h3>

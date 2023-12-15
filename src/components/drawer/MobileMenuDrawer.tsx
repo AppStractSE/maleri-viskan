@@ -11,15 +11,18 @@ interface Props {
 
 interface MobileMenuItemProps {
   navItem: NavItem;
+  showDrawer: boolean;
+  setShowDrawer: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const MobileMenuItem = ({ navItem }: MobileMenuItemProps) => {
+const MobileMenuItem = ({ navItem, showDrawer, setShowDrawer }: MobileMenuItemProps) => {
   const [expand, setExpand] = useState(false);
   return (
     <div className="border-b py-2">
       {navItem.dropdownItems ? (
         <div className="flex items-center justify-between px-4 py-2">
           <Link
+            onClick={() => setShowDrawer(!showDrawer)}
             href={navItem.href}
             className="text-2xl font-semibold transition-all duration-200 hover:text-cyan-600"
           >
@@ -35,6 +38,7 @@ const MobileMenuItem = ({ navItem }: MobileMenuItemProps) => {
       ) : (
         <div className="px-4 py-2">
           <Link
+            onClick={() => setShowDrawer(!showDrawer)}
             href={navItem.href}
             className="text-2xl font-semibold transition-all duration-200 hover:text-cyan-600"
           >
@@ -70,7 +74,12 @@ const MobileMenuDrawer = ({ showDrawer, setShowDrawer }: Props) => {
     <Drawer showDrawer={showDrawer} setShowDrawer={setShowDrawer}>
       <nav className="border-t">
         {navigation.map((navItem) => (
-          <MobileMenuItem key={navItem.label} navItem={navItem} />
+          <MobileMenuItem
+            showDrawer={showDrawer}
+            setShowDrawer={setShowDrawer}
+            key={navItem.label}
+            navItem={navItem}
+          />
         ))}
       </nav>
     </Drawer>

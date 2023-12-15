@@ -4,7 +4,7 @@ import { data as footerData } from './data';
 
 const Footer = () => {
   return (
-    <footer className="p-4 py-12 md:px-16 md:pt-24 md:pb-12 bg-gradient-to-b from-cyan-700 to-cyan-950 ">
+    <footer className="p-4 py-12 md:px-16 md:pt-24 md:pb-12 text-white bg-gradient-to-b from-cyan-700 to-cyan-950 ">
       <div className="gap-10 flex flex-wrap">
         <div className="flex justify-start flex-1">
           <div className="flex sm:grid sm:grid-cols-3 sm:gap-6 gap-8 ">
@@ -35,7 +35,7 @@ const Footer = () => {
       <a
         href="https://appstract.se/"
         target="_blank"
-        className="hover:underline text-sm sm:text-center flex gap-1 items-center "
+        className="hover:underline text-sm sm:text-center flex gap-1 items-center text-white"
       >
         Made with{" "}
         <span className="text-red-500 ">

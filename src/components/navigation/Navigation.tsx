@@ -14,10 +14,10 @@ const Navigation = () => {
   const [showDrawer, setShowDrawer] = useState(false);
   return (
     <>
-      <header className="fixed z-10 top-0 md:top-4 w-full px-0 md:px-2 xl:px-4">
+      <header className="fixed z-10 top-0 md:top-4 w-full px-0 md:px-2 xl:px-4 text-white">
         <div
           style={{ backdropFilter: "blur(6px)" }}
-          className="bg-cyan-800 flex items-center justify-between rounded-sm pl-4 pr-0 md:py-2 md:px-4 bg-opacity-60"
+          className="bg-cyan-800 flex items-center justify-between md:rounded-sm px-4 md:py-2 md:px-4 bg-opacity-60"
         >
           <div className="flex items-center">
             <Link href={"/"}>
@@ -63,18 +63,20 @@ const Navigation = () => {
               ))}
             </nav>
           </div>
-          <button
-            onClick={() => setShowModal(!showModal)}
-            className="hidden sm:block text-xs px-6 py-3 mr-4 md:mr-0 rounded-sm bg-black text-white hover:invert duration-200 transition-all"
-          >
-            Få offert
-          </button>
-          <button
-            onClick={() => setShowDrawer(!showDrawer)}
-            className="block sm:hidden text-3xl hover:bg-white focus-within:bg-white focus-within:bg-opacity-20 hover:bg-opacity-20 p-2 m-2 rounded"
-          >
-            <LuMenu />
-          </button>
+          <div className="flex items-center">
+            <button
+              onClick={() => setShowModal(!showModal)}
+              className="text-xs px-3 py-2.5 md:px-6 md:py-3 rounded-lg bg-black text-white hover:invert duration-200 transition-all"
+            >
+              Begär offert
+            </button>
+            <button
+              onClick={() => setShowDrawer(!showDrawer)}
+              className="block sm:hidden text-3xl -mr-2.5  hover:bg-white focus-within:bg-white focus-within:bg-opacity-20 hover:bg-opacity-20 p-2 m-2 rounded"
+            >
+              <LuMenu />
+            </button>
+          </div>
         </div>
       </header>
       {showModal ? <QuoteModal showModal={showModal} setShowModal={setShowModal} /> : undefined}

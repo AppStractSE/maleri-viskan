@@ -18,7 +18,7 @@ const HeroSection = () => {
         }}
       >
         <div className="absolute bg-black opacity-50 inset-0" />
-        <div className="relative grid max-w-screen-2xl px-4 pt-32 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:pt-32 lg:pb-8 lg:grid-cols-12 w-full">
+        <div className="relative grid max-w-screen-2xl px-4 pt-32 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:pb-8 lg:grid-cols-12 w-full">
           <div className="mr-auto place-self-center lg:col-span-7">
             <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl [text-shadow:1px_1px_4px_var(--tw-shadow-color)] shadow-black">
               Målare i Kinna och Marks kommun
@@ -36,7 +36,7 @@ const HeroSection = () => {
             </p>
             <div className="flex gap-4 flex-wrap">
               <Link
-                href="/kontakt"
+                href="/tjanster"
                 className="px-6 py-3 rounded-sm border flex items-center gap-2 hover:bg-white hover:text-black duration-200 transition-all"
               >
                 Läs om våra tjänster

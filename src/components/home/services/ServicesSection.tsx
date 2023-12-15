@@ -1,14 +1,13 @@
 "use client";
+import QuoteModalButtonWrapper from "@/components/modal/QuoteModalWrapper";
+import { services } from "@/data/services";
 import Link from "next/link";
 import { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { TbPointFilled } from "react-icons/tb";
-import { services } from "@/data/services";
-import QuoteModal from "../../modal/QuoteModal";
 
 const ServicesSection = () => {
   const [currentService, setCurrentService] = useState(services[0]);
-  const [showQuoteModal, setShowQuoteModal] = useState(false);
   return (
     <>
       <section className="bg-white text-black">
@@ -34,63 +33,81 @@ const ServicesSection = () => {
                     background: `linear-gradient(to right, ${service.colors[0]}, ${service.colors[1]})`,
                   };
                   return (
-                    <div
-                      style={serviceGradient}
-                      className={`cursor-pointer grid grid-cols-12 items-center bg-gradient-to-r text-white overflow-hidden rounded-sm transition-all duration-500 ${
-                        currentService === service
-                          ? "opacity-100 shadow-lg"
-                          : "opacity-50 hover:opacity-100"
-                      }`}
-                      onClick={() => setCurrentService(services[index])}
-                      key={service.name}
-                    >
-                      <div className="h-full col-span-4">
-                        <img src={service.image} className="h-full w-full object-cover" />
-                      </div>
-                      <div className="col-span-8 p-2 lg:px-4 lg:py-6">
-                        <div className="text-center sm:text-left text-md md:text-lg lg:text-xl md:tracking-tight md:font-bold">
-                          {service.name}
+                    <div key={service.name}>
+                      <div
+                        style={serviceGradient}
+                        className={`cursor-pointer grid grid-cols-12 items-center bg-gradient-to-r text-white overflow-hidden rounded-sm transition-all duration-500 ${
+                          currentService === service
+                            ? "opacity-100 shadow-lg"
+                            : "opacity-50 hover:opacity-100"
+                        }`}
+                        onClick={() => setCurrentService(services[index])}
+                      >
+                        <div className="h-full col-span-4">
+                          <img src={service.image} className="h-full w-full object-cover" />
                         </div>
-                        <p className="hidden sm:block">{service.shortDescription}</p>
+                        <div className="col-span-8 p-2 lg:px-4 lg:py-6">
+                          <div className="text-center sm:text-left text-xl md:text-2xl md:tracking-tight font-bold">
+                            {service.name}
+                          </div>
+                          <p className="hidden sm:block">{service.shortDescription}</p>
+                        </div>
                       </div>
+                      {currentService === service && (
+                      <div className="flex flex-col col-span-12 lg:col-span-7 mt-8 lg:mt-0 lg:hidden">
+                        <h6 className="mb-8 text-lg lg:text-xl xl:text-2xl whitespace-pre-line">
+                          {currentService.description}
+                        </h6>
+                        {currentService.features.map((feature) => (
+                          <div className="flex items-center gap-2" key={feature.title}>
+                            <TbPointFilled />
+                            {feature.title}
+                          </div>
+                        ))}
+                        <div className="flex flex-wrap w-full justify-end gap-4 mt-8 md:mt-auto">
+                          <Link
+                            href={`/tjanster/${currentService.id}`}
+                            className="px-6 py-3 rounded-sm flex items-center gap-2 hover:bg-black hover:text-white duration-200 transition-all w-full justify-center md:w-fit"
+                          >
+                            Läs mer om {currentService.name.toLocaleLowerCase()}
+                            <FaArrowRightLong />
+                          </Link>
+
+                          <QuoteModalButtonWrapper label="Kostnadsfri offert" />
+                        </div>
+                      </div>
+                      )}
                     </div>
                   );
                 })}
               </div>
             </div>
-            <div className="flex flex-col col-span-12 lg:col-span-7 mt-8 lg:mt-0">
+            <div className="hidden lg:flex flex-col col-span-12 lg:col-span-7 mt-8 lg:mt-0">
               <h5 className="text-4xl tracking-tight font-bold">{currentService.name}</h5>
               <h6 className="my-8 text-lg lg:text-xl xl:text-2xl whitespace-pre-line">
                 {currentService.description}
               </h6>
               {currentService.features.map((feature) => (
-                <div className="flex items-center gap-2" key={feature}>
+                <div className="flex items-center gap-2" key={feature.title}>
                   <TbPointFilled />
-                  {feature}
+                  {feature.title}
                 </div>
               ))}
-              <div className="flex justify-end gap-4 mt-auto">
+              <div className="flex flex-wrap w-full justify-end gap-4 mt-8 md:mt-auto">
                 <Link
                   href={`/tjanster/${currentService.id}`}
-                  className="px-6 py-3 rounded-sm flex items-center gap-2 hover:bg-black hover:text-white duration-200 transition-all"
+                  className="px-6 py-3 rounded-sm flex items-center gap-2 hover:bg-black hover:text-white duration-200 transition-all w-full justify-center md:w-fit"
                 >
                   Läs mer om {currentService.name.toLocaleLowerCase()}
                   <FaArrowRightLong />
                 </Link>
-                <button
-                  onClick={() => setShowQuoteModal(!showQuoteModal)}
-                  className="px-6 py-3 rounded-sm bg-black border border-black text-white hover:bg-transparent hover:text-black duration-200 transition-all"
-                >
-                  Kostnadsfri offert
-                </button>
+
+                <QuoteModalButtonWrapper label="Kostnadsfri offert" />
               </div>
             </div>
           </div>
         </div>
       </section>
-      {showQuoteModal ? (
-        <QuoteModal showModal={showQuoteModal} setShowModal={setShowQuoteModal} />
-      ) : undefined}
     </>
   );
 };
