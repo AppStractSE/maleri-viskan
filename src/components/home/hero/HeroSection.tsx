@@ -14,9 +14,7 @@ const HeroSection = ({ height }: Props) => {
   return (
     <>
       <section
-        className={`bg-white text-white ${
-          height ? height : "h-screen"
-        } flex justify-center relative`}
+        className="bg-white text-white min-h-screen flex justify-center relative"
         style={{
           backgroundImage: `url("https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg")`,
           backgroundSize: "cover",
@@ -24,7 +22,7 @@ const HeroSection = ({ height }: Props) => {
         }}
       >
         <div className="absolute bg-black opacity-50 inset-0" />
-        <div className="relative grid max-w-screen-2xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 w-full">
+        <div className="relative grid max-w-screen-2xl px-4 pt-32 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:pt-32 lg:pb-8 lg:grid-cols-12 w-full">
           <div className="mr-auto place-self-center lg:col-span-7">
             <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl [text-shadow:1px_1px_4px_var(--tw-shadow-color)] shadow-black">
               Målare i Kinna och Marks kommun
