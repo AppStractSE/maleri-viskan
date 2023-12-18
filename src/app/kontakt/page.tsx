@@ -34,11 +34,11 @@ const page = () => {
               maxWidth: "400px",
             }}
           >
-            <div className="text-left md:text-lg lg:text-xl md:tracking-tight font-bold">
+            <div className="text-left md:text-lg lg:text-xl md:tracking-tight font-bold text-white">
               Du kan nå oss på telefon:
             </div>
 
-            <div className="mt-4 flex gap-6 align-center text-lg">
+            <div className="mt-4 flex gap-6 align-center text-lg text-white">
               <BsFillTelephoneFill size={25} />
               <a href="tel:0500331018">
                 <p>0500-33 10 18</p>
@@ -53,11 +53,11 @@ const page = () => {
               maxWidth: "400px",
             }}
           >
-            <div className="text-left md:text-lg lg:text-xl md:tracking-tight font-bold">
+            <div className="text-left md:text-lg lg:text-xl md:tracking-tight font-bold text-white">
               Eller via mail:
             </div>
 
-            <div className="mt-4 flex gap-6 align-center text-lg">
+            <div className="mt-4 flex gap-6 align-center text-lg text-white">
               <BsFillEnvelopeFill size={25} />
               <a href="mailto:info@maleriviskan.se">
                 <p>info@maleriviskan.se</p>
