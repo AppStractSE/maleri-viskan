@@ -1,3 +1,4 @@
+import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 import GoogleMapSection from "@/components/home/map/GoogleMapSection";
 import { Metadata } from "next";
 import { BsFillEnvelopeFill, BsFillTelephoneFill } from "react-icons/bs";
@@ -9,8 +10,11 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
-    <div style={{ minHeight: "100vh", background: "white", paddingTop: "9rem" }}>
-      <div className="grid max-w-screen-2xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 w-full">
+    <>
+      <div className="max-w-screen-2xl mx-auto pt-24 md:pt-32 w-full">
+        <Breadcrumbs />
+      </div>
+      <div className="grid max-w-screen-2xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-8 lg:grid-cols-12 w-full">
         <div className="mr-auto place-self-center lg:col-span-7 flex flex-col">
           <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl [text-shadow:1px_1px_4px_var(--tw-shadow-color)] text-black">
             Kom i kontakt med oss
@@ -30,11 +34,11 @@ const page = () => {
               maxWidth: "400px",
             }}
           >
-            <div className="text-left md:text-lg lg:text-xl md:tracking-tight font-bold">
+            <div className="text-left md:text-lg lg:text-xl md:tracking-tight font-bold text-white">
               Du kan nå oss på telefon:
             </div>
 
-            <div className="mt-4 flex gap-6 align-center text-lg">
+            <div className="mt-4 flex gap-6 align-center text-lg text-white">
               <BsFillTelephoneFill size={25} />
               <a href="tel:0500331018">
                 <p>0500-33 10 18</p>
@@ -49,11 +53,11 @@ const page = () => {
               maxWidth: "400px",
             }}
           >
-            <div className="text-left md:text-lg lg:text-xl md:tracking-tight font-bold">
+            <div className="text-left md:text-lg lg:text-xl md:tracking-tight font-bold text-white">
               Eller via mail:
             </div>
 
-            <div className="mt-4 flex gap-6 align-center text-lg">
+            <div className="mt-4 flex gap-6 align-center text-lg text-white">
               <BsFillEnvelopeFill size={25} />
               <a href="mailto:info@maleriviskan.se">
                 <p>info@maleriviskan.se</p>
@@ -63,7 +67,7 @@ const page = () => {
         </div>
       </div>
       <GoogleMapSection />
-    </div>
+    </>
   );
 };
 
