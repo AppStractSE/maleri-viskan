@@ -1,7 +1,6 @@
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 import BigCards from "@/components/cards/BigCards";
 import GenericHeroSection from "@/components/home/hero/GenericHeroSection";
-import QuoteModalButtonWrapper from "@/components/modal/QuoteModalWrapper";
 import { services } from "@/data/services";
 import { redirect } from "next/navigation";
 
@@ -17,17 +16,12 @@ export default function Page({ params }: { params: { id: string } }) {
 
   return (
     <>
-      <GenericHeroSection>
-          <h1 className="mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl">
-            {service.servicePageTitle}
-          </h1>
-          <p className=" max-w-6xl text-lg md:text-xl mt-6 mb-24">
-            {service.shortDescription} {service.shortDescription} {service.shortDescription}
-          </p>
-          <div className="flex">
-            <QuoteModalButtonWrapper label="Kontakta oss" />
-          </div>
-      </GenericHeroSection>
+      <GenericHeroSection
+        bg="from-slate-600 to-teal-300"
+        title={service.servicePageTitle}
+        description={service.shortDescription}
+        quoteButton
+      />
       <section className="bg-white py-12">
         <Breadcrumbs />
       </section>
