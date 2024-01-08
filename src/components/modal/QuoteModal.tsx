@@ -9,6 +9,7 @@ const QuoteModal = ({ showModal, setShowModal }: Props) => {
     <>
       <div
         onClick={() => setShowModal(!showModal)}
+        style={{margin: 0}}
         className={`${
           showModal ? "opacity-100 visible" : "opacity-0 invisible"
         } fixed bg-black bg-opacity-50 inset-0 transition-all duration-500 z-50`}

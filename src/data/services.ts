@@ -19,7 +19,7 @@ export const services: Service[] = [
     id: "malning",
     name: "Målning",
     servicePageTitle: "Målning i Kinna och Marks kommun",
-    image: "https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg",
+    image: "/målning.jpg",
     shortDescription: "Dags att måla om? Vi erbjuder allt från fasad- till takmålning.",
     description:
       "Vår målarfirma erbjuder expertis inom fasad- och takmålning. Vi garanterar högkvalitativt arbete, leverans i enlighet med överenskommelse samt punktlig färdigställande. Vårt dedikerade team av målare är här för att ge ditt hem eller företag en ny och fräsch look.\n\nInom målning erbjuder vi bland annat:",
@@ -62,7 +62,7 @@ export const services: Service[] = [
     id: "tapetsering",
     name: "Tapetsering",
     servicePageTitle: "Tapetsering i Kinna och Marks kommun",
-    image: "https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg",
+    image: "/tapetsering.jpg",
     shortDescription: "Tapetseringstjänster som förhöjer din interiör och ger den önskade stilen.",
     description:
       "Våra skickliga målare specialiserar sig på tapetsering för att skapa en interiör som passar din stil och smak. Vi erbjuder rådgivning och expertis för att välja rätt tapeter och säkerställa en perfekt applicering. Låt oss förvandla ditt utrymme med våra professionella tapetseringstjänster.\n\nInom tapetsering erbjuder vi bland annat:",
@@ -70,19 +70,19 @@ export const services: Service[] = [
     colors: ["#0d9488", "#134e4a"],
     features: [
       {
-        image: "https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg",
+        image: "/tapetsering.jpg",
         title: "Papperstapetsering",
         description:
-          "Förvandla ditt utrymme med vår papperstapetseringstjänst som ger en klassisk och tidlös touch. Vårt skickliga team applicerar papperstapeter noggrant med precision och uppmärksamhet på detaljer. Oavsett om det är för en accentvägg eller hela rummet, strävar vi efter att skapa en sömlös och vacker yta som passar din stil och förhöjer atmosfären.",
+        "Förvandla ditt utrymme med vår papperstapetseringstjänst som ger en klassisk och tidlös touch. Vårt skickliga team applicerar papperstapeter noggrant med precision och uppmärksamhet på detaljer. Oavsett om det är för en accentvägg eller hela rummet, strävar vi efter att skapa en sömlös och vacker yta som passar din stil och förhöjer atmosfären.",
       },
       {
-        image: "https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg",
+        image: "/tapetsering01.jpg",
         title: "Non-woven-tapetsering",
         description:
-          "Förenkla och försköna med vår non-woven-tapetseringstjänst som kombinerar modern estetik med praktisk funktionalitet. Non-woven-tapeter erbjuder enkel installation och är lätta att underhålla. Vårt skickliga team säkerställer en noggrann applicering för att maximera tapetens förmåga att skapa önskad visuell effekt. Vi strävar efter att göra non-woven-tapetsering till en smidig och tillfredsställande upplevelse.",
+        "Förenkla och försköna med vår non-woven-tapetseringstjänst som kombinerar modern estetik med praktisk funktionalitet. Non-woven-tapeter erbjuder enkel installation och är lätta att underhålla. Vårt skickliga team säkerställer en noggrann applicering för att maximera tapetens förmåga att skapa önskad visuell effekt. Vi strävar efter att göra non-woven-tapetsering till en smidig och tillfredsställande upplevelse.",
       },
       {
-        image: "https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg",
+        image: "/tapetsering02.jpg",
         title: "Slätvävstapetsering",
         description:
           "Skapa en jämn och elegant yta med vår slätvävstapetseringstjänst. Vi installerar slät väv för att förbättra ytan och ge extra armering mot sprickor och yttre påverkan. Genom att kombinera skicklighet med noggrannhet strävar vi efter att erbjuda en tapetsering som inte bara är visuellt tilltalande utan också funktionellt hållbar över tid.",
@@ -93,7 +93,7 @@ export const services: Service[] = [
     id: "spackling",
     name: "Spackling",
     servicePageTitle: "Spackling i Kinna och Marks kommun",
-    image: "https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg",
+    image: "/spackling.jpg",
     shortDescription:
       "Jämn och professionell spackling för att skapa en perfekt yta inför målning.",
     description:
@@ -136,7 +136,7 @@ export const services: Service[] = [
     id: "fonsterrenovering",
     name: "Fönsterrenovering",
     servicePageTitle: "Fönsterrenovering i Kinna och Marks kommun",
-    image: "https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg",
+    image: "/fönsterrenovering.jpg",
     shortDescription: "Fönsterrenovering för att förbättra funktion och utseende.",
     description:
       "Förbättra både funktion och utseende på dina fönster med vår fönsterrenoveringstjänst. Vi erbjuder skräddarsydda lösningar för att möta dina behov och preferenser, inklusive skrapning för att avlägsna gammal färg och kittning för en tät och hållbar försegling. Målning av fönsterbågar och karm samt byte av glas utförs med precision för att ge dina fönster en fräsch och skyddande yta.",

@@ -16,7 +16,7 @@ const page = () => {
       </div>
       <div className="grid max-w-screen-2xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-8 lg:grid-cols-12 w-full">
         <div className="mr-auto place-self-center lg:col-span-7 flex flex-col">
-          <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl [text-shadow:1px_1px_4px_var(--tw-shadow-color)] text-black">
+          <h1 className="max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl [text-shadow:1px_1px_4px_var(--tw-shadow-color)] text-black">
             Kom i kontakt med oss
           </h1>
           <div className="max-w-2xl mb-6 md:text-lg lg:text-xl whitespace-pre-line text-black">

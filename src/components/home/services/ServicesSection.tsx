@@ -40,7 +40,7 @@ const ServicesSection = () => {
         <div className="max-w-screen-2xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 w-full">
           <div className="grid lg:grid-cols-12">
             <div className="mr-auto place-self-center lg:col-span-7">
-              <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl">
+              <h1 className="max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl">
                 Tjänster
               </h1>
               <p className="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-xl">
@@ -82,7 +82,7 @@ const ServicesSection = () => {
                         }}
                       >
                         <div className="h-full col-span-4">
-                          <img src={service.image} className="h-full w-full object-cover" />
+                          <img src={service.image} className="h-full w-full object-cover aspect-video" />
                         </div>
                         <div className="col-span-8 p-2 lg:px-4 lg:py-6">
                           <div className="text-center sm:text-left text-xl md:text-2xl md:tracking-tight font-bold">
