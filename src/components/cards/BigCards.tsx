@@ -11,17 +11,18 @@ interface Props {
   image: string;
   quoteButton?: boolean;
   readMoreButton?: boolean;
+  link?: string;
 }
 
-const BigCards = ({ index, title, description, image, quoteButton, readMoreButton }: Props) => {
+const BigCards = ({ index, title, description, image, quoteButton, readMoreButton, link }: Props) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
       <div className="mx-auto gap-4 lg:gap-8 grid grid-cols-12">
         <div
-          className={`shadow-xl flex justify-center flex-col col-span-12 sm:col-span-6 font-light min-h-[300px] sm:min-h-[400px] lg:h-[600px] ${
-            index % 2 === 0 ? "lg:order-2" : "lg:order-0"
+          className={`order-last shadow-xl flex justify-center flex-col col-span-12 md:col-span-6 font-light min-h-[300px] sm:min-h-[400px] lg:h-[600px] ${
+            index % 2 === 0 ? "md:order-last" : "md:order-first"
           } text-black rounded-sm p-4 lg:py-6 lg:px-12`}
         >
           <div className="my-auto">
@@ -37,10 +38,10 @@ const BigCards = ({ index, title, description, image, quoteButton, readMoreButto
                 Kostnadsfri offert
               </button>
             )}
-            {readMoreButton && (
+            {readMoreButton && link && (
               <Link
-                href="/kontakt"
-                className="px-2 py-2.5 lg:px-6 lg:py-3 text-sm md:text-md rounded-sm flex items-center gap-2 border border-transparent hover:border-black hover:bg-black hover:text-white duration-200 transition-all w-fit"
+                href={link}
+                className="px-2 py-2.5 lg:px-6 lg:py-3 text-sm md:text-md rounded-sm flex items-center gap-2 border border-black hover:bg-black hover:text-white duration-200 transition-all w-fit"
               >
                 Läs mer
                 <FaArrowRightLong />
@@ -48,9 +49,9 @@ const BigCards = ({ index, title, description, image, quoteButton, readMoreButto
             )}
           </div>
         </div>
-        <div className="rounded-sm min-h-[300px] sm:min-h-[400px] lg:h-[600px] overflow-hidden col-span-12 sm:col-span-6 shadow-xl">
+        <div className="rounded-sm min-h-[300px] h-[300px] sm:min-h-[400px] lg:h-[600px] overflow-hidden col-span-12 md:col-span-6 shadow-xl">
           <img
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover object-center"
             draggable="false"
             src={image}
             alt="Enkelt, snabbt och effektivt"

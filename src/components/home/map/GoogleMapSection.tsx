@@ -16,7 +16,7 @@ const GoogleMapSection = () => {
           style={{ backdropFilter: "blur(6px)" }}
           className="lg:w-1/3 md:w-1/2 bg-cyan-950 bg-opacity-10 rounded-sm p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative shadow-md"
         >
-          <h1 className="max-w-4xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl whitespace-pre-line">
+          <h1 className="max-w-4xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl whitespace-pre-line">
             Här finns vi!
           </h1>
           <p className="leading-relaxed mb-5 text-gray-700">
