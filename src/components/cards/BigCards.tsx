@@ -21,13 +21,13 @@ const BigCards = ({ index, title, description, image, quoteButton, readMoreButto
     <>
       <div className="mx-auto gap-4 lg:gap-8 grid grid-cols-12">
         <div
-          className={`order-last shadow-xl flex justify-center flex-col col-span-12 md:col-span-6 font-light min-h-[300px] sm:min-h-[400px] lg:h-[600px] ${
+          className={`order-last flex justify-center flex-col col-span-12 md:col-span-6 font-light ${
             index % 2 === 0 ? "md:order-last" : "md:order-first"
-          } text-black rounded-sm p-4 lg:py-6 lg:px-12`}
+          } text-black`}
         >
           <div className="my-auto">
             <h2 className="text-3xl tracking-tight font-bold">{title}</h2>
-            <p className="md:text-xl whitespace-pre-line pt-6">{description}</p>
+            <p className="md:text-xl whitespace-pre-line pt-6 max-w-xl">{description}</p>
           </div>
           <div className={`ml-auto mt-8 ${quoteButton && readMoreButton ? "flex gap-4" : ""}`}>
             {quoteButton && (
@@ -49,9 +49,9 @@ const BigCards = ({ index, title, description, image, quoteButton, readMoreButto
             )}
           </div>
         </div>
-        <div className="rounded-sm min-h-[300px] h-[300px] sm:min-h-[400px] lg:h-[600px] overflow-hidden col-span-12 md:col-span-6 shadow-xl">
+        <div className="rounded-md min-h-[300px] h-[300px] sm:min-h-[400px] lg:h-[500px] overflow-hidden col-span-12 md:col-span-6">
           <img
-            className="h-full w-full object-cover object-center"
+            className="h-full w-full object-cover object-center rounded-md"
             draggable="false"
             src={image}
             alt="Enkelt, snabbt och effektivt"

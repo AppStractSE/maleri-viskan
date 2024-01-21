@@ -4,16 +4,20 @@ import GoogleMapSection from "@/components/home/map/GoogleMapSection";
 import ProjectsSection from "@/components/home/projects/ProjectsSection";
 import RootDeductionSection from "@/components/home/root-deduction/RootDeductionSection";
 import ServicesSection from "@/components/home/services/ServicesSection";
+import CertSection from "@/components/sections/CertSection";
+import ContactSection from "@/components/sections/ContactSection";
 
 export default function Home() {
   return (
     <main className="">
       <HeroSection />
-      <ProjectsSection showAll={false} />
       <ServicesSection />
+      <ContactSection />
+      <ProjectsSection showHeader={true} showAll={false} />
+      <CertSection />
       <AboutSection />
       <RootDeductionSection />
-      <GoogleMapSection />
+      <GoogleMapSection showForm />
     </main>
   );
 }

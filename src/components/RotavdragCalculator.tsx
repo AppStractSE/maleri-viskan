@@ -1,7 +1,6 @@
+"use client";
 import { useState } from "react";
-import RangeInput from "./input/RangeInput/RangeInput";
 import TextAndRangeInputWithLabel from "./input/TextAndRangeInputWithLabel";
-import TextInput from "./input/TextInput";
 
 const RotAvdragCalculator = () => {
   const [applicantsValue, setApplicantsValue] = useState(1);
@@ -29,10 +28,10 @@ const RotAvdragCalculator = () => {
 
   return (
     <section>
-      <div className="max-w-screen-2xl mx-auto px-4 py-8 lg:py-24 w-full lg:flex lg:justify-between">
+      <div className="max-w-screen-2xl mx-auto px-4 py-8 w-full lg:flex lg:justify-between gap-12 xl:gap-24 space-y-8 lg:space-y-0">
         <div>
           <h2 className="mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl">
-            ROT-avdrag för måleritjänster
+            Testa ROT-avdraget hos oss!
           </h2>
           <p className="max-w-6xl text-lg md:text-xl mt-6 mb-12 whitespace-pre-line">
             Med ROT-avdrag får du upp till 50 000 kr i skatterabatt per person och år. Du behöver
@@ -44,7 +43,7 @@ const RotAvdragCalculator = () => {
             till skattereduktion.{"\n\n"}
             Nedan kan du räkna ut hur mycket du kan spara med ROT-avdraget.
           </p>
-          <div className="space-y-4">
+          <div className="space-y-8">
             <TextAndRangeInputWithLabel
               label="Antal sökande"
               infoBox="Antal personer som ansöker om ROT-avdraget."
@@ -57,7 +56,8 @@ const RotAvdragCalculator = () => {
             />
             <TextAndRangeInputWithLabel
               label="Arbetskostnad"
-              min={0}
+              infoBox="Skatterabatten baseras på arbetskostnaden. Detta är den kostnad som Måleri Viskan tar för sitt arbete."
+              min={1000}
               max={300000}
               step={100}
               value={workcostValue}
@@ -66,6 +66,7 @@ const RotAvdragCalculator = () => {
             />
             <TextAndRangeInputWithLabel
               label="Materialkostnad"
+              infoBox="Kostnaden för material som används. Här går det inte att få skatterabatt."
               min={0}
               max={50000}
               step={100}
@@ -74,12 +75,24 @@ const RotAvdragCalculator = () => {
               setValue={setMaterialcostValue}
             />
           </div>
+            <div className="flex justify-end px-4 lg:px-12 my-4">
+              <button
+                className="bg-cyan-600 text-white text-xs px-4 py-2.5 rounded-md font-medium"
+                onClick={() => {
+                  setApplicantsValue(1);
+                  setMaterialcostValue(5000);
+                  setWorkcostValue(10000);
+                }}
+              >
+                Nollställ
+              </button>
+            </div>
         </div>
-        <div className="w-full max-w-lg p-4">
-          <h6 className="text-2xl md:text-3xl font-bold tracking-tight leading-none">Avdrag</h6>
+        <div className="w-full max-w-lg">
+          <h6 className="text-4xl md:text-3xl font-bold tracking-tight leading-none">Avdrag</h6>
           <h4
             className="
-            text-lg md:text-6xl mb-2 font-bold tracking-tight leading-none text-cyan-500
+            text-5xl md:text-6xl mb-2 font-bold tracking-tight leading-none text-cyan-500
           "
           >
             {prettifyNumber(savedAmount)} kr
@@ -106,9 +119,9 @@ const RotAvdragCalculator = () => {
             <span className="font-bold">{prettifyNumber(newPrice + materialcostValue)}</span> kronor
             inklusive moms.
           </h6>
-          <button className="ml-auto mt-8 bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-4 px-8 rounded">
+          <button className="ml-auto mt-8 bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-4 px-8 rounded">
             Begär offert
-            </button>
+          </button>
         </div>
       </div>
     </section>

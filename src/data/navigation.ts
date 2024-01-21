@@ -23,6 +23,10 @@ export const navigation: NavItem[] = [
     label: "Tjänster",
     dropdownItems: [
       {
+        href: "/tjanster",
+        label: "Alla tjänster",
+      },
+      {
         href: "/tjanster/malning",
         label: "Målning",
       },

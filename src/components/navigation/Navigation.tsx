@@ -54,6 +54,7 @@ const Navigation = () => {
                           href={dropdownItem.href}
                           key={dropdownItem.label}
                           className=" text-lg hover:bg-white hover:bg-opacity-20 px-4 py-2 rounded"
+                          onClick={() => setShowDrawer(false)}
                         >
                           {dropdownItem.label}
                         </Link>
