@@ -15,13 +15,26 @@ const ContactForm = () => {
 
   return (
     <div>
-      <form action="#" className="space-y-4 w-full">
+      <form
+        action="#"
+        className="space-y-4 w-full"
+        name="contact-form"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+      >
+        <p className="hidden">
+          <label>
+            Don’t fill this out if you’re human: <input name="bot-field" />
+          </label>
+        </p>
         <input
           type="text"
           id="name"
           className="bg-white text-black placeholder-gray-500 text-xs md:text-sm rounded-lg block w-full p-4 shadow-lg outline-2 focus:outline focus:outline-cyan-600"
           placeholder="För- och efternamn *"
           required
+          name="name"
         />
         <div className="relative">
           <button
@@ -46,6 +59,7 @@ const ContactForm = () => {
                   <button
                     className="block w-full text-left py-2 px-2.5 rounded-lg text-xs md:text-sm text-black hover:bg-gray-300"
                     type="button"
+                    name="service"
                     onClick={() => {
                       setChosenService(service);
                       setShowDropdown(false);
@@ -61,6 +75,7 @@ const ContactForm = () => {
         <div className="flex gap-2 md:gap-4">
           <input
             type="email"
+            name="email"
             id="email"
             className="bg-white text-black placeholder-gray-500 text-xs md:text-sm rounded-lg block w-full p-4 shadow-lg outline-2 focus:outline focus:outline-cyan-600"
             placeholder="Email *"
@@ -68,6 +83,7 @@ const ContactForm = () => {
           />
           <input
             type="tel"
+            name="tel"
             id="tel"
             className="bg-white text-black placeholder-gray-500 text-xs md:text-sm rounded-lg block w-full p-4 shadow-lg outline-2 focus:outline focus:outline-cyan-600"
             placeholder="Telefonnummer"
@@ -75,6 +91,7 @@ const ContactForm = () => {
         </div>
         <textarea
           id="message"
+          name="message"
           className="bg-white text-black placeholder-gray-500 text-xs md:text-sm rounded-lg block w-full p-4 shadow-lg min-h-[150px] resize-none outline-2 focus:outline focus:outline-cyan-600"
           placeholder="Meddelande *"
         />
