@@ -12,8 +12,8 @@ const ContactSection = ({ bg, invertArrow = true, linkColors }: Props) => {
     <section className={`bg-gradient-to-b ${bg ? bg : "from-cyan-700 to-cyan-950 text-white"}`}>
       <div className="max-w-screen-2xl grid grid-cols-12 px-4 py-8 mx-auto w-full md:gap-8">
         <div className="col-span-12 lg:col-span-8 relative">
-          <h2 className="text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl md:max-w-xl">
-            Vi är Er målarfirma i Mark och Kinna
+          <h2 className="text-4xl font-bold tracking-tight leading-none md:text-4xl xl:text-5xl md:max-w-xl">
+            Vi är Er målarfirma i Kinna, Skene och Marks kommun
           </h2>
           <p className="max-w-2xl mt-6 font-medium md:text-lg lg:text-xl">
             Har du frågor gällande våra tjänster, eller funderar du på att påbörja ett projekt?
