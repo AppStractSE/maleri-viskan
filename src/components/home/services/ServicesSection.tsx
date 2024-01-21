@@ -44,8 +44,8 @@ const ServicesSection = () => {
                 Tjänster
               </h1>
               <p className="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-xl">
-                Upptäck omfattande målningstjänster hos Måleri Viskan – din pålitliga lokala målare
-                i Sjuhärad, Mark och Kinna. Vi specialiserar oss på att tillhandahålla skräddarsydda
+                Omfattande målningstjänster hos Måleri Viskan – din pålitliga lokala målare i
+                Sjuhärad, Mark och Kinna. Vi specialiserar oss på att tillhandahålla skräddarsydda
                 målerilösningar för både privatpersoner och företag. Oavsett om det gäller inomhus-
                 eller utomhusmålning sätter vi alltid kunden i fokus.
               </p>
@@ -82,7 +82,10 @@ const ServicesSection = () => {
                         }}
                       >
                         <div className="h-full col-span-4">
-                          <img src={service.image} className="h-full w-full object-cover aspect-video" />
+                          <img
+                            src={service.image}
+                            className="h-full w-full object-cover aspect-video"
+                          />
                         </div>
                         <div className="col-span-8 p-2 lg:px-4 lg:py-6">
                           <div className="text-center sm:text-left text-xl md:text-2xl md:tracking-tight font-bold">
@@ -116,11 +119,11 @@ const ServicesSection = () => {
                             <FaArrowRightLong />
                           </Link>
                           <button
-                  onClick={() => setShowModal(!showModal)}
-                  className="border border-black bg-black text-white px-6 py-3 rounded-sm flex items-center gap-2 hover:text-black hover:border-black hover:bg-transparent duration-200 transition-all w-full justify-center md:w-fit"
-                >
-                  Begär offert
-                </button>
+                            onClick={() => setShowModal(!showModal)}
+                            className="border border-black bg-black text-white px-6 py-3 rounded-sm flex items-center gap-2 hover:text-black hover:border-black hover:bg-transparent duration-200 transition-all w-full justify-center md:w-fit"
+                          >
+                            Begär offert
+                          </button>
                         </div>
                       </div>
                     </div>

@@ -1,5 +1,5 @@
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
-import GoogleMapSection from "@/components/home/map/GoogleMapSection";
+import GenericHeroSection from "@/components/home/hero/GenericHeroSection";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 
@@ -11,13 +11,16 @@ export const metadata: Metadata = {
 export default function ProjectLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <section className="bg-white text-black">
-        <div className="max-w-screen-2xl mx-auto pt-24 md:pt-32 w-full">
-          <Breadcrumbs />
-        </div>
-      </section>
+      <GenericHeroSection
+        className="from-slate-500 to-slate-600"
+        title="Projekt"
+        description={`Vi på Måleri Viskan är stolta över att ha arbetat med många olika kunder.
+        Vår dedikation till kvalitet och noggrannhet är konsekvent, oavsett projektets omfattning.\n\nVårt mål är att överträffa förväntningarna och skapa en långvarig tillfredsställelse för våra kunder
+        genom att leverera professionella målningstjänster.`}
+        quoteButton
+      />
+      <Breadcrumbs />
       {children}
-      <GoogleMapSection />
     </>
   );
 }

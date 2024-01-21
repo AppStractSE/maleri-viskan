@@ -1,7 +1,8 @@
 import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
+import GenericHeroSection from "@/components/home/hero/GenericHeroSection";
 import GoogleMapSection from "@/components/home/map/GoogleMapSection";
+import ContactSection from "@/components/sections/ContactSection";
 import { Metadata } from "next";
-import { BsFillEnvelopeFill, BsFillTelephoneFill } from "react-icons/bs";
 
 export const metadata: Metadata = {
   title: "Create Next App ASdasd",
@@ -11,61 +12,18 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <>
-      <div className="max-w-screen-2xl mx-auto pt-24 md:pt-32 w-full">
-        <Breadcrumbs />
-      </div>
-      <div className="grid max-w-screen-2xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-8 lg:grid-cols-12 w-full">
-        <div className="mr-auto place-self-center lg:col-span-7 flex flex-col">
-          <h1 className="max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl [text-shadow:1px_1px_4px_var(--tw-shadow-color)] text-black">
-            Kom i kontakt med oss
-          </h1>
-          <div className="max-w-2xl mb-6 md:text-lg lg:text-xl whitespace-pre-line text-black">
-            <p>
-              Välkommen att kontakta måleri viskan.
-              {"\n"}
-              Har du några frågor, funderingar eller ett projekt planerat för din bostad, tveka inte
-              att höra av dig för att göra idé till verklighet.{"\n"}
-            </p>
-          </div>
-          <div
-            className="p-5 mb-5"
-            style={{
-              background: "linear-gradient(to right, rgb(5 137 95), rgb(19, 77, 67))",
-              maxWidth: "400px",
-            }}
-          >
-            <div className="text-left md:text-lg lg:text-xl md:tracking-tight font-bold text-white">
-              Du kan nå oss på telefon:
-            </div>
-
-            <div className="mt-4 flex gap-6 align-center text-lg text-white">
-              <BsFillTelephoneFill size={25} />
-              <a href="tel:0500331018">
-                <p>0500-33 10 18</p>
-              </a>
-            </div>
-          </div>
-
-          <div
-            className="p-5"
-            style={{
-              background: "linear-gradient(to right, rgb(8 135 157), rgb(19 78 82))",
-              maxWidth: "400px",
-            }}
-          >
-            <div className="text-left md:text-lg lg:text-xl md:tracking-tight font-bold text-white">
-              Eller via mail:
-            </div>
-
-            <div className="mt-4 flex gap-6 align-center text-lg text-white">
-              <BsFillEnvelopeFill size={25} />
-              <a href="mailto:info@maleriviskan.se">
-                <p>info@maleriviskan.se</p>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <GenericHeroSection
+        className=" from-violet-500 to-violet-600"
+        title="Kom i kontakt med oss"
+        description={`Välkommen att kontakta Måleri Viskan!\nHar du några frågor, funderingar eller ett projekt planerat för din bostad eller ditt företag, tveka inte att höra av dig för att göra idé till verklighet.`}
+        quoteButton
+      />
+      <Breadcrumbs />
+      <ContactSection
+        bg="from-white to-white text-black"
+        linkColors="text-cyan-600 border-cyan-600"
+        invertArrow={false}
+      />
       <GoogleMapSection />
     </>
   );

@@ -30,15 +30,17 @@ const Breadcrumbs = () => {
     });
 
   return (
-    <div className=" bg-white text-black ">
-      <div className="max-w-screen-2xl text-sm md:text-lg px-4 mx-auto w-full flex gap-2 ">
-        <Link href="/" className="flex gap-2 items-center hover:text-cyan-600">
-          <HiHome />
-          Hem
-        </Link>
-        {renderedBreadcrumbs}
+    <section className="max-w-screen-2xl mx-auto my-4 md:my-8 w-full">
+      <div className=" bg-white text-black ">
+        <div className="max-w-screen-2xl text-sm md:text-lg px-4 mx-auto w-full flex gap-2 ">
+          <Link href="/" className="flex gap-2 items-center hover:text-cyan-600">
+            <HiHome />
+            Hem
+          </Link>
+          {renderedBreadcrumbs}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 export default Breadcrumbs;

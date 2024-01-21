@@ -5,23 +5,29 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 interface Props {
   showAll?: boolean;
+  showHeader?: boolean;
 }
 
-const ProjectsSection = ({ showAll }: Props) => {
+const ProjectsSection = ({ showAll, showHeader }: Props) => {
   return (
     <section className="bg-white text-black">
       <div className="max-w-screen-2xl mx-auto px-4 py-8 w-full">
-        <div>
-          <h1 className="max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl">
-            Projekt
-          </h1>
-          <p className="max-w-3xl mb-6 font-light lg:mb-8 md:text-lg lg:text-2xl">
-            Vi på Måleri Viskan är stolta över att ha arbetat med många olika kunder. Vår dedikation
-            till kvalitet och noggrannhet är konsekvent, oavsett projektets omfattning. Vårt mål är
-            att överträffa förväntningarna och skapa en långvarig tillfredsställelse för våra kunder
-            genom att leverera professionella målningstjänster.
-          </p>
-        </div>
+        {showHeader ? (
+          <div>
+            <h1 className="max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl">
+              Projekt
+            </h1>
+            <p className="max-w-3xl mb-6 font-light lg:mb-8 md:text-lg lg:text-2xl">
+              Vi på Måleri Viskan är stolta över att ha arbetat med många olika kunder. Vår
+              dedikation till kvalitet och noggrannhet är konsekvent, oavsett projektets omfattning.
+              Vårt mål är att överträffa förväntningarna och skapa en långvarig tillfredsställelse
+              för våra kunder genom att leverera professionella målningstjänster.
+            </p>
+          </div>
+        ) : (
+          <></>
+        )}
+
         <div className="flex flex-col lg:grid lg:grid-cols-12 gap-4 lg:grid-rows-2">
           {projects.slice(0, showAll ? projects.length : 5).map((project, i) => (
             <Link
@@ -41,7 +47,7 @@ const ProjectsSection = ({ showAll }: Props) => {
               >
                 <div className="flex flex-col justify-end h-full bg-gradient-to-t from-[#1919199f] absolute inset-0">
                   <div className="flex lg:opacity-0 lg:group-hover:opacity-100 items-center p-4 gap-2 text-white duration-200 transition-all w-fit ml-auto">
-                    Läs mer
+                    Se mer
                     <div className="group-hover:translate-x-1 transition-all duration-400 delay-200 ">
                       <FaArrowRightLong />
                     </div>

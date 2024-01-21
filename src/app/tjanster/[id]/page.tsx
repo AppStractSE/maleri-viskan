@@ -17,16 +17,14 @@ export default function Page({ params }: { params: { id: string } }) {
   return (
     <>
       <GenericHeroSection
-        bg="from-slate-600 to-teal-300"
+        className={service.colorBg}
         title={service.servicePageTitle}
         description={service.shortDescription}
         quoteButton
       />
-      <section className="bg-white py-12">
-        <Breadcrumbs />
-      </section>
+      <Breadcrumbs />
       <div className="bg-white">
-        <div className="max-w-screen-2xl px-4 py-8 mx-auto lg:py-16 w-full">
+        <div className="max-w-screen-2xl mx-auto px-4 py-8 w-full">
           <div className="space-y-12 lg:space-y-8">
             {service.features.map((feature, index) => (
               <BigCards
