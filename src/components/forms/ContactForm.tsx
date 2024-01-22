@@ -72,6 +72,7 @@ const ContactForm = () => {
             </ul>
           </div>
         </div>
+        <input type="text" id="service" name="service" defaultValue={chosenService} hidden />
         <div className="flex gap-2 md:gap-4">
           <input
             type="email"
