@@ -44,4 +44,8 @@ export const navigation: NavItem[] = [
       },
     ],
   },
+  {
+    href: "/rot-avdrag",
+    label: "ROT-avdrag",
+  },
 ];

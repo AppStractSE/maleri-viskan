@@ -14,7 +14,7 @@ export default function page() {
   return (
     <>
       <GenericHeroSection
-        className="from-green-700 to-green-800"
+        className="from-stone-700 to-stone-800"
         title="Tjänster"
         description={`Omfattande målningstjänster hos Måleri Viskan – din pålitliga lokala målare i Sjuhärad, Mark och Kinna.
           Vi specialiserar oss på att tillhandahålla skräddarsydda målerilösningar för både privatpersoner och företag.\n\nOavsett om det gäller inomhus- eller utomhusmålning sätter vi alltid kunden i fokus.`}
@@ -22,7 +22,7 @@ export default function page() {
       />
       <Breadcrumbs />
       <section className="bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4 my-8 w-full">
+        <div className="mx-auto my-8 w-full max-w-screen-2xl px-4">
           <div className="space-y-12 lg:space-y-16">
             {services.map((services, index) => (
               <BigCards

@@ -11,8 +11,9 @@ const CertSection = () => {
         height: 250,
         width: 250,
       }}
-      bg="bg-black"
+      bg="bg-black bg-[url('/badrumsmålning01.png')] bg-cover bg-no-repeat"
       textColor="text-white"
+      overlay
     />
   );
 };

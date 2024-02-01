@@ -9,6 +9,7 @@ export const breadcrumbs = [
   { path: "projekt", label: "Projekt" },
   { path: "kontakt", label: "Kontakt" },
   { path: "rot-avdrag", label: "Rotavdrag" },
+  { path: "miljoarbete", label: "Miljöarbete" },
   ...serviceBreadcrumbs,
   ...projectBreadcrumbs,
 ];

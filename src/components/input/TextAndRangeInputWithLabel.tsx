@@ -25,14 +25,14 @@ const TextAndRangeInputWithLabel = ({
   return (
     <div>
       <h6
-        className={`text-lg md:text-xl mb-2 tracking-tight leading-none text-cyan-700 ${
+        className={`mb-2 text-lg leading-none tracking-tight text-cyan-700 md:text-xl ${
           infoBox ? "flex items-center gap-2" : ""
         }`}
       >
         {label}
         {infoBox && (
           <div className="group hidden lg:block">
-            <span className="absolute -mt-14 sm:-mt-12 z-50 rounded-lg text-sm font-bold bg-gradient-to-r from-cyan-600 to-cyan-800 text-white p-2 hidden group-hover:block">
+            <span className="absolute z-50 -mt-14 hidden rounded-lg bg-gradient-to-r from-cyan-600 to-cyan-800 p-2 text-sm font-bold text-white group-hover:block sm:-mt-12">
               {infoBox}
             </span>
             <span className="cursor-pointer">
@@ -41,11 +41,11 @@ const TextAndRangeInputWithLabel = ({
           </div>
         )}
       </h6>
-      <div className="text-xs opacity-50 block lg:hidden mb-4">{infoBox}</div>
+      <div className="mb-4 block text-xs opacity-50 lg:hidden">{infoBox}</div>
       <div className="grid grid-cols-12 items-center">
         <div className="col-span-6 sm:col-span-3">
           <TextInput
-            className="text-xl md:text-2xl lg:text-3xl xl:text-4xl border-b w-full pb-1 focus:outline-none"
+            className="w-full border-b pb-1 text-xl focus:outline-none md:text-2xl lg:text-3xl xl:text-4xl"
             min={min}
             max={max}
             value={value}
@@ -54,7 +54,7 @@ const TextAndRangeInputWithLabel = ({
           />
         </div>
         <RangeInput
-          className="col-span-12 sm:col-span-9 mt-4 sm:mt-0 sm:px-4 md:px-4 lg:px-12"
+          className="col-span-12 mt-4 sm:col-span-9 sm:mt-0 sm:px-4 md:px-4 lg:px-12"
           min={min}
           max={max}
           step={step}

@@ -20,37 +20,35 @@ const MobileMenuItem = ({ navItem, showDrawer, setShowDrawer }: MobileMenuItemPr
   return (
     <div className="border-b py-2">
       {navItem.dropdownItems ? (
-        <div className="flex items-center justify-between px-4 py-2">
+        <div className="flex items-center justify-between">
           <Link
             onClick={() => setShowDrawer(!showDrawer)}
             href={navItem.href}
-            className="text-2xl font-semibold transition-all duration-200 hover:text-cyan-600"
+            className="block w-full px-4 py-2 text-2xl font-semibold transition-all duration-200 hover:text-cyan-600"
           >
             {navItem.label}
           </Link>
           <div
-            className="text-cyan-500 hover:text-black cursor-pointer transition-all duration-200"
+            className="cursor-pointer px-4 py-2 transition-all duration-200 hover:text-cyan-500"
             onClick={() => setExpand(!expand)}
           >
             {expand ? <FaChevronUp size={18} /> : <FaChevronDown size={18} />}
           </div>
         </div>
       ) : (
-        <div className="px-4 py-2">
+        <div>
           <Link
             onClick={() => setShowDrawer(!showDrawer)}
             href={navItem.href}
-            className="text-2xl font-semibold transition-all duration-200 hover:text-cyan-600"
+            className="block px-4 py-2 text-2xl font-semibold transition-all duration-200 hover:text-cyan-600"
           >
             {navItem.label}
           </Link>
         </div>
       )}
       <div
-        className={`space-y-2 ml-6 transform ease-in-out transition-all overflow-hidden ${
-          expand
-            ? "transition-opacity opacity-100 duration-500 translate-y-0"
-            : "transition-transform duration-500 opacity-0 translate-y-full max-h-0"
+        className={`transform divide-y divide-gray-100 overflow-hidden transition-all duration-500 ease-in-out ${
+          expand ? "h-auto max-h-[400px]" : "max-h-0"
         }`}
       >
         {navItem.dropdownItems &&
@@ -58,7 +56,7 @@ const MobileMenuItem = ({ navItem, showDrawer, setShowDrawer }: MobileMenuItemPr
             <div key={dropdownItem.label}>
               <Link
                 href={dropdownItem.href}
-                className="text-lg hover:text-cyan-500 flex font-semibold transition-all duration-200 w-fit"
+                className="flex w-full px-8 py-2 text-lg font-semibold transition-all duration-200 hover:text-cyan-500"
               >
                 {dropdownItem.label}
               </Link>
