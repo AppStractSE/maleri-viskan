@@ -7,21 +7,21 @@ const SocialMediaIcons = () => {
       <Link
         href="https://instagram.com/maleriviskan"
         target="_blank"
-        className="hover:text-cyan-600 transition-all ease-in-out"
+        className="transition-all ease-in-out hover:text-cyan-600"
       >
         <FaInstagram />
       </Link>
       <Link
         href="https://instagram.com/maleriviskan"
         target="_blank"
-        className="hover:text-cyan-600 transition-all ease-in-out"
+        className="transition-all ease-in-out hover:text-cyan-600"
       >
         <FaFacebookF />
       </Link>
       <Link
         href="https://instagram.com/maleriviskan"
         target="_blank"
-        className="hover:text-cyan-600 transition-all ease-in-out"
+        className="transition-all ease-in-out hover:text-cyan-600"
       >
         <FaFacebookMessenger />
       </Link>

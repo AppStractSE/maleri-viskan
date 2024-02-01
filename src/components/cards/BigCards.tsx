@@ -1,8 +1,7 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
-import QuoteModal from "../modal/QuoteModal";
+import QuoteModalButtonWrapper from "../modal/QuoteModalWrapper";
 
 interface Props {
   index: number;
@@ -11,54 +10,81 @@ interface Props {
   image: string;
   quoteButton?: boolean;
   readMoreButton?: boolean;
+  readMoreText?: string;
   link?: string;
+  id?: string;
+  ref?: React.RefObject<HTMLDivElement>;
+  containImage?: boolean;
+  imagePos?: "left" | "right";
 }
 
-const BigCards = ({ index, title, description, image, quoteButton, readMoreButton, link }: Props) => {
-  const [showModal, setShowModal] = useState(false);
+const BigCards = ({
+  index,
+  title,
+  description,
+  image,
+  quoteButton,
+  readMoreButton,
+  link,
+  readMoreText,
+  id,
+  ref,
+  containImage,
+  imagePos,
+}: Props) => {
+  const imagePosition = {
+    left: "object-left",
+    right: "object-right",
+  };
 
   return (
     <>
-      <div className="mx-auto gap-4 lg:gap-8 grid grid-cols-12">
+      <div ref={ref} className="mx-auto grid grid-cols-12 gap-4 lg:gap-8">
+        {id ? (
+          <div id={id ? id : undefined} className="absolute -mt-[6rem] md:-mt-[8rem]" />
+        ) : (
+          <></>
+        )}
         <div
-          className={`order-last flex justify-center flex-col col-span-12 md:col-span-6 font-light ${
+          className={`order-last col-span-12 flex flex-col justify-center font-light md:col-span-6 ${
             index % 2 === 0 ? "md:order-last" : "md:order-first"
           } text-black`}
         >
           <div className="my-auto">
-            <h2 className="text-3xl tracking-tight font-bold">{title}</h2>
-            <p className="md:text-xl whitespace-pre-line pt-6 max-w-xl">{description}</p>
+            <h2 className="text-3xl font-bold tracking-tight">{title}</h2>
+            <p className="max-w-xl whitespace-pre-line pt-6 md:text-xl">{description}</p>
           </div>
-          <div className={`ml-auto mt-8 ${quoteButton && readMoreButton ? "flex gap-4" : ""}`}>
-            {quoteButton && (
-              <button
-                onClick={() => setShowModal(true)}
-                className="px-2 py-2.5 lg:px-6 lg:py-3 text-sm md:text-md rounded-sm bg-black border border-black text-white hover:bg-transparent hover:text-black duration-200 transition-all"
-              >
-                Kostnadsfri offert
-              </button>
-            )}
-            {readMoreButton && link && (
-              <Link
-                href={link}
-                className="px-2 py-2.5 lg:px-6 lg:py-3 text-sm md:text-md rounded-sm flex items-center gap-2 border border-black hover:bg-black hover:text-white duration-200 transition-all w-fit"
-              >
-                Läs mer
-                <FaArrowRightLong />
-              </Link>
-            )}
-          </div>
+          {quoteButton || readMoreButton ? (
+            <div className={`ml-auto mt-8 ${quoteButton && readMoreButton ? "flex gap-4" : ""}`}>
+              {quoteButton && (
+                <QuoteModalButtonWrapper
+                  className="w-fit justify-center rounded-sm border border-black bg-black px-2 py-2.5 text-sm text-white transition-all duration-200 hover:bg-white hover:text-black md:w-fit md:text-base lg:px-6 lg:py-3"
+                  label={"Kostnadsfri offert"}
+                />
+              )}
+              {readMoreButton && link && (
+                <Link
+                  href={link}
+                  className="flex w-fit items-center gap-2 rounded-sm border border-black px-2 py-2.5 text-sm transition-all duration-200 hover:bg-black hover:text-white md:text-base lg:px-6 lg:py-3"
+                >
+                  {readMoreText ? readMoreText : "Läs mer"}
+                  <FaArrowRightLong />
+                </Link>
+              )}
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
-        <div className="rounded-md min-h-[300px] h-[300px] sm:min-h-[400px] lg:h-[500px] overflow-hidden col-span-12 md:col-span-6">
+        <div className="col-span-12 h-[300px] min-h-[300px] overflow-hidden rounded-sm sm:min-h-[400px] md:col-span-6 lg:h-[500px]">
           <img
-            className="h-full w-full object-cover object-center rounded-md"
+            className={`h-full w-full rounded-sm ${imagePos ? imagePosition[imagePos] : "object-center"} ${containImage ? "object-contain" : "object-cover"}`}
             draggable="false"
             src={image}
             alt="Enkelt, snabbt och effektivt"
           />
         </div>
       </div>
-      {showModal ? <QuoteModal showModal={showModal} setShowModal={setShowModal} /> : undefined}
     </>
   );
 };

@@ -1,5 +1,6 @@
 "use client";
 import QuoteModal from "@/components/modal/QuoteModal";
+import QuoteModalButtonWrapper from "@/components/modal/QuoteModalWrapper";
 import { Service, services } from "@/data/services";
 import Link from "next/link";
 import { useRef, useState } from "react";
@@ -19,7 +20,7 @@ const ServicesSection = () => {
       setMobileCurrentService(null);
       setTimeout(() => {
         setMobileCurrentService(services[index]);
-        if(window.innerWidth < 1024) handleRefScroll(index);
+        if (window.innerWidth < 1024) handleRefScroll(index);
       }, 500);
     }
   };
@@ -37,13 +38,13 @@ const ServicesSection = () => {
   return (
     <>
       <section className="bg-white text-black">
-        <div className="max-w-screen-2xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 w-full">
+        <div className="mx-auto w-full max-w-screen-2xl px-4 py-8 lg:gap-8 lg:py-16 xl:gap-0">
           <div className="grid lg:grid-cols-12">
             <div className="mr-auto place-self-center lg:col-span-7">
-              <h1 className="max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl">
+              <h1 className="mb-4 max-w-2xl text-4xl font-bold leading-none tracking-tight md:text-5xl xl:text-6xl">
                 Tjänster
               </h1>
-              <p className="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-xl">
+              <p className="mb-6 max-w-2xl font-light md:text-lg lg:mb-8 lg:text-xl">
                 Omfattande målningstjänster hos Måleri Viskan – din pålitliga lokala målare i
                 Sjuhärad, Mark och Kinna. Vi specialiserar oss på att tillhandahålla skräddarsydda
                 målerilösningar för både privatpersoner och företag. Oavsett om det gäller inomhus-
@@ -51,8 +52,8 @@ const ServicesSection = () => {
               </p>
             </div>
           </div>
-          <div className="lg:grid lg:grid-cols-12 gap-8 xl:gap-24 border-t pt-8">
-            <div className="col-span-12 w-full lg:col-span-5 transition-all duration-500">
+          <div className="gap-8 border-t pt-8 lg:grid lg:grid-cols-12 xl:gap-24">
+            <div className="col-span-12 w-full transition-all duration-500 lg:col-span-5">
               <div className="space-y-4">
                 {services.map((service, index) => {
                   const serviceGradient = {
@@ -61,14 +62,14 @@ const ServicesSection = () => {
                   return (
                     <div key={service.name} className="relative">
                       <div
-                        className="absolute top-[-100%] left-0 w-1 h-1"
+                        className="absolute left-0 top-[-100%] h-1 w-1"
                         ref={(ref) => {
                           if (ref) scrollRefs.current[index] = ref;
                         }}
                       />
                       <div
                         style={serviceGradient}
-                        className={`cursor-pointer grid grid-cols-12 items-center bg-gradient-to-r text-white overflow-hidden rounded-sm transition-all duration-500
+                        className={`grid cursor-pointer grid-cols-12 items-center overflow-hidden rounded-sm bg-gradient-to-r text-white transition-all duration-500
                         ${
                           mobileCurrentService === service
                             ? "opacity-100 shadow-lg"
@@ -81,27 +82,27 @@ const ServicesSection = () => {
                           handleMobileScroll(index);
                         }}
                       >
-                        <div className="h-full col-span-4">
+                        <div className="col-span-4 h-full">
                           <img
-                            src={service.image}
-                            className="h-full w-full object-cover aspect-video"
+                            src={service.smallImage}
+                            className="aspect-video h-full w-full object-cover"
                           />
                         </div>
                         <div className="col-span-8 p-2 lg:px-4 lg:py-6">
-                          <div className="text-center sm:text-left text-xl md:text-2xl md:tracking-tight font-bold">
+                          <div className="text-center text-xl font-bold sm:text-left md:text-2xl md:tracking-tight">
                             {service.name}
                           </div>
                           <p className="hidden sm:block">{service.shortDescription}</p>
                         </div>
                       </div>
                       <div
-                        className={`ease-in-out transition-all flex flex-col col-span-12 lg:hidden transform ${
+                        className={`col-span-12 flex transform flex-col transition-all ease-in-out lg:hidden ${
                           mobileCurrentService === service
-                            ? "max-h-full opacity-100 visible duration-400 delay-400"
-                            : "opacity-0 max-h-0 invisible duration-200 delay-200"
+                            ? "duration-400 delay-400 visible max-h-full opacity-100"
+                            : "invisible max-h-0 opacity-0 delay-200 duration-200"
                         }`}
                       >
-                        <h6 className="my-8 text-lg lg:text-xl xl:text-2xl whitespace-pre-line">
+                        <h6 className="my-8 whitespace-pre-line text-lg lg:text-xl xl:text-2xl">
                           {service.description}
                         </h6>
                         {service.features.map((feature) => (
@@ -110,20 +111,18 @@ const ServicesSection = () => {
                             {feature.title}
                           </div>
                         ))}
-                        <div className="flex flex-wrap w-full justify-end gap-4 mt-8 md:mt-auto">
+                        <div className="mt-8 flex w-full flex-wrap justify-end gap-4 md:mt-auto">
                           <Link
                             href={`/tjanster/${service.id}`}
-                            className="border border-black px-6 py-3 rounded-sm flex items-center gap-2 hover:bg-black hover:text-white duration-200 transition-all w-full justify-center md:w-fit"
+                            className="flex w-full items-center justify-center gap-2 rounded-sm border border-black px-6 py-3 transition-all duration-200 hover:bg-black hover:text-white md:w-fit"
                           >
                             Läs mer om {service.name.toLocaleLowerCase()}
                             <FaArrowRightLong />
                           </Link>
-                          <button
-                            onClick={() => setShowModal(!showModal)}
-                            className="border border-black bg-black text-white px-6 py-3 rounded-sm flex items-center gap-2 hover:text-black hover:border-black hover:bg-transparent duration-200 transition-all w-full justify-center md:w-fit"
-                          >
-                            Begär offert
-                          </button>
+                          <QuoteModalButtonWrapper
+                            className="w-fit justify-center rounded-sm bg-black px-6 py-3 text-sm text-white transition-all duration-200 hover:bg-white hover:text-black md:w-fit md:text-base lg:px-6 lg:py-3"
+                            label={"Begär offert"}
+                          />
                         </div>
                       </div>
                     </div>
@@ -131,9 +130,9 @@ const ServicesSection = () => {
                 })}
               </div>
             </div>
-            <div className="hidden lg:flex flex-col col-span-12 lg:col-span-7 mt-8 lg:mt-0">
-              <h5 className="text-4xl tracking-tight font-bold">{currentService.name}</h5>
-              <h6 className="my-8 text-lg lg:text-xl xl:text-2xl whitespace-pre-line">
+            <div className="col-span-12 mt-8 hidden flex-col lg:col-span-7 lg:mt-0 lg:flex">
+              <h5 className="text-4xl font-bold tracking-tight">{currentService.name}</h5>
+              <h6 className="my-8 whitespace-pre-line text-lg lg:text-xl xl:text-2xl">
                 {currentService.description}
               </h6>
               {currentService.features.map((feature) => (
@@ -142,21 +141,19 @@ const ServicesSection = () => {
                   {feature.title}
                 </div>
               ))}
-              <div className="flex flex-wrap w-full justify-end gap-4 mt-8 md:mt-auto">
+              <div className="mt-8 flex w-full flex-wrap justify-end gap-4 md:mt-auto">
                 <Link
                   href={`/tjanster/${currentService.id}`}
-                  className="border border-black px-6 py-3 rounded-sm flex items-center gap-2 hover:bg-black hover:text-white duration-200 transition-all w-full justify-center md:w-fit"
+                  className="flex w-full items-center justify-center gap-2 rounded-sm border border-black px-6 py-3 transition-all duration-200 hover:bg-black hover:text-white md:w-fit"
                 >
                   Läs mer om {currentService.name.toLocaleLowerCase()}
                   <FaArrowRightLong />
                 </Link>
 
-                <button
-                  onClick={() => setShowModal(!showModal)}
-                  className="border border-black bg-black text-white px-6 py-3 rounded-sm flex items-center gap-2 hover:text-black hover:border-black hover:bg-transparent duration-200 transition-all w-full justify-center md:w-fit"
-                >
-                  Begär offert
-                </button>
+                <QuoteModalButtonWrapper
+                  className="w-fit justify-center rounded-sm bg-black px-6 py-3 text-sm text-white transition-all duration-200 hover:bg-white hover:text-black md:w-fit md:text-base lg:px-6 lg:py-3"
+                  label={"Kostnadsfri offert"}
+                />
               </div>
             </div>
           </div>

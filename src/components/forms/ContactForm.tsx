@@ -17,7 +17,7 @@ const ContactForm = () => {
     <div>
       <form
         action="#"
-        className="space-y-4 w-full"
+        className="w-full space-y-4"
         name="contact-form"
         method="POST"
         data-netlify="true"
@@ -31,7 +31,7 @@ const ContactForm = () => {
         <input
           type="text"
           id="name"
-          className="bg-white text-black placeholder-gray-500 text-xs md:text-sm rounded-lg block w-full p-4 shadow-lg outline-2 focus:outline focus:outline-cyan-600"
+          className="block w-full rounded-lg bg-white p-4 text-xs text-black placeholder-gray-500 shadow-lg outline-2 focus:outline focus:outline-cyan-600 md:text-sm"
           placeholder="För- och efternamn *"
           required
           name="name"
@@ -39,7 +39,7 @@ const ContactForm = () => {
         <div className="relative">
           <button
             onClick={() => setShowDropdown(!showDropdown)}
-            className="bg-white text-gray-500 placeholder-gray-500 text-xs md:text-sm rounded-lg w-full p-4 shadow-lg outline-2 focus:outline focus:outline-cyan-600 flex justify-between items-center gap-2"
+            className="flex w-full items-center justify-between gap-2 rounded-lg bg-white p-4 text-xs text-gray-500 placeholder-gray-500 shadow-lg outline-2 focus:outline focus:outline-cyan-600 md:text-sm"
             type="button"
           >
             {chosenService}
@@ -48,16 +48,16 @@ const ContactForm = () => {
           <div
             className={`z-10 ${
               showDropdown ? "block" : "hidden"
-            } absolute mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow-xl w-full`}
+            } absolute mt-2 w-full divide-y divide-gray-100 rounded-lg bg-white shadow-xl`}
           >
             <ul
-              className="text-xs md:text-sm mx-auto flex-col flex px-2.5 py-2"
+              className="mx-auto flex flex-col px-2.5 py-2 text-xs md:text-sm"
               aria-labelledby="dropdownDefaultButton"
             >
               {services.map((service) => (
                 <li key={service}>
                   <button
-                    className="block w-full text-left py-2 px-2.5 rounded-lg text-xs md:text-sm text-black hover:bg-gray-300"
+                    className="block w-full rounded-lg px-2.5 py-2 text-left text-xs text-black hover:bg-gray-300 md:text-sm"
                     type="button"
                     name="service"
                     onClick={() => {
@@ -78,7 +78,7 @@ const ContactForm = () => {
             type="email"
             name="email"
             id="email"
-            className="bg-white text-black placeholder-gray-500 text-xs md:text-sm rounded-lg block w-full p-4 shadow-lg outline-2 focus:outline focus:outline-cyan-600"
+            className="block w-full rounded-lg bg-white p-4 text-xs text-black placeholder-gray-500 shadow-lg outline-2 focus:outline focus:outline-cyan-600 md:text-sm"
             placeholder="Email *"
             required
           />
@@ -86,23 +86,23 @@ const ContactForm = () => {
             type="tel"
             name="tel"
             id="tel"
-            className="bg-white text-black placeholder-gray-500 text-xs md:text-sm rounded-lg block w-full p-4 shadow-lg outline-2 focus:outline focus:outline-cyan-600"
+            className="block w-full rounded-lg bg-white p-4 text-xs text-black placeholder-gray-500 shadow-lg outline-2 focus:outline focus:outline-cyan-600 md:text-sm"
             placeholder="Telefonnummer"
           />
         </div>
         <textarea
           id="message"
           name="message"
-          className="bg-white text-black placeholder-gray-500 text-xs md:text-sm rounded-lg block w-full p-4 shadow-lg min-h-[150px] resize-none outline-2 focus:outline focus:outline-cyan-600"
+          className="block min-h-[150px] w-full resize-none rounded-lg bg-white p-4 text-xs text-black placeholder-gray-500 shadow-lg outline-2 focus:outline focus:outline-cyan-600 md:text-sm"
           placeholder="Meddelande *"
         />
         <button
           type="submit"
-          className="bg-transparent w-full relative inline-flex items-center justify-center
-        overflow-hidden text-xs md:text-sm text-white rounded-lg group bg-gradient-to-br
-        from-cyan-500 to-blue-800 hover:from-black hover:to-black outline-0 shadow-lg duration-200 transition-all"
+          className="group relative inline-flex w-full items-center justify-center
+        overflow-hidden rounded-lg bg-transparent bg-gradient-to-br from-cyan-500 to-blue-800 text-xs
+        text-white shadow-lg outline-0 transition-all duration-200 hover:from-black hover:to-black md:text-sm"
         >
-          <span className="w-full relative p-4 transition-all ease-in duration-200">Skicka</span>
+          <span className="relative w-full p-4 transition-all duration-200 ease-in">Skicka</span>
         </button>
       </form>
     </div>

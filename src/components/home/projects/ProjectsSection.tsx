@@ -2,6 +2,7 @@
 import { projects } from "@/data/projects";
 import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
+import Image from "next/image";
 
 interface Props {
   showAll?: boolean;
@@ -11,13 +12,13 @@ interface Props {
 const ProjectsSection = ({ showAll, showHeader }: Props) => {
   return (
     <section className="bg-white text-black">
-      <div className="max-w-screen-2xl mx-auto px-4 py-8 w-full">
+      <div className="mx-auto w-full max-w-screen-2xl px-4 py-8 lg:py-16">
         {showHeader ? (
           <div>
-            <h1 className="max-w-2xl mb-4 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl">
+            <h1 className="mb-4 max-w-2xl text-4xl font-bold leading-none tracking-tight md:text-5xl xl:text-6xl">
               Projekt
             </h1>
-            <p className="max-w-3xl mb-6 font-light lg:mb-8 md:text-lg lg:text-2xl">
+            <p className="mb-6 max-w-3xl font-light md:text-lg lg:mb-8 lg:text-2xl">
               Vi på Måleri Viskan är stolta över att ha arbetat med många olika kunder. Vår
               dedikation till kvalitet och noggrannhet är konsekvent, oavsett projektets omfattning.
               Vårt mål är att överträffa förväntningarna och skapa en långvarig tillfredsställelse
@@ -28,27 +29,24 @@ const ProjectsSection = ({ showAll, showHeader }: Props) => {
           <></>
         )}
 
-        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-4 lg:grid-rows-2">
+        <div className="flex flex-col gap-2 lg:grid lg:grid-cols-12 lg:grid-rows-2">
           {projects.slice(0, showAll ? projects.length : 5).map((project, i) => (
             <Link
               href={`/projekt/${project.id}`}
               key={i}
               className={`${
                 i === 0 || i === projects.length - 1 || i === projects.length - 2
-                  ? "row-span-2 col-span-6"
+                  ? "col-span-6 row-span-2"
                   : "col-span-3"
-              } text-white flex flex-col group cursor-pointer`}
+              } group flex cursor-pointer flex-col text-white`}
             >
-              <div
-                className={`min-h-[250px] h-full bg-cover bg-no-repeat bg-center text-white rounded-sm shadow-lg relative`}
-                style={{
-                  backgroundImage: `url('${project.image}')`,
-                }}
-              >
-                <div className="flex flex-col justify-end h-full bg-gradient-to-t from-[#1919199f] absolute inset-0">
-                  <div className="flex lg:opacity-0 lg:group-hover:opacity-100 items-center p-4 gap-2 text-white duration-200 transition-all w-fit ml-auto">
+              <div className="relative h-full min-h-[250px] overflow-hidden rounded-sm bg-white shadow-lg">
+                {/* Use Image component in place of background image */}
+                <Image src={project.image} alt={project.title} layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-500 ease-in-out" />
+                <div className="absolute inset-0 flex h-full flex-col justify-end bg-gradient-to-t from-[#19191989] opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100">
+                  <div className="ml-auto flex w-fit items-center gap-2 p-4 text-white transition-all duration-200 lg:opacity-0 lg:group-hover:opacity-100">
                     Se mer
-                    <div className="group-hover:translate-x-1 transition-all duration-400 delay-200 ">
+                    <div className="duration-400 transition-all delay-200 group-hover:translate-x-1 ">
                       <FaArrowRightLong />
                     </div>
                   </div>
@@ -63,10 +61,10 @@ const ProjectsSection = ({ showAll, showHeader }: Props) => {
         ) : (
           <Link
             href="/projekt"
-            className="flex items-center p-4 pr-0 gap-2 duration-200 transition-all w-fit ml-auto group"
+            className="group ml-auto flex w-fit items-center gap-2 p-4 pr-0 transition-all duration-200"
           >
             Visa alla projekt
-            <div className="group-hover:translate-x-1 transition-all duration-400 delay-200">
+            <div className="duration-400 transition-all delay-200 group-hover:translate-x-1">
               <FaArrowRightLong />
             </div>
           </Link>

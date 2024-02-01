@@ -1,5 +1,3 @@
-import React from "react";
-
 interface Props {
   className?: string;
   min: number;
@@ -20,6 +18,7 @@ const TextInput = ({ className, min, max, value, setValue, secondaryValue }: Pro
 
   return (
     <input
+      disabled
       className={className}
       type="text"
       min={min}
