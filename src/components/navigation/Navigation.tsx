@@ -14,23 +14,23 @@ const Navigation = () => {
   const [showDrawer, setShowDrawer] = useState(false);
   return (
     <>
-      <header className="fixed z-10 top-0 md:top-4 w-full px-0 md:px-2 xl:px-4 text-white">
+      <header className="fixed top-0 z-10 w-full px-0 text-white md:top-4 md:px-2 xl:px-4">
         <div
           style={{ backdropFilter: "blur(6px)" }}
-          className="bg-cyan-800 flex items-center justify-between md:rounded-sm px-4 md:py-2 md:px-4 bg-opacity-60"
+          className="flex items-center justify-between bg-cyan-800 bg-opacity-60 px-4 md:rounded-sm md:px-4 md:py-2"
         >
           <div className="flex items-center">
             <Link href={"/"}>
               <Image src="/logo.png" alt="" width={80} height={80} className="mr-12 rounded" />
             </Link>
-            <nav className="hidden sm:flex gap-4 items-center py-2 font-bold">
+            <nav className="hidden items-center gap-4 py-2 font-bold sm:flex">
               {navigation.map((navItem) => (
                 <div
                   className={`${navItem.dropdownItems ? "group relative" : ""}`}
                   key={navItem.label}
                 >
                   {navItem.dropdownItems ? (
-                    <button className="text-lg hover:bg-white focus-within:bg-white focus-within:bg-opacity-20 hover:bg-opacity-20 px-4 py-2 rounded flex items-center gap-2">
+                    <button className="flex items-center gap-2 rounded px-4 py-2 text-xs focus-within:bg-white focus-within:bg-opacity-20 hover:bg-white hover:bg-opacity-20 md:text-sm lg:text-lg">
                       {navItem.label}{" "}
                       <span className="text-xs">
                         <HiChevronDown />
@@ -39,21 +39,21 @@ const Navigation = () => {
                   ) : (
                     <Link
                       href={navItem.href}
-                      className="text-lg hover:bg-white focus-within:bg-white focus-within:bg-opacity-20 hover:bg-opacity-20 px-4 py-2 rounded"
+                      className="rounded px-4 py-2 text-xs focus-within:bg-white focus-within:bg-opacity-20 hover:bg-white hover:bg-opacity-20 md:text-sm lg:text-lg"
                     >
                       {navItem.label}
                     </Link>
                   )}
                   <div
                     style={{ backdropFilter: "blur(6px)" }}
-                    className="absolute p-2 top-12 flex-col bg-cyan-800 bg-opacity-60 rounded flex w-max left-[50%] -translate-x-2/4 opacity-0 invisible group-hover:visible group-focus-within:visible group-hover:opacity-100 group-focus-within:opacity-100 transition-all duration-500"
+                    className="invisible absolute left-[50%] top-12 flex w-max -translate-x-2/4 flex-col rounded bg-cyan-800 bg-opacity-60 p-2 opacity-0 transition-all duration-500 group-focus-within:invisible group-focus-within:opacity-0 group-hover:visible group-hover:opacity-100"
                   >
                     {navItem.dropdownItems &&
                       navItem.dropdownItems.map((dropdownItem) => (
                         <Link
                           href={dropdownItem.href}
                           key={dropdownItem.label}
-                          className=" text-lg hover:bg-white hover:bg-opacity-20 px-4 py-2 rounded"
+                          className=" rounded px-4 py-2 text-xs hover:bg-white hover:bg-opacity-20 md:text-sm lg:text-lg"
                           onClick={() => setShowDrawer(false)}
                         >
                           {dropdownItem.label}
@@ -67,13 +67,13 @@ const Navigation = () => {
           <div className="flex items-center">
             <button
               onClick={() => setShowModal(!showModal)}
-              className="text-xs px-3 py-2.5 md:px-6 md:py-3 rounded-lg bg-black text-white hover:invert duration-200 transition-all"
+              className="rounded-lg bg-black px-3 py-2.5 text-xs text-white transition-all duration-200 hover:invert md:px-6 md:py-3"
             >
               Begär offert
             </button>
             <button
               onClick={() => setShowDrawer(!showDrawer)}
-              className="block sm:hidden text-3xl -mr-2.5  hover:bg-white focus-within:bg-white focus-within:bg-opacity-20 hover:bg-opacity-20 p-2 m-2 rounded"
+              className="m-2 -mr-2.5 block rounded  p-2 text-3xl focus-within:bg-white focus-within:bg-opacity-20 hover:bg-white hover:bg-opacity-20 sm:hidden"
             >
               <LuMenu />
             </button>

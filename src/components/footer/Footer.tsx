@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 import Link from "next/link";
 import { HiMiniHeart } from "react-icons/hi2";
 import SocialMediaIcons from "../SocialMediaIcons";
@@ -6,10 +6,10 @@ import { footerData } from "./data";
 
 const Footer = () => {
   return (
-    <footer className="text-white bg-gradient-to-b from-cyan-700 to-cyan-950 ">
-      <div className="max-w-screen-2xl px-4 py-8 mx-auto lg:pt-16 lg:pb-8 w-full">
+    <footer className="bg-gradient-to-b from-cyan-700 to-cyan-950 text-white ">
+      <div className="mx-auto w-full max-w-screen-2xl px-4 py-8 lg:pb-8 lg:pt-16">
         <div className="flex justify-between">
-          <div className="grid grid-cols-1 gap-12 md:gap-6 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-6">
             {footerData.map(({ label, links }) => (
               <div key={label}>
                 <h2 className="mb-6 text-xl font-semibold uppercase">{label}</h2>
@@ -35,11 +35,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="h-[1px] bg-white opacity-10 w-full my-6 sm:mx-auto lg:my-8" />
+        <div className="my-6 h-[1px] w-full bg-white opacity-10 sm:mx-auto lg:my-8" />
         <a
           href="https://appstract.se/"
           target="_blank"
-          className="hover:underline text-sm sm:text-center flex gap-1 items-center text-white"
+          className="flex items-center gap-1 text-sm text-white hover:underline sm:text-center"
         >
           Made with{" "}
           <span className="text-red-500 ">

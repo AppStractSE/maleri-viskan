@@ -13,6 +13,7 @@
   input[type="range"]::-webkit-slider-runnable-track {
     border-radius: 1rem;
     height: 1.5rem;
+
     @media screen and (max-width: 768px) {
       height: .75rem;
     }
@@ -27,6 +28,7 @@
     background: #fff;
     margin-top: -4px;
     outline: 3px solid #0d6d87;
+
     @media screen and (max-width: 768px) {
       height: 1.5rem;
       width: 1.5rem;
@@ -41,6 +43,7 @@
   input[type="range"]::-moz-range-track {
     border-radius: 1rem;
     height: 1.5rem;
+
     @media screen and (max-width: 768px) {
       height: .75rem;
     }
@@ -53,6 +56,7 @@
     height: 2rem;
     width: 2rem;
     outline: 3px solid #0d6d87;
+
     @media screen and (max-width: 768px) {
       height: 1.5rem;
       width: 1.5rem;

@@ -16,7 +16,7 @@ const QuoteModalButtonWrapper = ({ label, className }: Props) => {
         className={`${
           className
             ? className
-            : "px-6 py-3 rounded-sm bg-black text-white hover:invert duration-200 transition-all w-full justify-center md:w-fit"
+            : "w-full justify-center rounded-sm bg-black px-6 py-3 text-white transition-all duration-200 hover:invert md:w-fit"
         }`}
       >
         {label}

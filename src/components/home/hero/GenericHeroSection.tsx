@@ -16,13 +16,13 @@ const GenericHeroSection = ({ title, description, className }: Props) => {
   return (
     <>
       <section
-        className={`text-white flex justify-center pt-20 lg:pt-28 bg-gradient-to-r ${className}`}
+        className={`flex justify-center bg-gradient-to-r pt-20 text-white lg:pt-28 ${className} break-words`}
       >
-        <div className="max-w-screen-2xl px-4 py-8 mx-auto w-full">
-          <h1 className="mb-6 text-4xl font-bold tracking-tight leading-none md:text-5xl xl:text-6xl">
+        <div className="mx-auto w-full max-w-screen-2xl px-4 py-8">
+          <h1 className="mb-6 text-3xl font-bold leading-none tracking-tight md:text-5xl xl:text-6xl">
             {title}
           </h1>
-          <p className="max-w-3xl text-lg md:text-xl mt-6 mb-12 whitespace-pre-line">
+          <p className="mb-12 mt-6 max-w-3xl whitespace-pre-line text-lg md:text-xl">
             {description}
           </p>
           <div className="flex">
