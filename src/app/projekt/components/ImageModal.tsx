@@ -81,8 +81,8 @@ const ImageModal = ({ showModal, setShowModal, image, images, setCurrentImage }:
             <Image
               draggable={false}
               onClick={(e) => e.stopPropagation()}
-              height={0}
-              width={0}
+              height={500}
+              width={500}
               sizes="100vw"
               alt="Enkelt, snabbt och effektivt"
               className={`mx-auto h-full w-max object-contain object-center transition-all duration-500 ease-in-out`}
