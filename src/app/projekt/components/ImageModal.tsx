@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { GrClose } from "react-icons/gr";
 import { useSwipeable } from "react-swipeable";
@@ -14,7 +14,6 @@ interface Props {
   setCurrentImage: React.Dispatch<React.SetStateAction<string>>;
 }
 const ImageModal = ({ showModal, setShowModal, image, images, setCurrentImage }: Props) => {
-  const [loading, setLoading] = useState(true);
   const handlers = useSwipeable({
     onSwipedLeft: () => handleNextImage(),
     onSwipedRight: () => handlePrevImage(),
@@ -28,14 +27,12 @@ const ImageModal = ({ showModal, setShowModal, image, images, setCurrentImage }:
   console.log(prevImageIndex, nextImageIndex, currentImageIndex);
 
   const handleNextImage = () => {
-    setLoading(true);
     if (nextImageIndex === images.length) {
       setCurrentImage(images[0]);
     } else setCurrentImage(images[nextImageIndex]);
   };
 
   const handlePrevImage = () => {
-    setLoading(true);
     if (prevImageIndex === -1) {
       setCurrentImage(images[images.length - 1]);
     } else setCurrentImage(images[prevImageIndex]);
@@ -87,9 +84,8 @@ const ImageModal = ({ showModal, setShowModal, image, images, setCurrentImage }:
               height={0}
               width={0}
               sizes="100vw"
-              onLoad={() => setLoading(false)}
               alt="Enkelt, snabbt och effektivt"
-              className={`mx-auto h-full w-max object-contain object-center transition-all transition-all duration-500 duration-500 ease-in-out ease-in-out ${loading ? "opacity-0" : "opacity-100"} `}
+              className={`mx-auto h-full w-max object-contain object-center transition-all duration-500 ease-in-out`}
               src={image}
             />
             <div
