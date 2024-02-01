@@ -81,15 +81,13 @@ const ImageModal = ({ showModal, setShowModal, image, images, setCurrentImage }:
             <Image
               draggable={false}
               onClick={(e) => e.stopPropagation()}
-              height={0}
-              width={0}
+              height={500}
+              width={500}
               sizes="100vw"
               alt="Enkelt, snabbt och effektivt"
               className={`mx-auto h-full w-max object-contain object-center transition-all duration-500 ease-in-out`}
               src={image}
             />
-            {/* debug for iphone */}
-            <div className="absolute left-0 top-20 z-[9999]">Asd?</div>
             <div
               onClick={(e) => e.stopPropagation()}
               className="pointer-events-auto absolute bottom-6 left-0 right-0 flex items-center justify-center gap-2"
