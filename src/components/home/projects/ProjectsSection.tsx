@@ -1,8 +1,8 @@
 "use client";
 import { projects } from "@/data/projects";
+import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
-import Image from "next/image";
 
 interface Props {
   showAll?: boolean;
@@ -42,7 +42,13 @@ const ProjectsSection = ({ showAll, showHeader }: Props) => {
             >
               <div className="relative h-full min-h-[250px] overflow-hidden rounded-sm bg-white shadow-lg">
                 {/* Use Image component in place of background image */}
-                <Image src={project.image} alt={project.title} layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-500 ease-in-out" />
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="transition-all duration-500 ease-in-out group-hover:scale-105"
+                />
                 <div className="absolute inset-0 flex h-full flex-col justify-end bg-gradient-to-t from-[#19191989] opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100">
                   <div className="ml-auto flex w-fit items-center gap-2 p-4 text-white transition-all duration-200 lg:opacity-0 lg:group-hover:opacity-100">
                     Se mer

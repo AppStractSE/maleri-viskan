@@ -13,12 +13,12 @@ const HeroSection = () => {
       <section
         className="relative flex min-h-screen justify-center bg-white text-white"
         style={{
-          backgroundImage: `url("https://info.helphero.se/wp-content/uploads/2020/09/malare.jpg")`,
+          backgroundImage: `url("hero-header.png")`,
           backgroundSize: "cover",
           backgroundPosition: "50% 100%",
         }}
       >
-        <div className="absolute inset-0 bg-black opacity-50" />
+        <div className="absolute inset-0 bg-black opacity-30" />
         <div className="relative mx-auto grid w-full max-w-screen-2xl px-4 pb-8 pt-32 lg:grid-cols-12 lg:gap-8 lg:pb-8 xl:gap-0">
           <div className="mr-auto place-self-center lg:col-span-7">
             <h1 className="mb-4 max-w-2xl text-4xl font-bold leading-none tracking-tight shadow-black [text-shadow:1px_1px_4px_var(--tw-shadow-color)] md:text-5xl xl:text-6xl">

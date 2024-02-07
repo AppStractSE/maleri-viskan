@@ -136,7 +136,7 @@ const ServicesSection = () => {
                 {currentService.description}
               </h6>
               {currentService.features.map((feature) => (
-                <div className="flex items-center gap-2" key={feature.title}>
+                <div className="flex items-center gap-2 text-base xl:text-lg" key={feature.title}>
                   <TbPointFilled />
                   {feature.title}
                 </div>

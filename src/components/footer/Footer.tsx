@@ -39,13 +39,13 @@ const Footer = () => {
         <a
           href="https://appstract.se/"
           target="_blank"
-          className="flex items-center gap-1 text-sm text-white hover:underline sm:text-center"
+          className="flex items-center gap-1 text-xs text-white hover:underline sm:text-center"
         >
-          Made with{" "}
+          Gjort med {" "}
           <span className="text-red-500 ">
             <HiMiniHeart />
           </span>{" "}
-          by Appstract © 2023
+          av Appstract © 2024
         </a>
       </div>
     </footer>

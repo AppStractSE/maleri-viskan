@@ -72,8 +72,8 @@ export const services: Service[] = [
     id: "tapetsering",
     name: "Tapetsering",
     servicePageTitle: "Tapetsering",
-    image: "/tapetsering.jpg",
-    smallImage: "/tjanster/malning/utomhus_small.png",
+    image: "/tjanster/tapetsering/tapetsering.jpg",
+    smallImage: "/tjanster/tapetsering/tapetsering_small.png",
     shortDescription: "Tapetseringstjänster som förhöjer din interiör och ger den önskade stilen.",
     description:
       "Oavsett om det är för ditt hem eller kontor löser vi tapetsering åt dig. Vi strävar alltid efter att leverera snyggt arbete, hålla våra löften och bli klara i tid. Vårt fokus är att skapa en stilfull atmosfär och vi är här för att göra ditt rum eller kontor ännu mer speciellt!",
@@ -108,8 +108,8 @@ export const services: Service[] = [
     id: "spackling",
     name: "Spackling",
     servicePageTitle: "Spackling",
-    image: "/spackling.jpg",
-    smallImage: "/tjanster/malning/utomhus_small.png",
+    image: "/tjanster/spackling/spackling.jpg",
+    smallImage: "/tjanster/spackling/spackling_small.png",
     shortDescription:
       "Jämn och professionell spackling för att skapa en perfekt yta inför målning.",
     description:
@@ -146,11 +146,11 @@ export const services: Service[] = [
     id: "fonsterrenovering",
     name: "Fönsterrenovering",
     servicePageTitle: "Fönsterrenovering",
-    image: "/fönsterrenovering.jpg",
-    smallImage: "/tjanster/malning/utomhus_small.png",
+    image: "/tjanster/fonsterrenovering/fonsterrenovering.jpg",
+    smallImage: "/tjanster/fonsterrenovering/fonsterrenovering_small.png",
     shortDescription: "Fönsterrenovering för att förbättra funktion och utseende.",
     description:
-      "Förbättra både funktion och utseende på dina fönster med vår fönsterrenoveringstjänst. Vi erbjuder skräddarsydda lösningar för att möta dina behov och preferenser, inklusive skrapning för att avlägsna gammal färg och kittning för en tät och hållbar försegling. Målning av fönsterbågar och karm samt byte av glas utförs med precision för att ge dina fönster en fräsch och skyddande yta.",
+      "Förbättra både funktion och utseende på dina fönster. Vi erbjuder skräddarsydda lösningar för att möta dina behov och preferenser, inklusive skrapning för att avlägsna gammal färg och kittning för en tät och hållbar försegling. Målning av fönsterbågar och karm samt byte av glas som utförs med precision för att ge dina fönster en fräsch och skyddande yta.",
     link: "tjanster/fonsterrenovering",
     colors: ["#4f46e5", "#312e81"],
     colorBg: "from-indigo-600 to-indigo-700",

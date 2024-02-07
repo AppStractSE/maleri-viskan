@@ -27,7 +27,8 @@ export const projects: Project[] = [
   {
     id: "badrumsrenovering",
     title: "Badrumsrenovering",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.",
+    description:
+      "Vi har förvandlat flera slitna, tråkiga badrum till lyxiga oaser. Med fokus på detaljer och högkvalitativa material skapar vi inte bara vackra badrum utan också funktionella och hållbara utrymmen som våra kunder älskar att använda varje dag.",
     image: "/projekt/badrumsrenovering/badrumsrenovering01.jpg",
     images: [
       "/projekt/badrumsrenovering/badrumsrenovering01.jpg",
@@ -44,7 +45,8 @@ export const projects: Project[] = [
   {
     id: "foensterrenovering",
     title: "Fönsterrenovering",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quibusdam.",
+    description:
+      "Vi har gjort flertalet fönsterrenoveringar, där vi inte bara förbättrar utseendet utan även prestandan i fönstret. Vi lyfter fönstrens estetik och ökar deras energieffektivitet och hållbarhet.\n\nFönster ska alltid målas med linoljefärg, det ger fönstren en vacker och skyddande yta mot väder och vind. Linoljemålning förlänger fönstrens livslängd och minskar underhållskraven.",
     image: "/projekt/foensterrenovering/foensterrenovering01.jpg",
     images: [
       "/projekt/foensterrenovering/foensterrenovering01.jpg",
