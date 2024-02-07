@@ -45,8 +45,8 @@ const ServicesSection = () => {
                 Tjänster
               </h1>
               <p className="mb-6 max-w-2xl font-light md:text-lg lg:mb-8 lg:text-xl">
-                Omfattande målningstjänster hos Måleri Viskan – din pålitliga lokala målare i
-                Sjuhärad, Mark och Kinna. Vi specialiserar oss på att tillhandahålla skräddarsydda
+                Omfattande målningstjänster hos Måleri Viskan – din pålitliga lokala målare i Kinna,
+                Skene och Marks kommun. Vi specialiserar oss på att tillhandahålla skräddarsydda
                 målerilösningar för både privatpersoner och företag. Oavsett om det gäller inomhus-
                 eller utomhusmålning sätter vi alltid kunden i fokus.
               </p>
