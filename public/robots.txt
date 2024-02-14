@@ -2,5 +2,4 @@
 User-agent: *
 Disallow:
 
-
 Sitemap: https://.se/sitemap.xml
