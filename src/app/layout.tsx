@@ -5,8 +5,9 @@ import { ReactNode } from "react";
 import "./globals.scss";
 
 export const metadata: Metadata = {
-  title: "Måleri Viskan | Målerifirma i Sjuhärad, Mark och Kinna",
-  description: "Måleri Viskan - Vi kan måleri! Vi är din lokala målare i Sjuhärad, Mark och Kinna.",
+  title: "Måleri Viskan | Målerifirma i Kinna, Skene och Marks kommun",
+  description:
+    "Måleri Viskan - Vi kan måleri! Vi är din lokala målare i Kinna, Skene och Marks kommun.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

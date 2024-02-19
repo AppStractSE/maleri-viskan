@@ -12,7 +12,7 @@ interface FooterLink {
 
 export const footerData: FooterLink[] = [
   {
-    label: "Måleri Viskan",
+    label: "Länkar",
     links: [
       {
         label: "Projekt",
@@ -32,7 +32,7 @@ export const footerData: FooterLink[] = [
     ],
   },
   {
-    label: "Kontakt",
+    label: "Här finns vi",
     links: [
       {
         label: "Pruhultsvägen 37, 511 53 Kinna",

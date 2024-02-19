@@ -6,8 +6,9 @@ import { services } from "@/data/services";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Måleri Viskan | Tjänster | Kinna, Mark och Sjuhärad",
-  description: "Måleri Viskan - Vi kan måleri! Vi är din lokala målare i Sjuhärad, Mark och Kinna.",
+  title: "Måleri Viskan | Tjänster | Kinna, Skene och Marks kommun",
+  description:
+    "Måleri Viskan - Vi kan måleri! Vi är din lokala målare i Kinna, Skene och Marks kommun.",
 };
 
 export default function page() {
@@ -16,7 +17,7 @@ export default function page() {
       <GenericHeroSection
         className="from-stone-700 to-stone-800"
         title="Tjänster"
-        description={`Omfattande målningstjänster hos Måleri Viskan – din pålitliga lokala målare i Sjuhärad, Mark och Kinna.
+        description={`Omfattande målningstjänster hos Måleri Viskan – din pålitliga lokala målare i Kinna, Skene och Marks kommun.
           Vi specialiserar oss på att tillhandahålla skräddarsydda målerilösningar för både privatpersoner och företag.\n\nOavsett om det gäller inomhus- eller utomhusmålning sätter vi alltid kunden i fokus.`}
         quoteButton
       />

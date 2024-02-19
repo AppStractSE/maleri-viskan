@@ -9,10 +9,10 @@ export interface AboutPartial {
 }
 export const data: AboutPartial[] = [
   {
-    title: "Måleri Viskan",
+    title: "Vilka är vi?",
     description:
-      "Jag har arbetat inom branschen under många år och har finjusterat mina färdigheter för att leverera enastående resultat. Mitt fokus ligger på precision, noggrannhet och att tillgodose kundernas unika behov när det kommer till målningsprojekt.",
-    image: "/coat-hanger.jpg",
+      "Mitt namn är Torbjörn Johansson, jag har arbetat inom branschen under många år och har finjusterat mina färdigheter för att leverera enastående resultat. Mitt fokus ligger på precision, noggrannhet och att tillgodose kundernas unika behov när det kommer till målningsprojekt.",
+    image: "/torbjörn.png",
     readMoreButton: true,
     readMoreText: "Kontakta oss",
     quoteButton: true,
@@ -22,7 +22,7 @@ export const data: AboutPartial[] = [
     title: "Din målare i Marks kommun, längsmed Viskan",
     description:
       "Vi förstår vikten av att välja rätt färg för varje yta, vare sig det är väggar, tak, golv, möbler eller snickerier. Vi tar hänsyn till rummets belysning och stil för att skapa en atmosfär som passar dina önskemål.",
-    image: "/torbjörn.png",
+    image: "/coat-hanger.jpg",
     quoteButton: true,
     readMoreButton: true,
     link: "/tjanster/malning",
@@ -38,7 +38,7 @@ export const data: AboutPartial[] = [
     title: "Invändig målning",
     description:
       "Vi förstår vikten av att välja rätt färg för varje yta, vare sig det är väggar, tak, golv, möbler eller snickerier. Vi tar hänsyn till rummets belysning och stil för att skapa en atmosfär som passar dina önskemål.",
-    image: "/inomhusmålning.jpg",
+    image: "/tjanster/malning/inomhus.png",
     quoteButton: true,
     readMoreButton: true,
     link: "/tjanster/malning#invandigmalning",
@@ -47,7 +47,7 @@ export const data: AboutPartial[] = [
     title: "Non-woven tapetsering",
     description:
       "Non-woven tapetsering är en modern och mångsidig metod som erbjuder många fördelar. Den skapar en jämn och slät yta samtidigt som den är enkel att underhålla och rengöra. Dessutom är den stark och hållbar, vilket ger ditt utrymme en långvarig skönhet.",
-    image: "/tapetsering.jpg",
+    image: "/tjanster/tapetsering/tapetsering.jpg",
     quoteButton: true,
     readMoreButton: true,
     link: "/tjanster/tapetsering",
@@ -74,7 +74,7 @@ export const data: AboutPartial[] = [
     title: "Byte av glas och kittning av fönster",
     description:
       "Vi har lång erfarenhet av att byta ut glas och kitta om fönster. Vi använder oss av kvalitativa produkter och arbetar noggrant för att säkerställa ett långvarigt resultat. Kittning av fönster är ett hantverk som kräver erfarenhet och kunskap, och vi har båda delarna.",
-    image: "https://images.pexels.com/photos/5691503/pexels-photo-5691503.jpeg",
+    image: "/tjanster/fonsterrenovering/byte-av-glas.jpeg",
     quoteButton: true,
     readMoreButton: true,
     link: "/tjanster/fonsterrenovering#kittning",
