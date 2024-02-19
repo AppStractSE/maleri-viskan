@@ -4,7 +4,6 @@ import { Service, services } from "@/data/services";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { TbPointFilled } from "react-icons/tb";
 
 const ServicesSection = () => {
   const [currentService, setCurrentService] = useState<Service>(services[0]);
@@ -104,12 +103,6 @@ const ServicesSection = () => {
                         <h6 className="my-8 whitespace-pre-line text-lg lg:text-xl xl:text-2xl">
                           {service.description}
                         </h6>
-                        {service.features.map((feature) => (
-                          <div className="flex items-center gap-2" key={feature.title}>
-                            <TbPointFilled />
-                            {feature.title}
-                          </div>
-                        ))}
                         <div className="mt-8 flex w-full flex-wrap justify-end md:mt-auto">
                           <Link
                             href={`/tjanster/${service.id}`}
