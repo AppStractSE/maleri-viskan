@@ -36,7 +36,7 @@ const TextAndImage = ({
   return (
     <section className={`${bg} ${textColor} relative`}>
       {overlay ? (
-        <div className="absolute inset-0 block bg-black bg-opacity-25 2xl:hidden" />
+        <div className="absolute inset-0 block bg-black bg-opacity-30 2xl:bg-opacity-10" />
       ) : (
         <></>
       )}
@@ -48,14 +48,14 @@ const TextAndImage = ({
             <h2 className="text-4xl font-bold leading-none tracking-tight md:text-5xl xl:text-6xl">
               {title}
             </h2>
-            <p className=" mb-6 mt-6 whitespace-pre-line font-medium md:text-lg lg:max-w-2xl lg:text-xl 2xl:mb-12">
+            <p className=" mb-6 mt-6 whitespace-pre-line font-medium md:text-lg max-w-sm lg:max-w-2xl lg:text-xl 2xl:mb-12">
               {description}
             </p>
             <div className={`${readMoreButton && quoteButton ? "flex gap-2" : ""}`}></div>
             {readMoreButton && link && (
               <Link
                 href={link}
-                className={`${ltr ? "ml-auto mt-12" : "ml-auto"} flex items-center gap-2 rounded-sm bg-black px-2 py-2.5 text-sm text-white transition-all duration-200 hover:bg-white hover:text-black md:w-fit md:text-base lg:px-6 lg:py-3`}
+                className={`${ltr ? "ml-auto mt-12" : "ml-auto"} w-fit flex items-center gap-2 rounded-sm bg-black px-2 py-2.5 text-sm text-white transition-all duration-200 hover:bg-white hover:text-black md:w-fit md:text-base lg:px-6 lg:py-3`}
               >
                 Läs mer
                 <FaArrowRightLong />

@@ -14,7 +14,7 @@ const AboutSectionPartial = ({ title, description, data }: Props) => {
             {title}
           </h1>
           {description ? (
-            <p className="mb-6 max-w-3xl font-light md:text-lg lg:mb-8 lg:text-2xl">
+            <p className="mb-6 max-w-3xl font-medium md:text-lg lg:mb-8 lg:text-2xl">
               {description}
             </p>
           ) : (

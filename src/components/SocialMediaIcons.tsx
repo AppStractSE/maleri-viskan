@@ -12,14 +12,14 @@ const SocialMediaIcons = () => {
         <FaInstagram />
       </Link>
       <Link
-        href="https://instagram.com/maleriviskan"
+        href="https://www.facebook.com/maleriviskan"
         target="_blank"
         className="transition-all ease-in-out hover:text-cyan-600"
       >
         <FaFacebookF />
       </Link>
       <Link
-        href="https://instagram.com/maleriviskan"
+        href="https://m.me/maleriviskan"
         target="_blank"
         className="transition-all ease-in-out hover:text-cyan-600"
       >

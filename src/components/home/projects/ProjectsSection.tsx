@@ -1,8 +1,8 @@
 "use client";
 import { projects } from "@/data/projects";
+import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
-import Image from "next/image";
 
 interface Props {
   showAll?: boolean;
@@ -18,7 +18,7 @@ const ProjectsSection = ({ showAll, showHeader }: Props) => {
             <h1 className="mb-4 max-w-2xl text-4xl font-bold leading-none tracking-tight md:text-5xl xl:text-6xl">
               Projekt
             </h1>
-            <p className="mb-6 max-w-3xl font-light md:text-lg lg:mb-8 lg:text-2xl">
+            <p className="mb-6 max-w-3xl font-medium md:text-lg lg:mb-8 lg:text-2xl">
               Vi på Måleri Viskan är stolta över att ha arbetat med många olika kunder. Vår
               dedikation till kvalitet och noggrannhet är konsekvent, oavsett projektets omfattning.
               Vårt mål är att överträffa förväntningarna och skapa en långvarig tillfredsställelse
@@ -41,8 +41,13 @@ const ProjectsSection = ({ showAll, showHeader }: Props) => {
               } group flex cursor-pointer flex-col text-white`}
             >
               <div className="relative h-full min-h-[250px] overflow-hidden rounded-sm bg-white shadow-lg">
-                {/* Use Image component in place of background image */}
-                <Image src={project.image} alt={project.title} layout="fill" objectFit="cover" className="group-hover:scale-105 transition-all duration-500 ease-in-out" />
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="transition-all duration-500 ease-in-out group-hover:scale-105"
+                />
                 <div className="absolute inset-0 flex h-full flex-col justify-end bg-gradient-to-t from-[#19191989] opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100">
                   <div className="ml-auto flex w-fit items-center gap-2 p-4 text-white transition-all duration-200 lg:opacity-0 lg:group-hover:opacity-100">
                     Se mer

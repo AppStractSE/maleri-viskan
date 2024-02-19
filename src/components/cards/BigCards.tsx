@@ -46,7 +46,7 @@ const BigCards = ({
           <></>
         )}
         <div
-          className={`order-last col-span-12 flex flex-col justify-center font-light md:col-span-6 ${
+          className={`order-last col-span-12 flex flex-col justify-center md:col-span-6 ${
             index % 2 === 0 ? "md:order-last" : "md:order-first"
           } text-black`}
         >
