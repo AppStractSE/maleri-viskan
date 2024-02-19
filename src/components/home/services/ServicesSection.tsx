@@ -1,6 +1,5 @@
 "use client";
 import QuoteModal from "@/components/modal/QuoteModal";
-import QuoteModalButtonWrapper from "@/components/modal/QuoteModalWrapper";
 import { Service, services } from "@/data/services";
 import Link from "next/link";
 import { useRef, useState } from "react";
@@ -44,7 +43,7 @@ const ServicesSection = () => {
               <h1 className="mb-4 max-w-2xl text-4xl font-bold leading-none tracking-tight md:text-5xl xl:text-6xl">
                 Tjänster
               </h1>
-              <p className="mb-6 max-w-2xl font-light md:text-lg lg:mb-8 lg:text-xl">
+              <p className="mb-6 max-w-2xl font-medium md:text-lg lg:mb-8 lg:text-xl">
                 Omfattande målningstjänster hos Måleri Viskan – din pålitliga lokala målare i Kinna,
                 Skene och Marks kommun. Vi specialiserar oss på att tillhandahålla skräddarsydda
                 målerilösningar för både privatpersoner och företag. Oavsett om det gäller inomhus-
@@ -111,7 +110,7 @@ const ServicesSection = () => {
                             {feature.title}
                           </div>
                         ))}
-                        <div className="mt-8 flex w-full flex-wrap justify-end gap-4 md:mt-auto">
+                        <div className="mt-8 flex w-full flex-wrap justify-end md:mt-auto">
                           <Link
                             href={`/tjanster/${service.id}`}
                             className="flex w-full items-center justify-center gap-2 rounded-sm border border-black px-6 py-3 transition-all duration-200 hover:bg-black hover:text-white md:w-fit"
@@ -119,10 +118,6 @@ const ServicesSection = () => {
                             Läs mer om {service.name.toLocaleLowerCase()}
                             <FaArrowRightLong />
                           </Link>
-                          <QuoteModalButtonWrapper
-                            className="w-fit justify-center rounded-sm bg-black px-6 py-3 text-sm text-white transition-all duration-200 hover:bg-white hover:text-black md:w-fit md:text-base lg:px-6 lg:py-3"
-                            label={"Begär offert"}
-                          />
                         </div>
                       </div>
                     </div>
@@ -135,13 +130,7 @@ const ServicesSection = () => {
               <h6 className="my-8 whitespace-pre-line text-lg lg:text-xl xl:text-2xl">
                 {currentService.description}
               </h6>
-              {currentService.features.map((feature) => (
-                <div className="flex items-center gap-2 text-base xl:text-lg" key={feature.title}>
-                  <TbPointFilled />
-                  {feature.title}
-                </div>
-              ))}
-              <div className="mt-8 flex w-full flex-wrap justify-end gap-4 md:mt-auto">
+              <div className="mt-8 flex w-full flex-wrap justify-end gap-4 md:mt-32">
                 <Link
                   href={`/tjanster/${currentService.id}`}
                   className="flex w-full items-center justify-center gap-2 rounded-sm border border-black px-6 py-3 transition-all duration-200 hover:bg-black hover:text-white md:w-fit"
@@ -149,11 +138,6 @@ const ServicesSection = () => {
                   Läs mer om {currentService.name.toLocaleLowerCase()}
                   <FaArrowRightLong />
                 </Link>
-
-                <QuoteModalButtonWrapper
-                  className="w-fit justify-center rounded-sm bg-black px-6 py-3 text-sm text-white transition-all duration-200 hover:bg-white hover:text-black md:w-fit md:text-base lg:px-6 lg:py-3"
-                  label={"Kostnadsfri offert"}
-                />
               </div>
             </div>
           </div>

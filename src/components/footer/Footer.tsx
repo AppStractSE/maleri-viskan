@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { HiMiniHeart } from "react-icons/hi2";
 import SocialMediaIcons from "../SocialMediaIcons";
 import { footerData } from "./data";
 
@@ -39,13 +38,9 @@ const Footer = () => {
         <a
           href="https://appstract.se/"
           target="_blank"
-          className="flex items-center gap-1 text-xs text-white hover:underline sm:text-center"
+          className="flex w-fit items-center gap-1 text-xs text-white hover:underline sm:text-center"
         >
-          Gjort med {" "}
-          <span className="text-red-500 ">
-            <HiMiniHeart />
-          </span>{" "}
-          av Appstract © 2024
+          Webbdesign av appstract © 2024
         </a>
       </div>
     </footer>

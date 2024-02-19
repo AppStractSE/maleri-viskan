@@ -18,7 +18,7 @@ const ProjectsSection = ({ showAll, showHeader }: Props) => {
             <h1 className="mb-4 max-w-2xl text-4xl font-bold leading-none tracking-tight md:text-5xl xl:text-6xl">
               Projekt
             </h1>
-            <p className="mb-6 max-w-3xl font-light md:text-lg lg:mb-8 lg:text-2xl">
+            <p className="mb-6 max-w-3xl font-medium md:text-lg lg:mb-8 lg:text-2xl">
               Vi på Måleri Viskan är stolta över att ha arbetat med många olika kunder. Vår
               dedikation till kvalitet och noggrannhet är konsekvent, oavsett projektets omfattning.
               Vårt mål är att överträffa förväntningarna och skapa en långvarig tillfredsställelse
@@ -41,7 +41,6 @@ const ProjectsSection = ({ showAll, showHeader }: Props) => {
               } group flex cursor-pointer flex-col text-white`}
             >
               <div className="relative h-full min-h-[250px] overflow-hidden rounded-sm bg-white shadow-lg">
-                {/* Use Image component in place of background image */}
                 <Image
                   src={project.image}
                   alt={project.title}

@@ -31,6 +31,10 @@ export const navigation: NavItem[] = [
         label: "Målning",
       },
       {
+        href: "/tjanster/malning",
+        label: "Sprutmålning",
+      },
+      {
         href: "/tjanster/tapetsering",
         label: "Tapetsering",
       },
