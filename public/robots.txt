@@ -2,4 +2,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://.se/sitemap.xml
+Sitemap: https://maleriviskan.se/sitemap.xml
