@@ -11,9 +11,8 @@ export const projects: Project[] = [
     id: "brosaeter-bnb",
     title: "Brosäter BnB",
     description: `Vi fick äran att måla om hos Brosäter BnB. Upprustningen gjord av oss har förhöjt byggnadens unika karaktär och erbjuder gästerna en bekväm och autentisk vistelse.\n\nResultatet är en charmig och historisk bed and breakfast belägen i natursköna omgivningar nära Horred!`,
-    image: "/projekt/brosaeter-bnb/brosaeter-bnb.png",
+    image: "/projekt/brosaeter-bnb/brosaeter-bnb01.jpg",
     images: [
-      "/projekt/brosaeter-bnb/brosaeter-bnb.png",
       "/projekt/brosaeter-bnb/brosaeter-bnb01.jpg",
       "/projekt/brosaeter-bnb/brosaeter-bnb02.jpg",
       "/projekt/brosaeter-bnb/brosaeter-bnb03.jpg",
@@ -88,21 +87,21 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "renovering-i-lokal",
-    title: "Renovering i lokal",
+    id: "renovering-i-lokaler",
+    title: "Renovering i lokaler",
     description:
       "Även lokaler behöver kärlek och omtanke. Här är några exempel på lokaler vi renoverat.",
-    image: "/projekt/renovering-i-lokal/20231214_141354.jpg",
+    image: "/projekt/renovering-i-lokal/renovering-i-lokal-08.png",
     images: [
-      "/projekt/renovering-i-lokal/renovering-i-lokal-01.jpg",
-      "/projekt/renovering-i-lokal/renovering-i-lokal-02.jpg",
-      "/projekt/renovering-i-lokal/renovering-i-lokal-03.jpg",
-      "/projekt/renovering-i-lokal/renovering-i-lokal-04.jpg",
-      "/projekt/renovering-i-lokal/renovering-i-lokal-05.jpg",
-      "/projekt/renovering-i-lokal/renovering-i-lokal-06.jpg",
-      "/projekt/renovering-i-lokal/renovering-i-lokal-07.jpg",
-      "/projekt/renovering-i-lokal/renovering-i-lokal-08.jpg",
-      "/projekt/renovering-i-lokal/renovering-i-lokal-09.jpg",
+      "/projekt/renovering-i-lokal/renovering-i-lokal-01.png",
+      "/projekt/renovering-i-lokal/renovering-i-lokal-02.png",
+      "/projekt/renovering-i-lokal/renovering-i-lokal-03.png",
+      "/projekt/renovering-i-lokal/renovering-i-lokal-04.png",
+      "/projekt/renovering-i-lokal/renovering-i-lokal-05.png",
+      "/projekt/renovering-i-lokal/renovering-i-lokal-06.png",
+      "/projekt/renovering-i-lokal/renovering-i-lokal-07.png",
+      "/projekt/renovering-i-lokal/renovering-i-lokal-08.png",
+      "/projekt/renovering-i-lokal/renovering-i-lokal-09.png",
     ],
   },
   {
@@ -110,7 +109,7 @@ export const projects: Project[] = [
     title: "Upprustat inför försäljning",
     description:
       "Det är vanligt att man vill fräscha upp sitt hem inför en försäljning. Här är några exempel på uppfräschningar vi gjort inför försäljning.",
-    image: "/projekt/upprustat-infoer-foersaeljning/upprustat-infoer-foersaeljning.jpg",
+    image: "/projekt/upprustat-infoer-foersaeljning/upprustat-infoer-foersaeljning02.jpg",
     images: [
       "/projekt/upprustat-infoer-foersaeljning/upprustat-infoer-foersaeljning02.jpg",
       "/projekt/upprustat-infoer-foersaeljning/upprustat-infoer-foersaeljning01.jpg",
