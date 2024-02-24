@@ -3,13 +3,6 @@ import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
 import BigCards from "@/components/cards/BigCards";
 import GenericHeroSection from "@/components/home/hero/GenericHeroSection";
 import { services } from "@/data/services";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Måleri Viskan | Tjänster | Kinna, Skene och Marks kommun",
-  description:
-    "Måleri Viskan - Vi kan måleri! Vi är din lokala målare i Kinna, Skene och Marks kommun.",
-};
 
 export default function page() {
   return (

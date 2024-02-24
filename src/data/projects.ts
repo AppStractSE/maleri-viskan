@@ -10,7 +10,7 @@ export const projects: Project[] = [
   {
     id: "brosaeter-bnb",
     title: "Brosäter BnB",
-    description: `Vi fick äran att måla om slitna dörrar hos Brosäter BnB. Upprustningen gjord av oss har förhöjt dess unika karaktär och erbjuder gästerna en bekväm och autentisk vistelse.\n\nResultatet är en charmig och historisk bed and breakfast belägen i natursköna omgivningar nära Horred!`,
+    description: `Vi fick äran att måla om hos Brosäter BnB. Upprustningen gjord av oss har förhöjt byggnadens unika karaktär och erbjuder gästerna en bekväm och autentisk vistelse.\n\nResultatet är en charmig och historisk bed and breakfast belägen i natursköna omgivningar nära Horred!`,
     image: "/projekt/brosaeter-bnb/brosaeter-bnb.png",
     images: [
       "/projekt/brosaeter-bnb/brosaeter-bnb.png",

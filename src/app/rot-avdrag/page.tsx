@@ -4,6 +4,13 @@ import SmallInfoCard from "@/components/cards/SmallInfoCard";
 import GenericHeroSection from "@/components/home/hero/GenericHeroSection";
 import CertSection from "@/components/sections/CertSection";
 import ContactSection from "@/components/sections/ContactSection";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "ROT-avdrag | Måleri Viskan",
+  description:
+    "Måleri Viskan - Vi kan måleri! Vi är din lokala målare i Kinna, Skene och Marks kommun.",
+};
 
 const page = () => {
   return (

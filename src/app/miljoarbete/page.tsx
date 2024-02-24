@@ -3,6 +3,13 @@ import BigCards from "@/components/cards/BigCards";
 import GenericHeroSection from "@/components/home/hero/GenericHeroSection";
 import GoogleMapSection from "@/components/home/map/GoogleMapSection";
 import ContactSection from "@/components/sections/ContactSection";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Miljöarbete | Måleri Viskan",
+  description:
+    "Måleri Viskan - Vi kan måleri! Vi är din lokala målare i Kinna, Skene och Marks kommun.",
+};
 
 const page = () => {
   return (
@@ -40,40 +47,6 @@ const page = () => {
           </div>
         </div>
       </section>
-      {/* <section>
-        <div className="mx-auto w-full max-w-screen-2xl px-4 pb-8">
-          <ul>
-            <li className="mb-4">
-              <p className="mb-4 max-w-6xl whitespace-pre-line text-lg md:text-xl">
-                Vi använder miljövänliga produkter och återvinner så mycket som möjligt. Vi är
-                stolta över att vara en del av lösningen på klimatförändringarna. Vi är noga med att
-                använda miljövänliga produkter och att återvinna så mycket som möjligt.
-              </p>
-            </li>
-            <li className="mb-4">
-              <p className="mb-4 max-w-6xl whitespace-pre-line text-lg md:text-xl">
-                Vi använder miljövänliga produkter och återvinner så mycket som möjligt. Vi är
-                stolta över att vara en del av lösningen på klimatförändringarna. Vi är noga med att
-                använda miljövänliga produkter och att återvinna så mycket som möjligt.
-              </p>
-            </li>
-            <li className="mb-4">
-              <p className="mb-4 max-w-6xl whitespace-pre-line text-lg md:text-xl">
-                Vi använder miljövänliga produkter och återvinner så mycket som möjligt. Vi är
-                stolta över att vara en del av lösningen på klimatförändringarna. Vi är noga med att
-                använda miljövänliga produkter och att återvinna så mycket som möjligt.
-              </p>
-            </li>
-            <li className="mb-4">
-              <p className="mb-4 max-w-6xl whitespace-pre-line text-lg md:text-xl">
-                Vi använder miljövänliga produkter och återvinner så mycket som möjligt. Vi är
-                stolta över att vara en del av lösningen på klimatförändringarna. Vi är noga med att
-                använda miljövänliga produkter och att återvinna så mycket som möjligt.
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section> */}
       <ContactSection />
       <GoogleMapSection />
     </>
