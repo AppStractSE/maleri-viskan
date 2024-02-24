@@ -88,11 +88,11 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "renovering-i-lokal",
-    title: "Renovering i lokal",
+    id: "renovering-i-lokaler",
+    title: "Renovering i lokaler",
     description:
       "Även lokaler behöver kärlek och omtanke. Här är några exempel på lokaler vi renoverat.",
-    image: "/projekt/renovering-i-lokal/renovering-i-lokal-01.png",
+    image: "/projekt/renovering-i-lokal/renovering-i-lokal-08.png",
     images: [
       "/projekt/renovering-i-lokal/renovering-i-lokal-01.png",
       "/projekt/renovering-i-lokal/renovering-i-lokal-02.png",
@@ -110,7 +110,7 @@ export const projects: Project[] = [
     title: "Upprustat inför försäljning",
     description:
       "Det är vanligt att man vill fräscha upp sitt hem inför en försäljning. Här är några exempel på uppfräschningar vi gjort inför försäljning.",
-    image: "/projekt/upprustat-infoer-foersaeljning/upprustat-infoer-foersaeljning.jpg",
+    image: "/projekt/upprustat-infoer-foersaeljning/upprustat-infoer-foersaeljning02.jpg",
     images: [
       "/projekt/upprustat-infoer-foersaeljning/upprustat-infoer-foersaeljning02.jpg",
       "/projekt/upprustat-infoer-foersaeljning/upprustat-infoer-foersaeljning01.jpg",
