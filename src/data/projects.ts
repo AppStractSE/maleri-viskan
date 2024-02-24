@@ -10,7 +10,7 @@ export const projects: Project[] = [
   {
     id: "brosaeter-bnb",
     title: "Brosäter BnB",
-    description: `Färgen var gammal och hade släppt, så vi började med att skrapa och måla om hela huset. Vi bytte även ut slitna fönster och dörrar. Upprustningen gjord av oss har förhöjt dess unika karaktär och erbjuder gästerna en bekväm och autentisk vistelse.\n\nResultatet är en charmig och historisk bed and breakfast belägen i natursköna omgivningar nära Horred, Sverige. Med en atmosfär av lugn och avkoppling, samt närhet till vacker natur, är Brosäter BnB det perfekta valet för en avkopplande tillflyktsort eller en minnesvärd semesterupplevelse, nu i lite fräschare skick!`,
+    description: `Vi fick äran att måla om slitna dörrar hos Brosäter BnB. Upprustningen gjord av oss har förhöjt dess unika karaktär och erbjuder gästerna en bekväm och autentisk vistelse.\n\nResultatet är en charmig och historisk bed and breakfast belägen i natursköna omgivningar nära Horred!`,
     image: "/projekt/brosaeter-bnb/brosaeter-bnb.png",
     images: [
       "/projekt/brosaeter-bnb/brosaeter-bnb.png",
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     id: "foensterrenovering",
     title: "Fönsterrenovering",
     description:
-      "Vi har gjort flertalet fönsterrenoveringar, där vi inte bara förbättrar utseendet utan även prestandan i fönstret. Vi lyfter fönstrens estetik och ökar deras energieffektivitet och hållbarhet.\n\nFönster ska alltid målas med linoljefärg, det ger fönstren en vacker och skyddande yta mot väder och vind. Linoljemålning förlänger fönstrens livslängd och minskar underhållskraven.",
+      "Vi har gjort flertalet fönsterrenoveringar, där vi inte bara förbättrar utseendet utan även prestandan i fönstret. Vi lyfter fönstrens estetik och ökar deras energieffektivitet och hållbarhet.",
     image: "/projekt/foensterrenovering/foensterrenovering01.jpg",
     images: [
       "/projekt/foensterrenovering/foensterrenovering01.jpg",
