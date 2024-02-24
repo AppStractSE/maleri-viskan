@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Måleri Viskan | Målerifirma i Kinna, Skene och Marks kommun",
+  title: "Tjänster | Måleri Viskan",
   description:
     "Måleri Viskan - Vi kan måleri! Vi är din lokala målare i Kinna, Skene och Marks kommun.",
 };
