@@ -6,8 +6,12 @@ import "./globals.scss";
 
 export const metadata: Metadata = {
   title: "Måleri Viskan | Målerifirma i Kinna, Skene och Marks kommun",
-  description:
-    "Måleri Viskan - Vi kan måleri! Vi är din lokala målare i Kinna, Skene och Marks kommun.",
+  description: "Måleri Viskan - Vi kan måleri! Vi är din lokala målare i Kinna, Skene och Marks kommun.",
+  openGraph: {
+    siteName: "Måleri Viskan",
+    type: "website",
+    url: "https://maleriviskan.se",
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
