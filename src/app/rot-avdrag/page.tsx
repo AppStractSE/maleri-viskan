@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "ROT-avdrag | Måleri Viskan",
   description:
     "Måleri Viskan - Vi kan måleri! Vi är din lokala målare i Kinna, Skene och Marks kommun.",
+    alternates: {
+      canonical: "https://maleriviskan.se/rot-avdrag",
+    },
 };
 
 const page = () => {

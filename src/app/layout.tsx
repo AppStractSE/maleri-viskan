@@ -6,11 +6,15 @@ import "./globals.scss";
 
 export const metadata: Metadata = {
   title: "Måleri Viskan | Målerifirma i Kinna, Skene och Marks kommun",
-  description: "Måleri Viskan - Vi kan måleri! Vi är din lokala målare i Kinna, Skene och Marks kommun.",
+  description: "Vi kan måleri! Din lokala målare i Kinna, Skene och Marks kommun. Vi erbjuder professionella målningstjänster - hemma och för företag. Kontakta oss för offert idag!",
   openGraph: {
     siteName: "Måleri Viskan",
     type: "website",
     url: "https://maleriviskan.se",
+    locale: "sv_SE",
+  },
+  alternates: {
+    canonical: "https://maleriviskan.se",
   },
 };
 

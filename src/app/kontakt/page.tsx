@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Kontakt | Måleri Viskan",
   description:
     "Måleri Viskan - Vi kan måleri! Vi är din lokala målare i Kinna, Skene och Marks kommun.",
+    alternates: {
+      canonical: "https://maleriviskan.se/kontakt",
+    },
 };
 
 const page = () => {
