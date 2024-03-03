@@ -3,6 +3,7 @@ import Navigation from "@/components/navigation/Navigation";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 import "./globals.scss";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   title: "Måleri Viskan | Målerifirma i Kinna, Skene och Marks kommun",
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="icon" href="favicon.png" type="image/png" />
       </head>
       <body>
+      <GoogleAnalytics gaId="G-JM8EGK5CMP" />
         <Navigation />
         {children}
         <Footer />
