@@ -22,7 +22,7 @@ const ContactForm = () => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData.toString()),
+      body: new URLSearchParams(formData.toString()).toString(),
     })
       .then(() => alert("Thank you for your submission"))
       .catch((error) => alert(error));
@@ -32,7 +32,6 @@ const ContactForm = () => {
     <div>
       <form
         onSubmit={handleSubmit}
-        action="#"
         className="w-full space-y-4"
         name="contact-form"
         method="POST"
