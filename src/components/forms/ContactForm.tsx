@@ -22,7 +22,7 @@ const ContactForm = () => {
     // const formData = new FormData(myForm);
     // console.log(formData);
 
-    fetch("/forms.html", {
+    fetch("/forms", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode(e.target),
