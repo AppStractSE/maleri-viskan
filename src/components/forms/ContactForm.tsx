@@ -16,6 +16,7 @@ const ContactForm = () => {
   return (
     <div>
       <form
+        action="/"
         className="w-full space-y-4"
         name="contact-form"
         method="POST"
