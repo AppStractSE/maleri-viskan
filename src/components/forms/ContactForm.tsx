@@ -19,6 +19,7 @@ const ContactForm = () => {
     e.preventDefault();
 
     const formData = {
+      "form-name": "contact-form",
       name: e.target.name.value,
       service: e.target.service.value,
       email: e.target.email.value,
