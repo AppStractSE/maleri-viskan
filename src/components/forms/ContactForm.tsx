@@ -13,12 +13,25 @@ const ContactForm = () => {
     "Annat",
   ];
 
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+
+    const myForm = e.target;
+    const formData = new FormData(myForm);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData.toString()),
+    })
+      .then(() => alert("Thank you for your submission"))
+      .catch((error) => alert(error));
+  };
+
   return (
     <div>
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
+        onSubmit={handleSubmit}
         action="#"
         className="w-full space-y-4"
         name="contact-form"
