@@ -15,9 +15,6 @@ const ContactForm = () => {
   ];
 
   const handleSubmit = (e: any) => {
-    console.log(e.target);
-    e.preventDefault();
-
     const formData = {
       "form-name": "contact-form",
       name: e.target.name.value,
@@ -34,11 +31,13 @@ const ContactForm = () => {
     })
       .then(() => alert("Thank you for your submission"))
       .catch((error) => alert(error));
+    e.preventDefault();
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit} className="w-full space-y-4" name="contact-form">
+        <input type="hidden" name="required-field" value="contact-form" />
         <input
           type="text"
           id="name"
