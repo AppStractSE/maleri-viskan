@@ -15,15 +15,17 @@ const ContactForm = () => {
   ];
 
   const handleSubmit = (e: any) => {
+    console.log(e.target);
     e.preventDefault();
 
-    const myForm = e.target;
-    const formData = new FormData(myForm);
+    // const myForm = e.target;
+    // const formData = new FormData(myForm);
+    // console.log(formData);
 
     fetch("/forms.html", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode(formData as any).toString(),
+      body: encode(e.target).toString(),
     })
       .then(() => alert("Thank you for your submission"))
       .catch((error) => alert(error));
