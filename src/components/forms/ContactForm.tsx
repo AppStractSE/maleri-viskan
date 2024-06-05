@@ -1,5 +1,6 @@
 "use client";
 import { services as servicesData } from "@/data/services";
+import { encode } from "querystring";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 
@@ -19,10 +20,10 @@ const ContactForm = () => {
     const myForm = e.target;
     const formData = new FormData(myForm);
 
-    fetch("/", {
+    fetch("/forms.html", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData.toString()).toString(),
+      body: encode(formData as any).toString(),
     })
       .then(() => alert("Thank you for your submission"))
       .catch((error) => alert(error));
