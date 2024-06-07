@@ -1,5 +1,6 @@
 "use client";
 import { services as servicesData } from "@/data/services";
+import { encode } from "querystring";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 
@@ -13,21 +14,30 @@ const ContactForm = () => {
     "Annat",
   ];
 
+  const handleSubmit = (e: any) => {
+    const formData = {
+      "form-name": "contact-form",
+      name: e.target.name.value,
+      service: e.target.service.value,
+      email: e.target.email.value,
+      tel: e.target.tel.value,
+      message: e.target.message.value,
+    };
+
+    fetch("/forms.html", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode(formData),
+    })
+      .then(() => alert("Thank you for your submission"))
+      .catch((error) => alert(error));
+    e.preventDefault();
+  };
+
   return (
     <div>
-      <form
-        action="#"
-        className="w-full space-y-4"
-        name="contact-form"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-      >
-        <p className="hidden">
-          <label>
-            Don’t fill this out if you’re human: <input name="bot-field" />
-          </label>
-        </p>
+      <form onSubmit={handleSubmit} className="w-full space-y-4" name="contact-form">
+        <input type="hidden" name="required-field" value="contact-form" />
         <input
           type="text"
           id="name"
