@@ -7,6 +7,7 @@ import { FaChevronDown } from "react-icons/fa6";
 const ContactForm = () => {
   const [chosenService, setChosenService] = useState("Vilken tjänst är du intresserad av?");
   const [showDropdown, setShowDropdown] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
   const services = [
     "Vilken tjänst är du intresserad av?",
@@ -15,6 +16,7 @@ const ContactForm = () => {
   ];
 
   const handleSubmit = (e: any) => {
+    setDisabled(true);
     const formData = {
       "form-name": "contact-form",
       name: e.target.name.value,
@@ -38,7 +40,8 @@ const ContactForm = () => {
         setChosenService(services[0]);
       })
       .then(() => alert("Tack för ditt meddelande! Vi återkommer så snart vi kan."))
-      .catch((error) => alert(error));
+      .catch((error) => alert(error))
+      .finally(() => setDisabled(false));
     e.preventDefault();
   };
 
@@ -115,6 +118,7 @@ const ContactForm = () => {
           placeholder="Meddelande *"
         />
         <button
+          disabled={disabled}
           type="submit"
           className="group relative inline-flex w-full items-center justify-center
         overflow-hidden rounded-lg bg-transparent bg-gradient-to-br from-cyan-500 to-blue-800 text-xs
