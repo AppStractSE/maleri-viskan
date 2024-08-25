@@ -29,7 +29,15 @@ const ContactForm = () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode(formData),
     })
-      .then(() => alert("Thank you for your submission"))
+      .then(() => {
+        e.target.name.value = "";
+        e.target.service.value = "";
+        e.target.email.value = "";
+        e.target.tel.value = "";
+        e.target.message.value = "";
+        setChosenService(services[0]);
+      })
+      .then(() => alert("Tack för ditt meddelande! Vi återkommer så snart vi kan."))
       .catch((error) => alert(error));
     e.preventDefault();
   };
