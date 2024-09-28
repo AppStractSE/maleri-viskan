@@ -14,10 +14,10 @@ const Navigation = () => {
   const [showDrawer, setShowDrawer] = useState(false);
   return (
     <>
-      <header className="fixed top-0 z-10 w-full px-0 text-white md:top-4 md:px-2 xl:px-4">
+      <header className="fixed top-0 z-10 w-full px-0 text-white backdrop-blur-sm md:top-4 md:px-2 xl:px-4">
         <div
           style={{ backdropFilter: "blur(6px)" }}
-          className="flex items-center justify-between bg-cyan-800 bg-opacity-60 px-4 md:rounded-sm md:px-4 md:py-2"
+          className="flex items-center justify-between bg-cyan-800 bg-opacity-80 px-4 md:rounded-sm md:px-4 md:py-2"
         >
           <div className="flex items-center">
             <Link href={"/"}>
@@ -44,10 +44,7 @@ const Navigation = () => {
                       {navItem.label}
                     </Link>
                   )}
-                  <div
-                    style={{ backdropFilter: "blur(6px)" }}
-                    className="invisible absolute left-[50%] top-12 flex w-max -translate-x-2/4 flex-col rounded bg-cyan-800 bg-opacity-60 p-2 opacity-0 transition-all duration-500 group-focus-within:invisible group-focus-within:opacity-0 group-hover:visible group-hover:opacity-100"
-                  >
+                  <div className="invisible absolute left-[50%] top-12 flex w-max -translate-x-2/4 flex-col rounded bg-cyan-800 bg-opacity-60 p-2 opacity-0 transition-all duration-500 group-focus-within:invisible group-focus-within:opacity-0 group-hover:visible group-hover:opacity-100">
                     {navItem.dropdownItems &&
                       navItem.dropdownItems.map((dropdownItem) => (
                         <Link
