@@ -84,7 +84,7 @@ const ContactForm = () => {
   };
 
   const baseClasses =
-    "block w-full rounded-md bg-white outline outline-1 outline-gray-500 p-2.5 text-base placeholder-gray-500 focus:outline focus:outline-sky-500 ";
+    "block w-full text-black rounded-md bg-white outline outline-1 outline-gray-500 p-2.5 text-base placeholder-gray-500 focus:outline focus:outline-sky-500 ";
   const errorClass =
     " !outline !outline-1 !outline-offset-0 !outline-red-700 !placeholder:text-red-500 ";
   const errorTextBaseClass =
