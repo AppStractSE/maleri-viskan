@@ -44,8 +44,8 @@ const ContactSection = ({ bg, invertArrow = true, linkColors }: Props) => {
             width={400}
           />
         </div>
-        <div className="col-span-12 mx-auto mt-8 max-w-md md:ml-auto md:mt-0 lg:col-span-4">
-          <p className="mb-4 max-w-2xl text-lg font-bold md:mb-6 lg:text-2xl">
+        <div className="col-span-12 mx-auto mt-8 max-w-md md:ml-auto md:mt-0 lg:col-span-4 border bg-white shadow p-4 rounded-xl">
+          <p className="mb-4 max-w-2xl text-lg font-bold md:mb-6 lg:text-2xl text-black">
             Fyll i formuläret så kontaktar vi dig så snart vi kan!
           </p>
           <ContactForm />
