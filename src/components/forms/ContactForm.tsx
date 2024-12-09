@@ -255,8 +255,8 @@ const ContactForm = () => {
             .concat(" ")
             .concat(submitted ? "translate-y-0" : "translate-y-[125%]")}
         >
-          <h6 className="text-3xl lg:text-center lg:text-2xl">Tack för ditt meddelande!</h6>
-          <p className="text-balance whitespace-pre-line text-xl lg:text-center lg:text-xl">
+          <h6 className="text-black text-3xl lg:text-center lg:text-2xl">Tack för ditt meddelande!</h6>
+          <p className="text-black text-balance whitespace-pre-line text-xl lg:text-center lg:text-xl">
             Vi kommer att kontakta dig inom kort.
           </p>
           <button
