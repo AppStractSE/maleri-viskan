@@ -1,132 +1,277 @@
 "use client";
 import { services as servicesData } from "@/data/services";
-import { encode } from "querystring";
 import { useState } from "react";
-import { FaChevronDown } from "react-icons/fa6";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+
+interface IContactForm {
+  FullName: string;
+  Email: string;
+  PhoneNumber: string;
+  Message: string;
+  ServiceName: string;
+}
 
 const ContactForm = () => {
-  const [chosenService, setChosenService] = useState("Vilken tjänst är du intresserad av?");
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [disabled, setDisabled] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
+  const services = [...servicesData.map((service) => service.name), "Annat"];
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting, isDirty, isValid, isSubmitted },
+  } = useForm({
+    defaultValues: {
+      FullName: "",
+      Email: "",
+      ServiceName: "",
+      PhoneNumber: "",
+      Message: "",
+    },
+    mode: "onTouched",
+  });
 
-  const services = [
-    "Vilken tjänst är du intresserad av?",
-    ...servicesData.map((service) => service.name),
-    "Annat",
-  ];
+  function generateEmailHTML(data: IContactForm) {
+    const formattedMessage = data.Message.replace(/\n/g, "<br>");
+    return `<div><p><strong>Namn:</strong></p><p>${data.FullName}</p><p><strong>Email:</strong></p><p><a href="mailto:${data.Email}">${data.Email}</a></p><p><strong>Telefon:</strong></p><p><a href="tel:${data.PhoneNumber}">${data.PhoneNumber}</a></p><p><strong>Intresserad av tjänst:</strong></p><p>${data.ServiceName}</p><p><strong>Meddelande:</strong></p><p>${formattedMessage}</p></div>`;
+  }
 
-  const handleSubmit = (e: any) => {
-    setDisabled(true);
+  const onSubmit = async (data: IContactForm) => {
     const formData = {
-      "form-name": "contact-form",
-      name: e.target.name.value,
-      service: e.target.service.value,
-      email: e.target.email.value,
-      tel: e.target.tel.value,
-      message: e.target.message.value,
+      name: data.FullName,
+      email: data.Email,
+      subject: `Kontaktformulär: ${data.ServiceName} - ${data.FullName}`,
+      message: data.Message,
+      messageHtml: generateEmailHTML(data),
     };
 
-    fetch("/forms.html", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode(formData),
-    })
-      .then(() => {
-        e.target.name.value = "";
-        e.target.service.value = "";
-        e.target.email.value = "";
-        e.target.tel.value = "";
-        e.target.message.value = "";
-        setChosenService(services[0]);
+    toast
+      .promise(
+        fetch("/api/contact-form", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }),
+        {
+          loading: "Skickar meddelande...",
+          success: "Meddelande skickat! Vi återkommer så snart vi kan.",
+          error: "Något gick fel med att skicka meddelandet. Försök igen.",
+        },
+        {
+          style: {
+            minWidth: "250px",
+          },
+          position: "bottom-center",
+          className: "!bg-night-500 !text-vanilla-powder-500",
+          success: {
+            duration: 8000,
+            icon: "🎉",
+          },
+        }
+      )
+      .catch((error) => {
+        console.log(error.message);
       })
-      .then(() => alert("Tack för ditt meddelande! Vi återkommer så snart vi kan."))
-      .catch((error) => alert(error))
-      .finally(() => setDisabled(false));
-    e.preventDefault();
+      .then(() => {
+        setSubmitted(true);
+        setTimeout(() => {
+          reset();
+        }, 250);
+      });
   };
 
+  const baseClasses =
+    "block w-full rounded-md bg-white outline outline-1 outline-gray-500 p-2.5 text-base placeholder-gray-500 focus:outline focus:outline-sky-500 ";
+  const errorClass =
+    " !outline !outline-1 !outline-offset-0 !outline-red-700 !placeholder:text-red-500 ";
+  const errorTextBaseClass =
+    " !text-red-500 text-xs tracking-widest transition-all duration-500 ease-in-out ";
+  const errorTextHiddenClasses = " opacity-0 max-h-0 ";
+  const errorTextVisibleClasses = " pb-2 mt-1 opacity-100 max-h-full ";
+
   return (
-    <div>
-      <form onSubmit={handleSubmit} className="w-full space-y-4" name="contact-form">
+    <div className="relative mt-4">
+      <form onSubmit={handleSubmit(onSubmit)} name="contact-form">
         <input type="hidden" name="required-field" value="contact-form" />
-        <input
-          type="text"
-          id="name"
-          className="block w-full rounded-lg bg-white p-4 text-xs text-black placeholder-gray-500 shadow-lg outline-2 focus:outline focus:outline-cyan-600 md:text-sm"
-          placeholder="För- och efternamn *"
-          required
-          name="name"
-        />
-        <div className="relative">
-          <button
-            onClick={() => setShowDropdown(!showDropdown)}
-            className="flex w-full items-center justify-between gap-2 rounded-lg bg-white p-4 text-xs text-gray-500 placeholder-gray-500 shadow-lg outline-2 focus:outline focus:outline-cyan-600 md:text-sm"
-            type="button"
+        <div className="mb-3 w-full">
+          <input
+            className={baseClasses.concat(" ").concat(errors["FullName"] ? errorClass : "")}
+            type="text"
+            placeholder="För- och efternamn *"
+            {...register("FullName", {
+              required: "Fullständigt namn krävs",
+              minLength: {
+                value: 2,
+                message: "Namnet måste vara minst 2 tecken",
+              },
+              maxLength: {
+                value: 50,
+                message: "Namnet får vara högst 50 tecken",
+              },
+            })}
+          />
+          <p
+            role="alert"
+            className={errorTextBaseClass
+              .concat(" ")
+              .concat(errors["FullName"] ? errorTextVisibleClasses : errorTextHiddenClasses)}
           >
-            {chosenService}
-            <FaChevronDown />
-          </button>
-          <div
-            className={`z-10 ${
-              showDropdown ? "block" : "hidden"
-            } absolute mt-2 w-full divide-y divide-gray-100 rounded-lg bg-white shadow-xl`}
-          >
-            <ul
-              className="mx-auto flex flex-col px-2.5 py-2 text-xs md:text-sm"
-              aria-labelledby="dropdownDefaultButton"
+            {errors.FullName?.message}
+          </p>
+        </div>
+        <div className="flex gap-3">
+          <div className="mb-3 w-full">
+            <input
+              className={baseClasses.concat(" ").concat(errors["Email"] ? errorClass : "")}
+              type="email"
+              placeholder="Email *"
+              {...register("Email", {
+                required: "E-post krävs",
+                pattern: {
+                  value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                  message: "Ogiltig e-postadress",
+                },
+              })}
+            />
+            <p
+              role="alert"
+              className={errorTextBaseClass
+                .concat(" ")
+                .concat(errors["Email"] ? errorTextVisibleClasses : errorTextHiddenClasses)}
             >
-              {services.map((service) => (
-                <li key={service}>
-                  <button
-                    className="block w-full rounded-lg px-2.5 py-2 text-left text-xs text-black hover:bg-gray-300 md:text-sm"
-                    type="button"
-                    name="service"
-                    onClick={() => {
-                      setChosenService(service);
-                      setShowDropdown(false);
-                    }}
-                  >
-                    {service}
-                  </button>
-                </li>
-              ))}
-            </ul>
+              {errors.Email?.message}
+            </p>
+          </div>
+          <div className="w-full">
+            <input
+              className={baseClasses.concat(" ").concat(errors["PhoneNumber"] ? errorClass : "")}
+              type="tel"
+              placeholder="Telefonnummer *"
+              {...register("PhoneNumber", {
+                onChange: (e) => {
+                  e.target.value = e.target.value.replace(/[^0-9]/g, "");
+                },
+                required: "Telefonnummer krävs",
+                pattern: {
+                  value: /^[0-9]+$/,
+                  message: "Ange ett nummer",
+                },
+                minLength: {
+                  value: 10,
+                  message: "Telefonnumret måste vara minst 10 tecken",
+                },
+                maxLength: {
+                  value: 15,
+                  message: "Telefonnumret får vara högst 15 tecken",
+                },
+              })}
+            />
+            <p
+              role="alert"
+              className={errorTextBaseClass
+                .concat(" ")
+                .concat(errors["PhoneNumber"] ? errorTextVisibleClasses : errorTextHiddenClasses)}
+            >
+              {errors.PhoneNumber?.message}
+            </p>
           </div>
         </div>
-        <input type="text" id="service" name="service" defaultValue={chosenService} hidden />
-        <div className="flex gap-2 md:gap-4">
-          <input
-            type="email"
-            name="email"
-            id="email"
-            className="block w-full rounded-lg bg-white p-4 text-xs text-black placeholder-gray-500 shadow-lg outline-2 focus:outline focus:outline-cyan-600 md:text-sm"
-            placeholder="Email *"
-            required
-          />
-          <input
-            type="tel"
-            name="tel"
-            id="tel"
-            className="block w-full rounded-lg bg-white p-4 text-xs text-black placeholder-gray-500 shadow-lg outline-2 focus:outline focus:outline-cyan-600 md:text-sm"
-            placeholder="Telefonnummer"
-          />
+        <div className="mb-3 w-full">
+          <select
+            className={baseClasses.concat(" ").concat(errors["ServiceName"] ? errorClass : "")}
+            {...register("ServiceName", {
+              required: "Välj den tjänst du är intresserad av",
+            })}
+            value={selectedService ?? ""}
+            onChange={(e) => setSelectedService(e.target.value)}
+          >
+            <option value="" disabled className="text-black/50">
+              Vilken tjänst är du intresserad av? *
+            </option>
+            {services.map((service) => (
+              <option key={service} value={service} className="text-black">
+                {service}
+              </option>
+            ))}
+          </select>
+          <p
+            role="alert"
+            className={errorTextBaseClass
+              .concat(" ")
+              .concat(errors["ServiceName"] ? errorTextVisibleClasses : errorTextHiddenClasses)}
+          >
+            {errors.ServiceName?.message}
+          </p>
         </div>
-        <textarea
-          id="message"
-          name="message"
-          className="block min-h-[150px] w-full resize-none rounded-lg bg-white p-4 text-xs text-black placeholder-gray-500 shadow-lg outline-2 focus:outline focus:outline-cyan-600 md:text-sm"
-          placeholder="Meddelande *"
-        />
+        <div className="mb-3">
+          <textarea
+            maxLength={500}
+            placeholder="Meddelande *"
+            className={"contactform min-h-[150px] resize-none transition-all duration-200 ease-in-out focus-visible:min-h-[200px]"
+              .concat(" ")
+              .concat(baseClasses)
+              .concat(" ")
+              .concat(errors["Message"] ? errorClass : "")}
+            {...register("Message", {
+              required: "Meddelande krävs",
+              minLength: {
+                value: 10,
+                message: "Meddelandet måste vara minst 10 tecken",
+              },
+              maxLength: {
+                value: 500,
+                message: "Meddelandet får vara högst 500 tecken",
+              },
+            })}
+          ></textarea>
+          <p
+            role="alert"
+            className={errorTextBaseClass
+              .concat(" ")
+              .concat(errors["Message"] ? errorTextVisibleClasses : errorTextHiddenClasses)}
+          >
+            {errors.Message?.message}
+          </p>
+        </div>
         <button
-          disabled={disabled}
+          disabled={isSubmitting || submitted}
           type="submit"
-          className="group relative inline-flex w-full items-center justify-center
-        overflow-hidden rounded-lg bg-transparent bg-gradient-to-br from-cyan-500 to-blue-800 text-xs
-        text-white shadow-lg outline-0 transition-all duration-200 hover:from-black hover:to-black md:text-sm"
+          className="block w-full rounded-md bg-blue-600 p-4 text-base text-white hover:bg-blue-500"
         >
-          <span className="relative w-full p-4 transition-all duration-200 ease-in">Skicka</span>
+          Skicka
         </button>
       </form>
+
+      <div
+        className={"absolute inset-0 left-0 top-0 -m-2 overflow-hidden rounded backdrop-blur-sm transition-all delay-75 duration-500 ease-in-out lg:backdrop-blur-sm"
+          .concat(" ")
+          .concat(submitted ? "visible opacity-100" : "invisible opacity-0")}
+      >
+        <div
+          className={"flex h-full transform flex-col items-center justify-center space-y-4 bg-white/50 transition-all duration-500 ease-in-out"
+            .concat(" ")
+            .concat(submitted ? "translate-y-0" : "translate-y-[125%]")}
+        >
+          <h6 className="text-3xl lg:text-center lg:text-2xl">Tack för ditt meddelande!</h6>
+          <p className="text-balance whitespace-pre-line text-xl lg:text-center lg:text-xl">
+            Vi kommer att kontakta dig inom kort.
+          </p>
+          <button
+            onClick={() => {
+              setSubmitted(false);
+              setTimeout(() => {
+                reset();
+              }, 250);
+            }}
+            className="block w-fit place-self-center rounded-lg bg-blue-500 px-6 py-2.5 text-white hover:bg-blue-400"
+          >
+            Stäng
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

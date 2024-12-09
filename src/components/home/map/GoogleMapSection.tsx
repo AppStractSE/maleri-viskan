@@ -22,7 +22,7 @@ const GoogleMapSection = ({ showForm }: Props) => {
           <div className=" mx-auto flex max-w-screen-2xl px-5 py-24">
             <div
               style={{ backdropFilter: "blur(2px)" }}
-              className="relative mt-10 flex w-full flex-col rounded-sm bg-white bg-opacity-10 p-8 shadow-lg md:ml-auto md:mt-0 md:w-1/2 lg:w-1/3"
+              className="relative mt-10 flex w-full flex-col rounded-lg bg-white/80 p-8 shadow-lg md:ml-auto md:mt-0 md:w-1/2 lg:w-1/3"
             >
               <h1 className="mb-4 max-w-4xl whitespace-pre-line text-4xl font-bold leading-none tracking-tight text-cyan-700 md:text-5xl xl:text-6xl">
                 Här finns vi!
