@@ -14,7 +14,7 @@ const QuoteModal = ({ showModal, setShowModal }: Props) => {
         onClick={() => setShowModal(!showModal)}
         className={`${
           showModal ? "visible opacity-100" : "invisible opacity-0"
-        } fixed inset-0 z-50 bg-black/50 transition-all duration-500`}
+        } fixed inset-0 z-50 bg-black/50 transition-all duration-500 ease-in-out`}
       />
       <div
         className={`${
@@ -29,7 +29,7 @@ const QuoteModal = ({ showModal, setShowModal }: Props) => {
               </h3>
               <div
                 onClick={() => setShowModal(!showModal)}
-                className="-mr-4 ml-4 cursor-pointer p-1.5 transition-all duration-200 ease-in-out text-2xl bg-white text-black hover:invert shadow rounded-full"
+                className="-mr-4 ml-4 cursor-pointer rounded-full bg-white p-1.5 text-2xl text-black shadow transition-all duration-200 ease-in-out hover:invert"
                 data-modal-hide="default-modal"
               >
                 <IoMdClose />

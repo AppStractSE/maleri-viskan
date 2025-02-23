@@ -1,6 +1,5 @@
 "use client";
 
-import QuoteModalButtonWrapper from "@/components/modal/QuoteModalWrapper";
 import Link from "next/link";
 import { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -39,15 +38,17 @@ const HeroSection = () => {
                 Läs om våra tjänster
                 <FaArrowRightLong />
               </Link>
-              <QuoteModalButtonWrapper
+              <button
                 className="w-fit justify-center rounded-sm border border-black bg-black px-2 py-2.5 text-sm text-white transition-all duration-200 hover:border-white hover:bg-white hover:text-black md:w-fit md:text-base lg:px-6 lg:py-3"
-                label={"Kostnadsfri offert"}
-              />
+                onClick={() => setShowModal(true)}
+              >
+                Kostnadsfri offert
+              </button>
             </div>
           </div>
         </div>
       </section>
-      {showModal ? <QuoteModal showModal={showModal} setShowModal={setShowModal} /> : undefined}
+      <QuoteModal showModal={showModal} setShowModal={setShowModal} />
     </>
   );
 };
