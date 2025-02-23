@@ -77,7 +77,7 @@ const Navigation = () => {
           </div>
         </div>
       </header>
-      {showModal ? <QuoteModal showModal={showModal} setShowModal={setShowModal} /> : undefined}
+      <QuoteModal showModal={showModal} setShowModal={setShowModal} />
       <MobileMenuDrawer showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
     </>
   );
