@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -9,14 +10,15 @@ const HeroSection = () => {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
-      <section
-        className="relative flex min-h-screen justify-center bg-white text-white"
-        style={{
-          backgroundImage: `url("/hero-header.png")`,
-          backgroundSize: "cover",
-          backgroundPosition: "65% 100%",
-        }}
-      >
+      <section className="relative flex min-h-screen justify-center bg-white text-white">
+        <Image
+          src="/hero-header.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[65%_100%]"
+        />
         <div className="absolute inset-0 bg-black opacity-30" />
         <div className="relative mx-auto grid w-full max-w-screen-2xl px-4 pb-8 pt-32 lg:grid-cols-12 lg:gap-8 lg:pb-8 xl:gap-0">
           <div className="mr-auto place-self-center lg:col-span-7">

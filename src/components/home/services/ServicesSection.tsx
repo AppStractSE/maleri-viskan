@@ -1,6 +1,7 @@
 "use client";
 import QuoteModal from "@/components/modal/QuoteModal";
 import { Service, services } from "@/data/services";
+import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -81,9 +82,13 @@ const ServicesSection = () => {
                         }}
                       >
                         <div className="col-span-4 h-full">
-                          <img
+                          <Image
                             src={service.smallImage}
+                            width={360}
+                            height={203}
+                            sizes="(min-width: 1024px) 200px, 35vw"
                             className="aspect-video h-full w-full object-cover"
+                            alt={service.name}
                           />
                         </div>
                         <div className="col-span-8 p-2 lg:px-4 lg:py-6">
