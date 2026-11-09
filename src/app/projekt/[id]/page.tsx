@@ -1,64 +1,64 @@
-"use client";
-import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
-import GenericHeroSection from "@/components/home/hero/GenericHeroSection";
-import { Project, projects } from "@/data/projects";
-import Image from "next/image";
-import { redirect } from "next/navigation";
-import { useState } from "react";
-import ImageModal from "../components/ImageModal";
+import Gallery from "@/components/projects/Gallery";
+import QuoteButton from "@/components/quote/QuoteButton";
+import CtaBand from "@/components/sections/CtaBand";
+import ProjectCards from "@/components/sections/ProjectCards";
+import PageHero from "@/components/ui/PageHero";
+import SectionHeading from "@/components/ui/SectionHeading";
+import { getProject, projectHref, projects } from "@/data/projects";
+import { openGraphBase } from "@/data/site";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
-export default function Page({ params }: { params: { id: string } }) {
-  const [showImageModal, setShowImageModal] = useState(false);
-  const [currentImage, setCurrentImage] = useState("");
-  const project = projects.find((project: Project) => project.id === params.id);
-  if (!project) redirect("/404");
+type Props = { params: Promise<{ id: string }> };
 
-  const handleClick = (image: string) => {
-    setCurrentImage(image);
-    setShowImageModal(true);
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return projects.map((project) => ({ id: project.id }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const project = getProject((await params).id);
+  if (!project) return {};
+  return {
+    title: `${project.title} – projekt`,
+    description: project.description.replace(/\n+/g, " ").slice(0, 158),
+    alternates: { canonical: projectHref(project) },
+    openGraph: { ...openGraphBase, title: project.title, url: projectHref(project), images: [{ url: project.image, alt: project.title }] },
   };
+}
+
+export default async function ProjectPage({ params }: Props) {
+  const project = getProject((await params).id);
+  if (!project) notFound();
+
+  const index = projects.findIndex((p) => p.id === project.id);
+  const others = [1, 2, 3].map((offset) => projects[(index + offset) % projects.length]);
+
   return (
     <>
-      <GenericHeroSection
-        className="from-slate-500 to-slate-600"
+      <PageHero
+        eyebrow={`Projekt · ${project.images.length} bilder`}
         title={project.title}
-        description={project.description}
-        quoteButton
+        lead={project.description}
+        breadcrumbs={[
+          { label: "Projekt", href: "/projekt" },
+          { label: project.title, href: projectHref(project) },
+        ]}
+        actions={<QuoteButton size="lg">Begär offert på liknande</QuoteButton>}
       />
-      <Breadcrumbs />
-      <section>
-        <div className="mx-auto w-full max-w-screen-2xl px-4 py-8">
-          <div
-            className="grid grid-cols-2 gap-2 md:grid-cols-4 md:grid-rows-3"
-            style={{ gridTemplateRows: ".5fr .5fr .5fr" }}
-          >
-            {project.images.map((image, index) => (
-              <div
-                key={index}
-                onClick={() => handleClick(image)}
-                className={`relative ${index === 0 ? "col-span-2 row-span-2" : "col-span-1 row-span-1"} group cursor-pointer overflow-hidden transition-all duration-500 ease-in-out`}
-              >
-                <Image
-                  height={0}
-                  width={0}
-                  sizes="100vw"
-                  alt="Enkelt, snabbt och effektivt"
-                  className="h-auto w-full max-w-full rounded-sm object-contain object-center transition-all duration-500 ease-in-out group-hover:scale-105"
-                  src={image}
-                />
-                <div className="absolute inset-0 flex h-full flex-col justify-end bg-gradient-to-t from-[#19191989] opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100" />
-              </div>
-            ))}
+      <section className="container-site pb-20 lg:pb-28">
+        <Gallery title={project.title} images={project.images} />
+      </section>
+      <section className="border-t border-line">
+        <div className="container-site py-20 lg:py-28">
+          <SectionHeading eyebrow="Fler projekt" title="Se mer av vårt arbete" />
+          <div className="mt-10">
+            <ProjectCards projects={others} />
           </div>
         </div>
       </section>
-      <ImageModal
-        image={currentImage}
-        setCurrentImage={setCurrentImage}
-        images={project.images}
-        showModal={showImageModal}
-        setShowModal={setShowImageModal}
-      />
+      <CtaBand title="Har du ett liknande projekt?" />
     </>
   );
 }

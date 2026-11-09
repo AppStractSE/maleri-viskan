@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+/*
+ * Måleri Viskan design tokens, taken from the logo: black, white and the blue of the "S".
+ * brand-500 is the exact logo blue (#0BB4E6). It is too light for text on white, so text
+ * and links use brand-600/700, which keep at least 4.5:1 contrast.
+ */
+@theme {
+  --color-chalk: #ffffff;
+  --color-paper: #ffffff;
+
+  --color-mist-50: #f7f8f9;
+  --color-mist-100: #f0f2f4;
+  --color-mist-200: #e3e6ea;
+  --color-mist-300: #cbd0d6;
+
+  --color-ink: #0b0c0d;
+  --color-ink-soft: #2a2e32;
+  --color-muted: #5d646b;
+  --color-line: #e5e8eb;
+
+  --color-brand-50: #eaf8fd;
+  --color-brand-100: #ccf0fb;
+  --color-brand-200: #9be1f6;
+  --color-brand-400: #3cc6ef;
+  --color-brand-500: #0bb4e6;
+  --color-brand-600: #0779a3;
+  --color-brand-700: #06648a;
+  --color-brand-800: #0a4f6c;
+  --color-brand-900: #08364a;
+
+  /* Deep teal-blue for feature bands and the footer: on-brand, warmer than pure black. */
+  --color-deep: #0c2f3a;
+  --color-deep-soft: #123e4b;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+
+  --radius-card: 0.75rem;
+  --radius-panel: 1rem;
+
+  --shadow-soft: 0 1px 2px rgb(28 32 30 / 0.04), 0 12px 32px -16px rgb(28 32 30 / 0.18);
+  --shadow-lift: 0 2px 4px rgb(28 32 30 / 0.04), 0 24px 48px -20px rgb(28 32 30 / 0.28);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-fade-up: fade-up 0.7s var(--ease-out-soft) both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-chalk text-ink font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Tailwind 4 no longer sets a pointer cursor on buttons; restore it for everything clickable. */
+  button:not(:disabled),
+  [role="button"],
+  select,
+  summary,
+  label:has(> input[type="radio"]),
+  label:has(> input[type="checkbox"]),
+  input[type="range"] {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  ::selection {
+    @apply bg-brand-200 text-ink;
+  }
+
+  :focus-visible {
+    @apply outline-brand-600 outline-2 outline-offset-2;
+  }
+
+  /* Leave room for the fixed header when jumping to anchors. */
+  [id] {
+    scroll-margin-top: 7rem;
+  }
+
+  dialog::backdrop {
+    background: rgb(16 22 20 / 0.55);
+    backdrop-filter: blur(4px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility container-site {
+  @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+}
+
+@utility text-display {
+  @apply font-display font-normal tracking-[-0.02em];
+  font-variation-settings:
+    "SOFT" 50,
+    "WONK" 0;
+}
+
+@utility eyebrow {
+  @apply text-brand-600 text-xs font-semibold tracking-[0.18em] uppercase;
+}
+
+@utility prose-copy {
+  @apply text-ink-soft text-base leading-relaxed sm:text-lg;
+}

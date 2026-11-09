@@ -1,69 +1,90 @@
-import RotAvdragCalculator from "@/components/RotavdragCalculator";
-import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
-import SmallInfoCard from "@/components/cards/SmallInfoCard";
-import GenericHeroSection from "@/components/home/hero/GenericHeroSection";
-import CertSection from "@/components/sections/CertSection";
-import ContactSection from "@/components/sections/ContactSection";
-import { Metadata } from "next";
+import RotCalculator from "@/components/rot/RotCalculator";
+import CredentialsBand from "@/components/sections/CredentialsBand";
+import CtaBand from "@/components/sections/CtaBand";
+import PageHero from "@/components/ui/PageHero";
+import SectionHeading from "@/components/ui/SectionHeading";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ROT-avdrag | Måleri Viskan",
+  title: "ROT-avdrag för målning",
   description:
-    "Måleri Viskan - Vi kan måleri! Vi är din lokala målare i Kinna, Skene och Marks kommun.",
-    alternates: {
-      canonical: "https://maleriviskan.se/rot-avdrag",
-    },
+    "Med ROT-avdrag betalar du bara 70 % av arbetskostnaden för målning och tapetsering. Räkna ut hur mycket du sparar med Måleri Viskans kalkylator.",
+  alternates: { canonical: "/rot-avdrag" },
 };
 
-const page = () => {
+const facts = [
+  {
+    title: "Ger arbetet rätt till ROT-avdrag?",
+    text: "Arbetet måste utföras av ett företag med F-skattsedel. Det behöver du inte oroa dig för när du anlitar oss, eftersom vi har F-skattsedel.",
+    // Shield with check
+    icon: "M12 3 5 6v5c0 4.4 3 8.3 7 9.5 4-1.2 7-5.1 7-9.5V6l-7-3Zm-3 9 2 2 4-4",
+  },
+  {
+    title: "Dubbla avdraget om ni är två",
+    text: "Avdraget är 30 % av arbetskostnaden, upp till 50 000 kr per person och år. Är ni två som äger bostaden kan ni alltså få dubbla avdraget.",
+    // Two people
+    icon: "M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5 8a5 5 0 0 1 10 0M16 11a3 3 0 1 0 0-6m1.5 8.5A5 5 0 0 1 20 19",
+  },
+  {
+    title: "Låter det krångligt? Vi hjälper dig",
+    text: "Vi har god kunskap om reglerna och hjälper dig räkna ut hur mycket ROT-avdrag du har rätt till i varje uppdrag. Kontakta oss så hjälper vi dig.",
+    // Speech bubble
+    icon: "M4 5h16v11H9l-5 4V5Zm4 5h8m-8 3h5",
+  },
+];
+
+export default function RotPage() {
   return (
     <>
-      <GenericHeroSection
-        className="from-purple-600 to-purple-800"
-        title="ROT-avdrag"
-        description={`Rotavdraget är ett skatteavdrag som du kan använda dig av när du anlitar oss för att utföra renoveringsarbeten i ditt hem.
-        Detta gäller för alla renoveringsarbeten som utförs i ditt hem, såsom måleriarbeten, tapetsering, golvslipning och mycket mer.`}
+      <PageHero
+        eyebrow="ROT-avdrag"
+        title="Betala bara 70 % av arbetskostnaden"
+        lead="ROT-avdraget är en skattereduktion du kan använda när du anlitar oss för renoveringsarbete i ditt hem: målning, tapetsering, spackling och mycket mer. Få arbeten passar så bra för ROT som måleri, eftersom en stor del av kostnaden är arbete."
+        breadcrumbs={[{ label: "ROT-avdrag", href: "/rot-avdrag" }]}
       />
-      <Breadcrumbs />
 
-      <section className="bg-white">
-        <div className="mx-auto w-full max-w-screen-2xl px-4 pb-8">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-            <SmallInfoCard
-              title="Ger arbetet rätt till rotavdrag?"
-              titleClassName="text-3xl tracking-tight font-bold"
-              description="Arbetet måste utföras av ett företag som är godkänt för F-skattsedel. Det är något
-                som du inte behöver oroa dig för när du anlitar oss, då vi är ett företag som
-                besitter F-skattsedel."
-              containerClassName="rounded-md bg-gradient-to-r from-cyan-600 to-cyan-800 px-8 py-8 text-white"
-              className="flex h-full flex-col justify-between"
-            />
-            <SmallInfoCard
-              title="Dubbla avdraget om ni är två delägare"
-              titleClassName="text-3xl tracking-tight font-bold"
-              description="Skatteavdraget är 30 procent på belopp upp till 166 700 kronor, alltså maximalt 50
-                000 kronor per år och person. Är ni två delägare i huset/bostadsrätten kan ni alltså
-                få dubbla avdraget."
-              containerClassName="rounded-md bg-gradient-to-r from-green-600 to-green-800 px-8 py-8 text-white"
-              className="flex h-full flex-col justify-between"
-            />
-            <SmallInfoCard
-              title="Låter det krångligt? Vi hjälper dig!"
-              titleClassName="text-3xl tracking-tight font-bold"
-              description="Måleri Viskan har stor kunskap om vilka regler som gäller och kan hjälpa dig att
-                räkna ut hur mycket ROT-avdrag just du har rätt till i varje uppdrag. Kontakta oss
-                idag så hjälper vi dig!"
-              containerClassName="rounded-md bg-gradient-to-r from-orange-600 to-orange-800 px-8 py-8 text-white"
-              className="flex h-full flex-col justify-between"
-            />
+      <section className="container-site pb-20 lg:pb-28">
+        <ul className="grid gap-5 md:grid-cols-3">
+          {facts.map((fact) => (
+            <li key={fact.title} className="rounded-card bg-brand-50 p-7 ring-1 ring-brand-100 sm:p-8">
+              <span className="mb-6 grid h-12 w-12 place-items-center rounded-full bg-deep text-brand-400">
+                <svg
+                  aria-hidden
+                  viewBox="0 0 24 24"
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.7"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d={fact.icon} />
+                </svg>
+              </span>
+              <h2 className="text-display text-2xl leading-tight">{fact.title}</h2>
+              <p className="mt-3 leading-relaxed text-muted">{fact.text}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section id="kalkylator" className="border-t border-line">
+        <div className="container-site py-20 lg:py-28">
+          <SectionHeading
+            eyebrow="Kalkylator"
+            title="Räkna ut ditt ROT-avdrag"
+            lead="En arbetskostnad på 100 000 kr ger en skattereduktion på 30 000 kr. Dra i reglagen för att se vad ditt projekt kan kosta efter avdrag."
+          />
+          <div className="mt-12">
+            <RotCalculator />
           </div>
         </div>
       </section>
-      <RotAvdragCalculator />
-      <ContactSection />
-      <CertSection />
+
+      <CredentialsBand />
+      <div className="pt-20 lg:pt-28">
+        <CtaBand />
+      </div>
     </>
   );
-};
-
-export default page;
+}

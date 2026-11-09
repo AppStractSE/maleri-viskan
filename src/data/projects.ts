@@ -10,7 +10,8 @@ export const projects: Project[] = [
   {
     id: "brosaeter-bnb",
     title: "Brosäter BnB",
-    description: `Vi fick äran att måla om hos Brosäter BnB. Upprustningen gjord av oss har förhöjt byggnadens unika karaktär och erbjuder gästerna en bekväm och autentisk vistelse.\n\nResultatet är en charmig och historisk bed and breakfast belägen i natursköna omgivningar nära Horred!`,
+    description:
+      "Vi fick äran att måla om hos Brosäter BnB. Upprustningen har lyft byggnadens unika karaktär och ger gästerna en bekväm och autentisk vistelse.\n\nResultatet är en charmig och historisk bed and breakfast i natursköna omgivningar nära Horred.",
     image: "/projekt/brosaeter-bnb/brosaeter-bnb01.jpg",
     images: [
       "/projekt/brosaeter-bnb/brosaeter-bnb01.jpg",
@@ -25,7 +26,7 @@ export const projects: Project[] = [
     id: "badrumsrenovering",
     title: "Badrumsrenovering",
     description:
-      "Vi har förvandlat flera slitna, tråkiga badrum till lyxiga oaser. Med fokus på detaljer och högkvalitativa material skapar vi inte bara vackra badrum utan också funktionella och hållbara utrymmen som våra kunder älskar att använda varje dag.",
+      "Vi har förvandlat flera slitna badrum till lyxiga oaser. Med fokus på detaljer och högkvalitativa material skapar vi badrum som inte bara är vackra, utan också funktionella och hållbara rum att använda varje dag.",
     image: "/projekt/badrumsrenovering/badrumsrenovering01.jpg",
     images: [
       "/projekt/badrumsrenovering/badrumsrenovering01.jpg",
@@ -41,7 +42,7 @@ export const projects: Project[] = [
     id: "foensterrenovering",
     title: "Fönsterrenovering",
     description:
-      "Vi har gjort flertalet fönsterrenoveringar, där vi inte bara förbättrar utseendet utan även prestandan i fönstret. Vi lyfter fönstrens estetik och ökar deras energieffektivitet och hållbarhet.",
+      "Vi har gjort flera fönsterrenoveringar där vi inte bara förbättrar utseendet utan även fönstrets funktion. Vi lyfter fönstrens estetik och ökar deras energieffektivitet och hållbarhet.",
     image: "/projekt/foensterrenovering/foensterrenovering01.jpg",
     images: [
       "/projekt/foensterrenovering/foensterrenovering01.jpg",
@@ -57,7 +58,7 @@ export const projects: Project[] = [
     id: "panelbyte-pa-vindvaning",
     title: "Panelbyte på vindsvåning",
     description:
-      "Ett kul projekt som innebar panelbyte på en vindsvåning. Vi har valt att använda oss av en vitmålad panel som ger ett ljust och fräscht intryck.",
+      "Ett roligt projekt med panelbyte på en vindsvåning. Vi valde en vitmålad panel som ger ett ljust och fräscht intryck.",
     image: "/projekt/panelbyte-pa-vindvaning/panelbyte-pa-vindvaning01.jpg",
     images: [
       "/projekt/panelbyte-pa-vindvaning/panelbyte-pa-vindvaning01.jpg",
@@ -72,7 +73,7 @@ export const projects: Project[] = [
     id: "nyproduktion",
     title: "Nyproduktion",
     description:
-      "Vi har flertalet nyproduktioner i ryggsäcken. Här är några exempel på nyproduktioner vi varit delaktiga i.",
+      "Vi har flera nyproduktioner i ryggsäcken. Här är några exempel på nybyggen vi varit delaktiga i.",
     image: "/projekt/nyproduktion/nyproduktion01.jpg",
     images: [
       "/projekt/nyproduktion/nyproduktion01.jpg",
@@ -90,7 +91,7 @@ export const projects: Project[] = [
     id: "renovering-i-lokaler",
     title: "Renovering i lokaler",
     description:
-      "Även lokaler behöver kärlek och omtanke. Här är några exempel på lokaler vi renoverat.",
+      "Även lokaler behöver kärlek och omtanke. Här är några exempel på lokaler vi har renoverat.",
     image: "/projekt/renovering-i-lokal/renovering-i-lokal-08.png",
     images: [
       "/projekt/renovering-i-lokal/renovering-i-lokal-01.png",
@@ -108,7 +109,7 @@ export const projects: Project[] = [
     id: "upprustat-infoer-foersaeljning",
     title: "Upprustat inför försäljning",
     description:
-      "Det är vanligt att man vill fräscha upp sitt hem inför en försäljning. Här är några exempel på uppfräschningar vi gjort inför försäljning.",
+      "Många vill fräscha upp hemmet inför en försäljning. Här är några exempel på uppfräschningar vi har gjort inför försäljning.",
     image: "/projekt/upprustat-infoer-foersaeljning/upprustat-infoer-foersaeljning02.jpg",
     images: [
       "/projekt/upprustat-infoer-foersaeljning/upprustat-infoer-foersaeljning02.jpg",
@@ -118,3 +119,7 @@ export const projects: Project[] = [
     ],
   },
 ];
+
+export const projectHref = (project: Pick<Project, "id">) => `/projekt/${project.id}`;
+
+export const getProject = (id: string) => projects.find((project) => project.id === id);

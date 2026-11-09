@@ -1,36 +1,25 @@
-import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
-import GenericHeroSection from "@/components/home/hero/GenericHeroSection";
-import GoogleMapSection from "@/components/home/map/GoogleMapSection";
 import ContactSection from "@/components/sections/ContactSection";
-import { Metadata } from "next";
+import Breadcrumbs from "@/components/ui/Breadcrumbs";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Kontakt | Måleri Viskan",
+  title: "Kontakt",
   description:
-    "Måleri Viskan - Vi kan måleri! Vi är din lokala målare i Kinna, Skene och Marks kommun.",
-    alternates: {
-      canonical: "https://maleriviskan.se/kontakt",
-    },
+    "Kontakta Måleri Viskan för en kostnadsfri offert. Ring 073-030 96 66, mejla info@maleriviskan.se eller fyll i formuläret.",
+  alternates: { canonical: "/kontakt" },
 };
 
-const page = () => {
+export default function ContactPage() {
   return (
-    <>
-      <GenericHeroSection
-        className=" from-violet-500 to-violet-600"
-        title="Kom i kontakt med oss"
-        description={`Välkommen att kontakta Måleri Viskan!\nHar du några frågor, funderingar eller ett projekt planerat för din bostad eller ditt företag, tveka inte att höra av dig för att göra idé till verklighet.`}
-        quoteButton
-      />
-      <Breadcrumbs />
+    <div className="pt-24 sm:pt-28 lg:pt-32">
+      <div className="container-site">
+        <Breadcrumbs items={[{ label: "Kontakt", href: "/kontakt" }]} />
+      </div>
       <ContactSection
-        bg="from-white to-white text-black"
-        linkColors="text-cyan-600 border-cyan-600"
-        invertArrow={false}
+        as="h1"
+        title="Kom i kontakt med oss"
+        lead="Har du frågor, funderingar eller ett projekt planerat för din bostad eller ditt företag? Hör av dig, så gör vi idé till verklighet."
       />
-      <GoogleMapSection />
-    </>
+    </div>
   );
-};
-
-export default page;
+}

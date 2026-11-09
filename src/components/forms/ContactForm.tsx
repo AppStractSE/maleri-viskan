@@ -1,278 +1,250 @@
 "use client";
-import { services as servicesData } from "@/data/services";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 
-interface IContactForm {
-  FullName: string;
-  Email: string;
-  PhoneNumber: string;
-  Message: string;
-  ServiceName: string;
+import type { ContactPayload } from "@/app/api/contact-form/route";
+import { services } from "@/data/services";
+import { site } from "@/data/site";
+import { useId, useState } from "react";
+import { useForm } from "react-hook-form";
+import { buttonClasses } from "../ui/Button";
+
+type FormValues = Omit<ContactPayload, "website"> & { website: string };
+type Status = { state: "idle" } | { state: "success" } | { state: "error"; message: string };
+
+const serviceOptions = [...services.map((service) => service.name), "Annat"];
+
+const inputClass =
+  "block w-full rounded-xl border border-line bg-paper px-4 py-3 text-base text-ink placeholder:text-muted/70 transition-colors focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-500/15 aria-[invalid=true]:border-red-700 aria-[invalid=true]:ring-red-700/10";
+
+interface Props {
+  defaultService?: string;
+  /** Called after a successful submit, e.g. to let a dialog show a close button. */
+  onDone?: () => void;
+  /** Focus the first field on mount (used in the quote dialog). */
+  autoFocus?: boolean;
 }
 
-const ContactForm = () => {
-  const [submitted, setSubmitted] = useState(false);
-  const [selectedService, setSelectedService] = useState("");
-  const services = [...servicesData.map((service) => service.name), "Annat"];
+const ContactForm = ({ defaultService = "", onDone, autoFocus }: Props) => {
+  const id = useId();
+  const [status, setStatus] = useState<Status>({ state: "idle" });
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting, isDirty, isValid, isSubmitted },
-  } = useForm({
+    formState: { errors, isSubmitting },
+  } = useForm<FormValues>({
     defaultValues: {
-      FullName: "",
-      Email: "",
-      ServiceName: "",
-      PhoneNumber: "",
-      Message: "",
+      name: "",
+      email: "",
+      phone: "",
+      service: serviceOptions.includes(defaultService) ? defaultService : "",
+      message: "",
+      website: "",
     },
     mode: "onTouched",
   });
 
-  function generateEmailHTML(data: IContactForm) {
-    const formattedMessage = data.Message.replace(/\n/g, "<br>");
-    return `<div><p><strong>Namn:</strong></p><p>${data.FullName}</p><p><strong>Email:</strong></p><p><a href="mailto:${data.Email}">${data.Email}</a></p><p><strong>Telefon:</strong></p><p><a href="tel:${data.PhoneNumber}">${data.PhoneNumber}</a></p><p><strong>Intresserad av tjänst:</strong></p><p>${data.ServiceName}</p><p><strong>Meddelande:</strong></p><p>${formattedMessage}</p></div>`;
-  }
-
-  const onSubmit = async (data: IContactForm) => {
-    const formData = {
-      name: data.FullName,
-      email: data.Email,
-      subject: `Kontaktformulär: ${data.ServiceName} - ${data.FullName}`,
-      message: data.Message,
-      messageHtml: generateEmailHTML(data),
-    };
-
-    toast
-      .promise(
-        fetch("/api/contact-form", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }),
-        {
-          loading: "Skickar meddelande...",
-          success: "Meddelande skickat! Vi återkommer så snart vi kan.",
-          error: "Något gick fel med att skicka meddelandet. Försök igen.",
-        },
-        {
-          style: {
-            minWidth: "250px",
-          },
-          position: "bottom-center",
-          className: "!bg-night-500 !text-vanilla-powder-500",
-          success: {
-            duration: 8000,
-            icon: "🎉",
-          },
-        }
-      )
-      .catch((error) => {
-        console.log(error.message);
-      })
-      .then(() => {
-        setSubmitted(true);
-        setTimeout(() => {
-          reset();
-        }, 250);
+  const onSubmit = async (values: FormValues) => {
+    setStatus({ state: "idle" });
+    try {
+      const response = await fetch("/api/contact-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
       });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.success) {
+        throw new Error(result.error ?? "Något gick fel. Försök igen.");
+      }
+      setStatus({ state: "success" });
+      reset();
+    } catch (error) {
+      setStatus({
+        state: "error",
+        message: error instanceof Error ? error.message : "Något gick fel. Försök igen.",
+      });
+    }
   };
 
-  const baseClasses =
-    "block w-full text-black rounded-md bg-white outline outline-1 outline-gray-500 p-2.5 text-base placeholder-gray-500 focus:outline focus:outline-sky-500 ";
-  const errorClass =
-    " !outline !outline-1 !outline-offset-0 !outline-red-700 !placeholder:text-red-500 ";
-  const errorTextBaseClass =
-    " !text-red-500 text-xs tracking-widest transition-all duration-500 ease-in-out ";
-  const errorTextHiddenClasses = " opacity-0 max-h-0 ";
-  const errorTextVisibleClasses = " pb-2 mt-1 opacity-100 max-h-full ";
+  if (status.state === "success") {
+    return (
+      <div role="status" className="flex flex-col items-start gap-4 py-6">
+        <span className="grid h-12 w-12 place-items-center rounded-full bg-brand-100 text-brand-700">
+          <svg aria-hidden viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="m5 12.5 4.5 4.5L19 7.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
+        <div>
+          <p className="text-display text-3xl">Tack för ditt meddelande!</p>
+          <p className="mt-2 text-muted">Vi återkommer till dig så snart vi kan.</p>
+        </div>
+        <button
+          type="button"
+          className={buttonClasses({ variant: "secondary" })}
+          onClick={() => {
+            setStatus({ state: "idle" });
+            onDone?.();
+          }}
+        >
+          {onDone ? "Stäng" : "Skicka ett till"}
+        </button>
+      </div>
+    );
+  }
+
+  const field = (name: keyof FormValues) => ({
+    id: `${id}-${name}`,
+    "aria-invalid": errors[name] ? true : undefined,
+    "aria-describedby": errors[name] ? `${id}-${name}-error` : undefined,
+  });
+
+  const fieldError = (name: keyof FormValues) =>
+    errors[name] ? (
+      <p id={`${id}-${name}-error`} className="mt-1.5 text-sm text-red-700">
+        {errors[name]?.message}
+      </p>
+    ) : null;
+
+  const label = (name: keyof FormValues, text: string) => (
+    <label htmlFor={`${id}-${name}`} className="mb-1.5 block text-sm font-medium text-ink-soft">
+      {text}
+    </label>
+  );
 
   return (
-    <div className="relative mt-4">
-      <form onSubmit={handleSubmit(onSubmit)} name="contact-form">
-        <input type="hidden" name="required-field" value="contact-form" />
-        <div className="mb-3 w-full">
+    <form onSubmit={handleSubmit(onSubmit)} noValidate className="grid gap-4">
+      {/* Honeypot: hidden from people and assistive tech, tempting for bots. */}
+      <div aria-hidden className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+        <label>
+          Webbplats
+          <input tabIndex={-1} autoComplete="off" {...register("website")} />
+        </label>
+      </div>
+
+      <div>
+        {label("name", "Namn")}
+        <input
+          {...field("name")}
+          className={inputClass}
+          autoComplete="name"
+          autoFocus={autoFocus}
+          placeholder="För- och efternamn"
+          {...register("name", {
+            required: "Ange ditt namn",
+            minLength: { value: 2, message: "Namnet måste vara minst 2 tecken" },
+            maxLength: { value: 80, message: "Namnet får vara högst 80 tecken" },
+          })}
+        />
+        {fieldError("name")}
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div>
+          {label("email", "E-post")}
           <input
-            className={baseClasses.concat(" ").concat(errors["FullName"] ? errorClass : "")}
-            type="text"
-            placeholder="För- och efternamn *"
-            {...register("FullName", {
-              required: "Fullständigt namn krävs",
-              minLength: {
-                value: 2,
-                message: "Namnet måste vara minst 2 tecken",
-              },
-              maxLength: {
-                value: 50,
-                message: "Namnet får vara högst 50 tecken",
+            {...field("email")}
+            type="email"
+            inputMode="email"
+            autoComplete="email"
+            className={inputClass}
+            placeholder="namn@exempel.se"
+            {...register("email", {
+              required: "Ange din e-postadress",
+              pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Ogiltig e-postadress" },
+            })}
+          />
+          {fieldError("email")}
+        </div>
+        <div>
+          {label("phone", "Telefon")}
+          <input
+            {...field("phone")}
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            className={inputClass}
+            placeholder="070-123 45 67"
+            {...register("phone", {
+              required: "Ange ditt telefonnummer",
+              validate: (value) => {
+                const digits = value.replace(/\D/g, "").length;
+                return (digits >= 8 && digits <= 15) || "Ange ett giltigt telefonnummer";
               },
             })}
           />
-          <p
-            role="alert"
-            className={errorTextBaseClass
-              .concat(" ")
-              .concat(errors["FullName"] ? errorTextVisibleClasses : errorTextHiddenClasses)}
-          >
-            {errors.FullName?.message}
-          </p>
+          {fieldError("phone")}
         </div>
-        <div className="flex gap-3">
-          <div className="mb-3 w-full">
-            <input
-              className={baseClasses.concat(" ").concat(errors["Email"] ? errorClass : "")}
-              type="email"
-              placeholder="Email *"
-              {...register("Email", {
-                required: "E-post krävs",
-                pattern: {
-                  value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                  message: "Ogiltig e-postadress",
-                },
-              })}
-            />
-            <p
-              role="alert"
-              className={errorTextBaseClass
-                .concat(" ")
-                .concat(errors["Email"] ? errorTextVisibleClasses : errorTextHiddenClasses)}
-            >
-              {errors.Email?.message}
-            </p>
-          </div>
-          <div className="w-full">
-            <input
-              className={baseClasses.concat(" ").concat(errors["PhoneNumber"] ? errorClass : "")}
-              type="tel"
-              placeholder="Telefonnummer *"
-              {...register("PhoneNumber", {
-                onChange: (e) => {
-                  e.target.value = e.target.value.replace(/[^0-9]/g, "");
-                },
-                required: "Telefonnummer krävs",
-                pattern: {
-                  value: /^[0-9]+$/,
-                  message: "Ange ett nummer",
-                },
-                minLength: {
-                  value: 10,
-                  message: "Telefonnumret måste vara minst 10 tecken",
-                },
-                maxLength: {
-                  value: 15,
-                  message: "Telefonnumret får vara högst 15 tecken",
-                },
-              })}
-            />
-            <p
-              role="alert"
-              className={errorTextBaseClass
-                .concat(" ")
-                .concat(errors["PhoneNumber"] ? errorTextVisibleClasses : errorTextHiddenClasses)}
-            >
-              {errors.PhoneNumber?.message}
-            </p>
-          </div>
-        </div>
-        <div className="mb-3 w-full">
+      </div>
+
+      <div>
+        {label("service", "Vad gäller det?")}
+        <div className="relative">
           <select
-            className={baseClasses.concat(" ").concat(errors["ServiceName"] ? errorClass : "")}
-            {...register("ServiceName", {
-              required: "Välj den tjänst du är intresserad av",
-            })}
-            value={selectedService ?? ""}
-            onChange={(e) => setSelectedService(e.target.value)}
+            {...field("service")}
+            className={`${inputClass} appearance-none pr-10`}
+            {...register("service", { required: "Välj vad din förfrågan gäller" })}
           >
-            <option value="" disabled className="text-black/50">
-              Vilken tjänst är du intresserad av? *
+            <option value="" disabled>
+              Välj tjänst
             </option>
-            {services.map((service) => (
-              <option key={service} value={service} className="text-black">
-                {service}
+            {serviceOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
               </option>
             ))}
           </select>
-          <p
-            role="alert"
-            className={errorTextBaseClass
-              .concat(" ")
-              .concat(errors["ServiceName"] ? errorTextVisibleClasses : errorTextHiddenClasses)}
+          <svg
+            aria-hidden
+            viewBox="0 0 16 16"
+            className="pointer-events-none absolute top-1/2 right-4 h-4 w-4 -translate-y-1/2 text-muted"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.6"
           >
-            {errors.ServiceName?.message}
-          </p>
+            <path d="m4 6 4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </div>
-        <div className="mb-3">
-          <textarea
-            maxLength={500}
-            placeholder="Meddelande *"
-            className={"contactform min-h-[150px] resize-none transition-all duration-200 ease-in-out focus-visible:min-h-[200px]"
-              .concat(" ")
-              .concat(baseClasses)
-              .concat(" ")
-              .concat(errors["Message"] ? errorClass : "")}
-            {...register("Message", {
-              required: "Meddelande krävs",
-              minLength: {
-                value: 10,
-                message: "Meddelandet måste vara minst 10 tecken",
-              },
-              maxLength: {
-                value: 500,
-                message: "Meddelandet får vara högst 500 tecken",
-              },
-            })}
-          ></textarea>
-          <p
-            role="alert"
-            className={errorTextBaseClass
-              .concat(" ")
-              .concat(errors["Message"] ? errorTextVisibleClasses : errorTextHiddenClasses)}
-          >
-            {errors.Message?.message}
-          </p>
-        </div>
-        <button
-          disabled={isSubmitting || submitted}
-          type="submit"
-          className="block w-full rounded-md bg-blue-600 p-4 text-base text-white hover:bg-blue-500"
-        >
-          Skicka
-        </button>
-      </form>
-
-      <div
-        className={"absolute inset-0 left-0 top-0 -m-2 overflow-hidden rounded backdrop-blur-sm transition-all delay-75 duration-500 ease-in-out lg:backdrop-blur-sm"
-          .concat(" ")
-          .concat(submitted ? "visible opacity-100" : "invisible opacity-0")}
-      >
-        <div
-          className={"flex h-full transform flex-col items-center justify-center space-y-4 bg-white/50 transition-all duration-500 ease-in-out"
-            .concat(" ")
-            .concat(submitted ? "translate-y-0" : "translate-y-[125%]")}
-        >
-          <h6 className="text-black text-3xl lg:text-center lg:text-2xl">Tack för ditt meddelande!</h6>
-          <p className="text-black text-balance whitespace-pre-line text-xl lg:text-center lg:text-xl">
-            Vi kommer att kontakta dig inom kort.
-          </p>
-          <button
-            onClick={() => {
-              setSubmitted(false);
-              setTimeout(() => {
-                reset();
-              }, 250);
-            }}
-            className="block w-fit place-self-center rounded-lg bg-blue-500 px-6 py-2.5 text-white hover:bg-blue-400"
-          >
-            Stäng
-          </button>
-        </div>
+        {fieldError("service")}
       </div>
-    </div>
+
+      <div>
+        {label("message", "Meddelande")}
+        <textarea
+          {...field("message")}
+          rows={5}
+          className={`${inputClass} resize-y`}
+          placeholder="Berätta kort om ditt projekt: vad ska göras, ungefärlig yta och när?"
+          {...register("message", {
+            required: "Skriv ett meddelande",
+            minLength: { value: 10, message: "Meddelandet måste vara minst 10 tecken" },
+            maxLength: { value: 2000, message: "Meddelandet får vara högst 2000 tecken" },
+          })}
+        />
+        {fieldError("message")}
+      </div>
+
+      {status.state === "error" && (
+        <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-800">
+          {status.message} Du når oss också på{" "}
+          <a href={site.phoneHref} className="font-semibold underline">
+            {site.phone}
+          </a>
+          .
+        </p>
+      )}
+
+      <div className="mt-2 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-xs text-muted">
+          Vi använder dina uppgifter endast för att besvara din förfrågan.
+        </p>
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className={buttonClasses({ size: "lg", className: "sm:shrink-0" })}
+        >
+          {isSubmitting ? "Skickar…" : "Skicka förfrågan"}
+        </button>
+      </div>
+    </form>
   );
 };
 

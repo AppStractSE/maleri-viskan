@@ -1,180 +1,161 @@
-export interface Service {
-  name: string;
-  shortDescription: string;
+export interface ServiceFeature {
+  title: string;
   description: string;
-  servicePageTitle: string;
-  link: string;
   image: string;
-  smallImage: string;
-  colors: string[];
-  colorBg: string;
-  features: {
-    title: string;
-    description: string;
-    image: string;
-    smallImage: string;
-  }[];
+}
+
+export interface Service {
   id: string;
+  name: string;
+  /** One-liner used on cards and in menus. */
+  shortDescription: string;
+  /** Intro paragraph on the service page. */
+  description: string;
+  image: string;
+  /** Small square-ish image for menus and thumbnails. */
+  thumbnail: string;
+  features: ServiceFeature[];
 }
 
 export const services: Service[] = [
   {
     id: "malning",
     name: "Målning",
-    servicePageTitle: "Målning",
-    image: "/tjanster/malning/utomhus.png",
-    smallImage: "/tjanster/malning/utomhus_small.png",
-    shortDescription: "Dags att måla om? Vi erbjuder all typ av målning både in- och utvändigt.",
+    shortDescription: "All typ av målning, både in- och utvändigt.",
     description:
-      "Vi är proffs på målning, oavsett om det är inomhus eller utomhus. Vårt mål är att alltid leverera grym kvalitet, hålla vad vi lovar och bli klara i tid. Vi har även MVK-certifiering för att måla i våtrum, så vi fixar det med stil och säkerhet!",
-    link: "tjanster/malning",
-    colors: ["#f59e0b", "#92400e"],
-    colorBg: "from-amber-600 to-orange-700",
+      "Vi är proffs på målning, oavsett om det är inomhus eller utomhus. Vårt mål är att alltid leverera hög kvalitet, hålla vad vi lovar och bli klara i tid. Vi är dessutom MVK-certifierade för att måla i våtrum, så även badrummet blir både snyggt och säkert.",
+    image: "/utomhusmålning01.jpg",
+    thumbnail: "/tjanster/malning/utomhus_small.png",
     features: [
       {
-        image: "/tjanster/malning/inomhus.png",
-        smallImage: "/tjanster/malning/inomhus_small.png",
         title: "Invändig målning",
+        image: "/inomhusmålning.jpg",
         description:
-          "Skapa en inbjudande och stilfull atmosfär i ditt hem med hjälp av vår expertis! Vi använder noggrant utvalda målningsprodukter som garanterar inte bara visuell tilltalande resultat utan även långvarig kvalitet. Med ett brett utbud av färgnyanser och finishalternativ anpassar vi varje projekt för att matcha olika ytor och skapa den önskade atmosfären i ditt utrymme. De slitstarka och lättskötta produkter vi använder ger inte bara ett estetiskt lyft utan förbättrar även övergripande kvalitet och livslängd.",
+          "Skapa en inbjudande och stilfull atmosfär i ditt hem. Vi använder noggrant utvalda produkter som ger ett vackert resultat med lång hållbarhet. Med ett brett utbud av kulörer och glansgrader anpassar vi varje projekt efter ytan och rummet, så att du får den känsla du är ute efter. Slitstarka och lättskötta färger gör att resultatet håller sig fint i många år.",
       },
       {
-        image: "/tjanster/malning/vatrum.png",
-        smallImage: "/tjanster/malning/vatrum_small.png",
         title: "Våtrumsmålning",
+        image: "/badrumsmålning.jpg",
         description:
-          "Förse ditt våtrum med en uppfräschning som inte bara är estetiskt tillfredsställande utan också strängt anpassad för att möta kraven i fuktiga miljöer. Våra högkvalitativa produkter är särskilt utformade för att motstå fukt och håller höga standarder för hållbarhet. Genom att kombinera funktion och form skapar vi målningslösningar som skyddar ditt våtrum från fuktrelaterade skador och samtidigt skapar en fräsch och inbjudande atmosfär.",
+          "Ge ditt våtrum en uppfräschning som är anpassad efter kraven i fuktiga miljöer. Vi är certifierade av Måleribranschens Våtrumskontroll (MVK) och använder produkter som är framtagna för att stå emot fukt. Resultatet är ett badrum som är skyddat mot fuktskador och samtidigt känns fräscht och inbjudande.",
       },
       {
-        image: "/tjanster/malning/utomhus.png",
-        smallImage: "/tjanster/malning/utomhus_small.png",
         title: "Utvändig målning",
+        image: "/2023-08-0722.jpg",
         description:
-          "Ge ditt utomhusutrymme nytt liv! Oavsett om det är träfasader, puts, tegel eller takfot, behandlar vi varje yta med noggrannhet och omsorg. Våra högkvalitativa färgprodukter är speciellt formulerade för att stå emot väderpåverkan och skapa en hållbar och vacker yta. Vår erfarna personal kombinerar teknisk kompetens med konstnärlig känsla för att förvandla ditt utomhusutrymme och skydda det mot påfrestningar över tid.",
+          "Ge huset nytt liv. Oavsett om det gäller träfasad, puts, tegel eller takfot behandlar vi varje yta med noggrannhet och omsorg. Vi använder färger som är framtagna för att stå emot väder och vind, och kombinerar teknisk kunskap med känsla för helheten så att fasaden både blir vacker och skyddas över tid.",
       },
       {
-        image: "/tjanster/malning/linolje.png",
-        smallImage: "/tjanster/malning/linolje_small.png",
         title: "Linoljemålning",
+        image: "/tjanster/malning/linolje.png",
         description:
-          "Anlita oss för att måla med linolja för att ge dina ytor en unik och tidlös finish. Vi kombinerar traditionellt hantverk med moderna tekniker för att skapa vackra och hållbara resultat. Linolja ger rika färger och en djup glans samtidigt som den skyddar ytan. Speciellt lämplig för trädetaljer, resultatet ger en naturlig skönhet som åldras elegant över tiden.",
+          "Måla med linoljefärg för en unik och tidlös finish. Vi kombinerar traditionellt hantverk med moderna tekniker för vackra och hållbara resultat. Linoljefärg ger djupa kulörer och en mjuk glans samtidigt som den skyddar ytan. Den passar särskilt bra på trädetaljer och åldras vackert med tiden.",
       },
     ],
   },
   {
     id: "tapetsering",
     name: "Tapetsering",
-    servicePageTitle: "Tapetsering",
-    image: "/tjanster/tapetsering/tapetsering.jpg",
-    smallImage: "/tjanster/tapetsering/tapetsering_small.png",
-    shortDescription: "Tapetseringstjänster som förhöjer din interiör och ger den önskade stilen.",
+    shortDescription: "Tapetsering som lyfter rummet och ger det rätt stil.",
     description:
-      "Oavsett om det är för ditt hem eller kontor löser vi tapetsering åt dig. Vi strävar alltid efter att leverera snyggt arbete, hålla våra löften och bli klara i tid. Vårt fokus är att skapa en stilfull atmosfär och vi är här för att göra ditt rum eller kontor ännu mer speciellt!",
-    link: "tjanster/tapetsering",
-    colors: ["#0d9488", "#134e4a"],
-    colorBg: "from-teal-600 to-teal-700",
+      "Oavsett om det gäller hemmet eller kontoret löser vi tapetseringen åt dig. Vi levererar snyggt arbete, håller det vi lovar och blir klara i tid. Fokus ligger på att skapa en stilfull miljö som gör rummet lite mer speciellt.",
+    image: "/tjanster/tapetsering/tapetsering.jpg",
+    thumbnail: "/tjanster/tapetsering/tapetsering_small.png",
     features: [
       {
-        image: "/tjanster/tapetsering/tapetsering01.jpg",
-        smallImage: "/tjanster/tapetsering/tapetsering01_small.png",
         title: "Papperstapetsering",
+        image: "/tjanster/tapetsering/tapetsering01.jpg",
         description:
-          "Förvandla ditt utrymme som ger en klassisk och tidlös touch. Vi applicerar papperstapeter noggrant med precision och uppmärksamhet på detaljer. Oavsett om det är för en accentvägg eller hela rummet, strävar vi efter att skapa en sömlös och vacker yta som passar din stil och förhöjer atmosfären.",
+          "Papperstapet ger rummet en klassisk och tidlös känsla. Vi sätter upp den med precision och känsla för detaljer, oavsett om det gäller en accentvägg eller hela rummet. Målet är en sömlös och vacker yta som passar din stil.",
       },
       {
-        image: "/tjanster/tapetsering/tapetsering.jpg",
-        smallImage: "/tjanster/tapetsering/tapetsering_small.png",
         title: "Non-woven-tapetsering",
+        image: "/tjanster/tapetsering/tapetsering.jpg",
         description:
-          "Kombinera modern estetik med praktisk funktionalitet. Non-woven-tapeter erbjuder enkel installation och är lätta att underhålla. Vi säkerställer en noggrann applicering för att maximera tapetens förmåga att skapa önskad visuell effekt. Vi strävar efter att göra non-woven-tapetsering till en smidig och tillfredsställande upplevelse.",
+          "Non-woven kombinerar modern estetik med praktisk funktion. Tapeten är enkel att sätta upp, lätt att underhålla och tålig över tid. Vi ser till att den appliceras noggrant så att mönster och struktur kommer till sin rätt.",
       },
       {
-        image: "/tjanster/tapetsering/tapetsering02.jpg",
-        smallImage: "/tjanster/tapetsering/tapetsering02_small.png",
         title: "Slätvävstapetsering",
+        image: "/tjanster/tapetsering/tapetsering02.jpg",
         description:
-          "Skapa en jämn och elegant yta med slätvävstapeter. Vi installerar slät väv för att förbättra ytan och ge extra armering mot sprickor och yttre påverkan. Genom att kombinera skicklighet med noggrannhet strävar vi efter att erbjuda en tapetsering som inte bara är visuellt tilltalande utan också funktionellt hållbar över tid.",
+          "Slätväv ger en jämn och elegant yta och fungerar samtidigt som armering mot sprickor och yttre påverkan. Vi kombinerar skicklighet med noggrannhet för ett resultat som är både snyggt och hållbart.",
       },
     ],
   },
   {
     id: "spackling",
     name: "Spackling",
-    servicePageTitle: "Spackling",
-    image: "/tjanster/spackling/spackling.jpg",
-    smallImage: "/tjanster/spackling/spackling_small.png",
-    shortDescription:
-      "Jämn och professionell spackling för att skapa en perfekt yta inför målning.",
+    shortDescription: "Jämn och professionell spackling, en perfekt grund inför målning.",
     description:
-      "Vi är redo att fixa till ytor och ge dem en ny fräsch look. Oavsett om det handlar om små fixar eller större förändringar, satsar vi alltid på en jämn och snygg finish. Med oss kan du lita på att ditt utrymme kommer att se snyggt och professionellt ut, redo för nästa steg!",
-    link: "tjanster/spackling",
-    colors: ["#0891b2", "#164e63"],
-    colorBg: "from-cyan-700 to-cyan-950",
+      "Vi fixar till ytor och ger dem en ny, fräsch look. Oavsett om det handlar om små lagningar eller större förändringar satsar vi alltid på en jämn och snygg finish, så att ytan är redo för nästa steg.",
+    image: "/tjanster/spackling/spackling.jpg",
+    thumbnail: "/tjanster/spackling/spackling_small.png",
     features: [
       {
-        image: "/tjanster/spackling/spackling.jpg",
-        smallImage: "/tjanster/spackling/spackling_small.png",
         title: "Bredspackling",
+        image: "/tjanster/spackling/spackling.jpg",
         description:
-          "Förbered dina ytor inför målning med bredspackling, som skapar jämna och väl förberedda ytor. Med noggrannhet och skicklighet applicerar vi bredspackel för att jämna ut ojämnheter och skapa en enhetlig bas. Detta är en viktig process för att säkerställa att målningsresultatet blir jämnt och professionellt.",
+          "Bredspackling jämnar ut ojämnheter och skapar en enhetlig bas inför målning. Det är ett viktigt steg för att slutresultatet ska bli jämnt och professionellt.",
       },
       {
-        image: "/tjanster/spackling/spackla-skarvar.jpeg",
-        smallImage: "/tjanster/spackling/spackla-skarvar_small.png",
         title: "Spackla skarvar och hörn",
+        image: "/tjanster/spackling/spackla-skarvar.jpeg",
         description:
-          "Spackling av skarvar och hörn kräver som alltid noggrant förarbete för att uppnå ett professionellt slutresultat. Varje detalj är viktig, och minsta slarv kan bli synligt som ojämnheter i väggen när ljuset faller på. Om du inte är van vid hantverk och gör-det-själv-arbeten, är det bäst att kontakta professionella spacklare och målare. Måleri Viskan har den erfarenhet och skicklighet som krävs för att säkerställa att spacklingen blir korrekt utförd och skapar en jämn yta inför målningsprocessen.",
+          "Skarvar och hörn kräver noggrant förarbete. Minsta slarv syns som ojämnheter när ljuset faller på väggen. Vi har erfarenheten som krävs för att spacklingen ska bli rätt utförd och ge en jämn yta inför målningen.",
       },
       {
-        image: "/tjanster/spackling/dammfri-slipning.jpeg",
-        smallImage: "/tjanster/spackling/dammfri-slipning_small.png",
         title: "Dammfri slipning med maskin",
+        image: "/tjanster/spackling/dammfri-slipning.jpeg",
         description:
-          "Få en jämn och polerad yta med vår avancerade maskinteknik för dammfri slipning. Vår dammfria slipning är skonsam mot omgivningen och skapar en förberedd yta som är redo för ytbehandling.",
+          "Med maskinell, dammfri slipning får du en jämn och slät yta utan att dammet sprids i hemmet. Skonsamt mot omgivningen och en yta som är redo för ytbehandling.",
       },
     ],
   },
   {
     id: "fonsterrenovering",
     name: "Fönsterrenovering",
-    servicePageTitle: "Fönsterrenovering",
-    image: "/tjanster/fonsterrenovering/fonsterrenovering.jpg",
-    smallImage: "/tjanster/fonsterrenovering/fonsterrenovering_small.png",
-    shortDescription: "Fönsterrenovering för att förbättra funktion och utseende.",
+    shortDescription: "Renovering som förbättrar både funktion och utseende.",
     description:
-      "Förbättra både funktion och utseende på dina fönster. Vi erbjuder skräddarsydda lösningar för att möta dina behov och preferenser, inklusive skrapning för att avlägsna gammal färg och kittning för en tät och hållbar försegling. Målning av fönsterbågar och karm samt byte av glas som utförs med precision för att ge dina fönster en fräsch och skyddande yta.",
-    link: "tjanster/fonsterrenovering",
-    colors: ["#4f46e5", "#312e81"],
-    colorBg: "from-indigo-600 to-indigo-700",
+      "Förbättra både funktion och utseende på dina fönster. Vi skrapar bort gammal färg, kittar om för en tät och hållbar försegling, målar bågar och karmar och byter glas när det behövs, alltid med precision och omsorg om hantverket.",
+    image: "/tjanster/fonsterrenovering/fonsterrenovering.jpg",
+    thumbnail: "/tjanster/fonsterrenovering/fonsterrenovering_small.png",
     features: [
       {
-        image: "/tjanster/fonsterrenovering/skrapning.jpeg",
-        smallImage: "/tjanster/fonsterrenovering/skrapning_small.png",
         title: "Skrapning",
+        image: "/tjanster/fonsterrenovering/skrapning.jpeg",
         description:
-          "Det är viktigt att avlägsna gammal färg och orenheter från fönsterbågar och karmar. Vi använder skrapverktyg med precision för att skapa en ren och jämn yta, vilket är en viktig förberedelse för efterföljande behandlingar.",
+          "Gammal färg och smuts behöver bort från bågar och karmar. Vi skrapar med precision för att skapa en ren och jämn yta, en viktig förberedelse för de behandlingar som följer.",
       },
       {
-        image: "/tjanster/fonsterrenovering/kittning.jpg",
-        smallImage: "/tjanster/fonsterrenovering/kittning_small.png",
         title: "Kittning",
+        image: "/tjanster/fonsterrenovering/kittning.jpg",
         description:
-          "Vi lägger stor vikt vid rätt kittning för att säkerställa att dina fönster är tätade och skyddade mot väderpåverkan. Vår kittningstjänst appliceras noggrant för att säkerställa en tät och hållbar försegling runt fönsterbågar och karmar.",
+          "Rätt kittning gör att fönstren blir täta och skyddade mot väder och vind. Vi applicerar kittet noggrant för en tät och hållbar försegling runt bågar och karmar.",
       },
       {
-        image: "/tjanster/fonsterrenovering/wibo.jpg",
-        smallImage: "/tjanster/fonsterrenovering/wibo_small.png",
         title: "Målning av fönsterbågar och karm",
+        image: "/tjanster/fonsterrenovering/wibo.jpg",
         description:
-          "Vår färgexpertis kommer till sin fulla rätt när det gäller målning av fönsterbågar och karmar. Vi erbjuder ett brett utbud av färgnyanser och använder högkvalitativa målningsprodukter för att ge dina fönster en fräsch och skyddande yta. Målningen utförs med precision för att säkerställa enhetlig täckning och långvarigt visuellt intryck.",
+          "Vi målar bågar och karmar med högkvalitativa produkter i den kulör du önskar. Målningen utförs med precision för jämn täckning och ett resultat som håller länge.",
       },
       {
-        image: "/tjanster/fonsterrenovering/byte-av-glas.jpeg",
-        smallImage: "/tjanster/fonsterrenovering/byte-av-glas_small.png",
         title: "Byte av glas",
+        image: "/tjanster/fonsterrenovering/byte-av-glas.jpeg",
         description:
-          "Vår fönsterrenovering inkluderar professionellt glasbyte när det behövs. Vi hanterar detta steg med försiktighet och expertis, vilket ger dig möjlighet att förbättra energieffektiviteten och estetiken hos dina fönster. Vi erbjuder olika glastyper för att möta dina specifika behov och önskemål.\n\nMed vår fönsterrenoveringstjänst strävar vi efter att inte bara återställa funktionaliteten hos dina fönster utan också att förhöja deras estetiska appell och energieffektivitet. Kontakta oss för att påbörja din fönsterförnyelse med professionell och pålitlig service.",
+          "När det behövs byter vi glas, med försiktighet och expertis. Det förbättrar både energieffektiviteten och utseendet, och vi erbjuder olika glastyper efter dina behov och önskemål.",
       },
     ],
   },
 ];
+
+export const serviceHref = (service: Pick<Service, "id">) => `/tjanster/${service.id}`;
+
+/** Anchor id for a feature. Matches the anchors used by the old site so existing links keep working. */
+export const featureAnchor = (title: string) =>
+  title
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replaceAll(" ", "");
+
+export const getService = (id: string) => services.find((service) => service.id === id);

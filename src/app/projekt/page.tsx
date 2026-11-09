@@ -1,22 +1,30 @@
-import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
-import GenericHeroSection from "@/components/home/hero/GenericHeroSection";
-import ProjectsSection from "@/components/home/projects/ProjectsSection";
+import CtaBand from "@/components/sections/CtaBand";
+import ProjectCards from "@/components/sections/ProjectCards";
+import PageHero from "@/components/ui/PageHero";
+import type { Metadata } from "next";
 
-const page = () => {
-  return (
-    <>
-      <GenericHeroSection
-        className="from-slate-500 to-slate-600"
-        title="Projekt"
-        description={`Vi på Måleri Viskan är stolta över att ha arbetat med många olika kunder.
-        Vår dedikation till kvalitet och noggrannhet är konsekvent, oavsett projektets omfattning.\n\nVårt mål är att överträffa förväntningarna och skapa en långvarig tillfredsställelse för våra kunder
-        genom att leverera professionella målningstjänster.`}
-        quoteButton
-      />
-      <Breadcrumbs />
-      <ProjectsSection showAll />
-    </>
-  );
+export const metadata: Metadata = {
+  title: "Projekt",
+  description:
+    "Se ett urval av Måleri Viskans projekt: fasadmålning, badrumsrenovering, fönsterrenovering, nyproduktion och mer i Marks kommun.",
+  alternates: { canonical: "/projekt" },
 };
 
-export default page;
+export default function ProjectsPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="Projekt"
+        title="Ett urval av vårt arbete"
+        lead={
+          "Vi är stolta över att ha arbetat med många olika kunder. Vår noggrannhet är densamma oavsett projektets storlek.\n\nMålet är att överträffa dina förväntningar och leverera ett resultat du är nöjd med länge."
+        }
+        breadcrumbs={[{ label: "Projekt", href: "/projekt" }]}
+      />
+      <section className="container-site pb-20 lg:pb-28">
+        <ProjectCards headingLevel="h2" />
+      </section>
+      <CtaBand title="Har du ett liknande projekt?" />
+    </>
+  );
+}

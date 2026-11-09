@@ -1,65 +1,94 @@
-import SocialMediaIcons from "../SocialMediaIcons";
+import { site } from "@/data/site";
+import { ReactNode } from "react";
+import MapEmbed from "../consent/MapEmbed";
 import ContactForm from "../forms/ContactForm";
+import SocialLinks from "../layout/SocialLinks";
 
 interface Props {
-  bg?: string;
-  invertArrow?: boolean;
-  linkColors?: string;
+  title?: ReactNode;
+  lead?: ReactNode;
+  as?: "h1" | "h2";
+  showMap?: boolean;
+  defaultService?: string;
 }
 
-const ContactSection = ({ bg, invertArrow = true, linkColors }: Props) => {
+const methods = [
+  {
+    label: "Ring oss",
+    value: site.phone,
+    href: site.phoneHref,
+    icon: "M5 4h3.5l1.6 4.2-2.2 1.4a11 11 0 0 0 6.5 6.5l1.4-2.2L20 15.5V19a1.5 1.5 0 0 1-1.6 1.5C10.5 20 4 13.5 3.5 5.6A1.5 1.5 0 0 1 5 4Z",
+  },
+  {
+    label: "Mejla oss",
+    value: site.email,
+    href: `mailto:${site.email}`,
+    icon: "M3.5 6.5h17v11h-17zM3.5 7l8.5 6.5L20.5 7",
+  },
+  {
+    label: "Här finns vi",
+    value: `${site.address.street}, ${site.address.city}`,
+    href: site.mapsUrl,
+    icon: "M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Zm0-9a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z",
+    external: true,
+  },
+];
+
+const ContactSection = ({
+  title = "Vi är er målarfirma i Kinna, Skene och Marks kommun",
+  lead = "Har du frågor om våra tjänster, eller funderar du på att påbörja ett projekt? Hör av dig, så återkommer vi så snart vi kan.",
+  as: Tag = "h2",
+  showMap = true,
+  defaultService,
+}: Props) => {
+  // Keep heading levels sequential: the form title sits one level below the section title.
+  const FormHeading = Tag === "h1" ? "h2" : "h3";
   return (
-    <section className={`bg-gradient-to-b ${bg ? bg : "from-cyan-700 to-cyan-950 text-white"}`}>
-      <div className="mx-auto grid w-full max-w-screen-2xl grid-cols-12 px-4 py-8 md:gap-8 lg:py-16">
-        <div className="relative col-span-12 lg:col-span-8">
-          <h2 className="text-4xl font-bold leading-none tracking-tight md:max-w-xl md:text-4xl xl:text-5xl">
-            Vi är Er målarfirma i Kinna, Skene och Marks kommun
-          </h2>
-          <p className="mt-6 max-w-2xl font-medium md:text-lg lg:text-xl">
-            Har du frågor gällande våra tjänster, eller funderar du på att påbörja ett projekt?
-            Tveka inte att kontakta oss! Slå oss en signal på{" "}
-            <a href="tel:+46730309666">
-              <span
-                className={`border-b ${linkColors ? linkColors : "border-cyan-400 text-cyan-400"}`}
+  <section id="kontakt" className="container-site py-20 lg:py-28">
+    <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <div className="lg:col-span-5">
+        <p className="eyebrow mb-4">Kontakt</p>
+        <Tag className="text-display text-4xl leading-[1.05] text-balance sm:text-5xl">{title}</Tag>
+        <p className="mt-5 text-lg leading-relaxed text-muted">{lead}</p>
+
+        <ul className="mt-10 space-y-3">
+          {methods.map((method) => (
+            <li key={method.label}>
+              <a
+                href={method.href}
+                {...(method.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="group flex items-center gap-4 rounded-xl border border-line bg-paper/60 p-4 transition-colors hover:border-ink/20 hover:bg-paper"
               >
-                073-030 96 66
-              </span>
-            </a>
-            , skicka ett mail till{" "}
-            <a href="mailto:info@maleriviskan.se">
-              <span
-                className={`border-b ${linkColors ? linkColors : "border-cyan-400 text-cyan-400"}`}
-              >
-                info@maleriviskan.se
-              </span>
-            </a>
-            , eller fyll i formuläret så återkommer vi så snart vi kan.
-          </p>
-          <img
-            src="/arrow_1.png"
-            className={`absolute right-10 top-28 hidden rotate-45 lg:block ${
-              invertArrow ? "invert" : ""
-            }`}
-            draggable={false}
-            width={400}
-          />
-        </div>
-        <div className="col-span-12 mx-auto mt-8 max-w-md md:ml-auto md:mt-0 lg:col-span-4 border bg-white shadow p-4 rounded-xl">
-          <p className="mb-4 max-w-2xl text-lg font-bold md:mb-6 lg:text-2xl text-black">
-            Fyll i formuläret så kontaktar vi dig så snart vi kan!
-          </p>
-          <ContactForm />
-        </div>
-        <div className="col-span-12">
-          <p className="mb-4 mt-6 text-center font-medium md:text-lg lg:text-left lg:text-xl">
-            Det går även bra att nå oss på sociala medier!
-          </p>
-          <div className="flex items-center justify-center gap-4 text-4xl lg:justify-start">
-            <SocialMediaIcons />
-          </div>
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-brand-50 text-brand-600 transition-colors group-hover:bg-brand-600 group-hover:text-chalk">
+                  <svg aria-hidden viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round">
+                    <path d={method.icon} />
+                  </svg>
+                </span>
+                <span>
+                  <span className="block text-sm text-muted">{method.label}</span>
+                  <span className="block font-semibold text-ink">{method.value}</span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-8 flex items-center gap-4 text-ink">
+          <span className="text-sm text-muted">Följ oss</span>
+          <SocialLinks />
         </div>
       </div>
-    </section>
+
+      <div className="lg:col-span-7">
+        <div className="rounded-panel bg-paper p-6 shadow-soft ring-1 ring-line sm:p-10">
+          <FormHeading className="text-display text-2xl sm:text-3xl">Begär en kostnadsfri offert</FormHeading>
+          <p className="mt-2 mb-7 text-muted">Fyll i formuläret så kontaktar vi dig så snart vi kan.</p>
+          <ContactForm defaultService={defaultService} />
+        </div>
+      </div>
+    </div>
+    {showMap && <MapEmbed className="mt-16 h-[360px] lg:h-[440px]" />}
+  </section>
   );
 };
 

@@ -1,39 +1,72 @@
-import RotavdragCalculator from "@/components/RotavdragCalculator";
-import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
-import BigCards from "@/components/cards/BigCards";
-import GenericHeroSection from "@/components/home/hero/GenericHeroSection";
-import { services } from "@/data/services";
+import QuoteButton from "@/components/quote/QuoteButton";
+import CtaBand from "@/components/sections/CtaBand";
+import FeatureRow from "@/components/sections/FeatureRow";
+import RotTeaser from "@/components/sections/RotTeaser";
+import { Arrow, ButtonLink } from "@/components/ui/Button";
+import PageHero from "@/components/ui/PageHero";
+import { featureAnchor, serviceHref, services } from "@/data/services";
+import type { Metadata } from "next";
+import Link from "next/link";
 
-export default function page() {
+export const metadata: Metadata = {
+  title: "Tjänster",
+  description:
+    "Målning, tapetsering, spackling och fönsterrenovering i Kinna, Skene och Marks kommun. Skräddarsydda målerilösningar för privatpersoner och företag.",
+  alternates: { canonical: "/tjanster" },
+};
+
+export default function ServicesPage() {
   return (
     <>
-      <GenericHeroSection
-        className="from-stone-700 to-stone-800"
-        title="Tjänster"
-        description={`Omfattande målningstjänster hos Måleri Viskan – din pålitliga lokala målare i Kinna, Skene och Marks kommun.
-          Vi specialiserar oss på att tillhandahålla skräddarsydda målerilösningar för både privatpersoner och företag.\n\nOavsett om det gäller inomhus- eller utomhusmålning sätter vi alltid kunden i fokus.`}
-        quoteButton
+      <PageHero
+        eyebrow="Tjänster"
+        title="Måleritjänster för hem och företag"
+        lead="Skräddarsydda målerilösningar för privatpersoner och företag i Kinna, Skene och Marks kommun. Oavsett om det gäller inomhus- eller utomhusmålning sätter vi alltid kunden i fokus."
+        breadcrumbs={[{ label: "Tjänster", href: "/tjanster" }]}
+        actions={<QuoteButton size="lg">Begär kostnadsfri offert</QuoteButton>}
       />
-      <Breadcrumbs />
-      <section className="bg-white">
-        <div className="mx-auto my-8 w-full max-w-screen-2xl px-4">
-          <div className="space-y-12 lg:space-y-16">
-            {services.map((services, index) => (
-              <BigCards
-                key={index}
-                title={services.name}
-                description={services.description}
-                image={services.image}
-                quoteButton={true}
-                readMoreButton={true}
-                link={services.link}
-                index={index}
-              />
-            ))}
-          </div>
-        </div>
+
+      <section className="container-site space-y-20 pb-20 lg:space-y-28 lg:pb-28">
+        {services.map((service, index) => (
+          <FeatureRow
+            key={service.id}
+            id={service.id}
+            title={service.name}
+            image={service.image}
+            imageAlt={service.name}
+            reverse={index % 2 === 1}
+            actions={
+              <>
+                <ButtonLink href={serviceHref(service)}>
+                  Läs mer om {service.name.toLowerCase()} <Arrow />
+                </ButtonLink>
+                <QuoteButton variant="secondary" service={service.name}>
+                  Begär offert
+                </QuoteButton>
+              </>
+            }
+          >
+            <p>{service.description}</p>
+            <ul className="flex flex-wrap gap-2 pt-2">
+              {service.features.map((feature) => (
+                <li key={feature.title}>
+                  <Link
+                    href={`${serviceHref(service)}#${featureAnchor(feature.title)}`}
+                    className="inline-block rounded-full border border-line bg-paper px-3.5 py-1.5 text-sm text-ink-soft transition-colors hover:border-ink/25 hover:text-ink"
+                  >
+                    {feature.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </FeatureRow>
+        ))}
       </section>
-      <RotavdragCalculator />
+
+      <div className="border-t border-line">
+        <RotTeaser />
+      </div>
+      <CtaBand />
     </>
   );
 }

@@ -1,59 +1,58 @@
-import Breadcrumbs from "@/components/breadcrumbs/Breadcrumbs";
-import BigCards from "@/components/cards/BigCards";
-import GenericHeroSection from "@/components/home/hero/GenericHeroSection";
-import GoogleMapSection from "@/components/home/map/GoogleMapSection";
-import ContactSection from "@/components/sections/ContactSection";
-import { Metadata } from "next";
+import CtaBand from "@/components/sections/CtaBand";
+import FeatureRow from "@/components/sections/FeatureRow";
+import PageHero from "@/components/ui/PageHero";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Miljöarbete | Måleri Viskan",
+  title: "Miljöarbete",
   description:
-    "Måleri Viskan - Vi kan måleri! Vi är din lokala målare i Kinna, Skene och Marks kommun.",
-    alternates: {
-      canonical: "https://maleriviskan.se/miljoarbete",
-    },
+    "Måleri Viskan arbetar aktivt för att minska sin miljöpåverkan med svanenmärkta produkter, återanvända verktyg och överbliven färg till lägre pris.",
+  alternates: { canonical: "/miljoarbete" },
 };
 
-const page = () => {
+const blocks = [
+  {
+    title: "Miljövänliga produkter",
+    image: "/alcro.jpg",
+    contain: true,
+    text: "Vi minimerar vår miljöpåverkan genom att använda noggrant utvalda, svanenmärkta produkter. Vi väljer material som håller hög kvalitet och samtidigt tar hänsyn till miljön.\n\nVarje val av färg och produkt är ett medvetet steg mot en mer hållbar framtid.",
+  },
+  {
+    title: "Återanvända verktyg och material",
+    image: "/rollers.webp",
+    text: "Vi återanvänder konsekvent verktyg och material. Genom att ge rollerbyglar och andra verktyg ett andra liv minskar vi avfallet och använder resurserna mer ansvarsfullt.\n\nSmå val, gjorda varje dag, gör stor skillnad över tid.",
+  },
+  {
+    title: "Överbliven färg",
+    image: "/malarburk.webp",
+    text: "När du planerar ditt projekt kan du välja att använda överbliven färg från oss, till ett lägre pris. Nämn det i din offertförfrågan så anpassar vi projektet efter det.\n\nVi ser varje färgburk som en möjlighet att minska svinnet.",
+  },
+];
+
+export default function EnvironmentPage() {
   return (
     <>
-      <GenericHeroSection
-        className="from-emerald-600 to-green-700"
-        title="Vad vi gör för miljön"
-        description={`Vi är stolta över att vara en del av lösningen på klimatförändringarna. Vi är noga med att använda miljövänliga produkter och att återvinna så mycket som möjligt.`}
-        quoteButton
+      <PageHero
+        eyebrow="Miljöarbete"
+        title="Hållbar målning, ett penseldrag i taget"
+        lead="Vi tar aktivt ansvar för miljön. Vårt mål är inte bara att skapa vackra ytor, utan också att minska vår påverkan på planeten."
+        breadcrumbs={[{ label: "Miljöarbete", href: "/miljoarbete" }]}
+        image={{ src: "/nature.jpg", alt: "Klippor och skog vid vattnet" }}
       />
-      <Breadcrumbs />
-      <section className="bg-white">
-        <div className="mx-auto my-8 w-full max-w-screen-2xl px-4">
-          <div className="space-y-12 lg:space-y-16">
-            <BigCards
-              containImage
-              imagePos="left"
-              title="Miljövänliga produkter"
-              description={`Vi strävar efter att minimera vår miljöpåverkan genom att använda noggrant utvalda svanenmärkta miljövänliga produkter. Vi väljer med omsorg material som inte bara lever upp till höga kvalitetsstandarder utan också respekterar och bevarar vår värdefulla planet.\n\nVarje val av färg och produkt är en medveten handling mot en mer hållbar framtid.`}
-              image="alcro.jpg"
-              index={0}
-            />
-            <BigCards
-              title="Återanvända verktyg och material"
-              description={`Vi försöker minimera vårt ekologiska fotavtryck genom att konsekvent återanvända verktyg och material. Genom att ge våra rollerbyglar och andra verktyg ett andra liv, minskar vi inte bara avfall utan främjar även en hållbar och ansvarsfull användning av resurser.\n\nVarje återanvänt verktyg och material är ett medvetet val som speglar vårt åtagande för en mer hållbar och cirkulär framtid och visar att små handlingar kan göra stor skillnad i vårt miljöansvariga arbetssätt.`}
-              image="rollers.webp"
-              index={1}
-            />
-            <BigCards
-              title="Överbliven färg"
-              description={`När du planerar ditt målningsprojekt kan du aktivt delta i vår hållbarhetsresa genom att inkludera överbliven färg från vårt initiativ. Meddela oss i din offertförfrågan, så anpassar vi ditt projekt med fokus på ansvarsfull resursanvändning.\n\nVi strävar inte bara efter att minimera färgsvinn; vi ser varje färgburk som en möjlighet att främja en mer hållbar och medveten användning av våra värdefulla resurser.`}
-              image="malarburk.webp"
-              index={2}
-            />
-          </div>
-        </div>
+      <section className="container-site space-y-20 pb-20 lg:space-y-28 lg:pb-28">
+        {blocks.map((block, index) => (
+          <FeatureRow
+            key={block.title}
+            title={block.title}
+            image={block.image}
+            reverse={index % 2 === 1}
+            contain={block.contain}
+          >
+            <p>{block.text}</p>
+          </FeatureRow>
+        ))}
       </section>
-      <ContactSection />
-      <GoogleMapSection />
+      <CtaBand text="Vill du använda överbliven färg i ditt projekt? Nämn det i din förfrågan." />
     </>
   );
-};
-
-export default page;
+}
