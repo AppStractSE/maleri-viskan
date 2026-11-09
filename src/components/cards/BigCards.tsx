@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
 import QuoteModalButtonWrapper from "../modal/QuoteModalWrapper";
@@ -76,12 +77,14 @@ const BigCards = ({
             <></>
           )}
         </div>
-        <div className="col-span-12 h-[300px] min-h-[300px] overflow-hidden rounded-sm sm:min-h-[400px] md:col-span-6 lg:h-[500px]">
-          <img
-            className={`h-full w-full rounded-sm ${imagePos ? imagePosition[imagePos] : "object-center"} ${containImage ? "object-contain" : "object-cover"}`}
-            draggable="false"
+        <div className="relative col-span-12 h-[300px] min-h-[300px] overflow-hidden rounded-sm sm:min-h-[400px] md:col-span-6 lg:h-[500px]">
+          <Image
+            fill
+            sizes="(min-width: 1536px) 768px, (min-width: 768px) 50vw, 100vw"
+            className={`rounded-sm ${imagePos ? imagePosition[imagePos] : "object-center"} ${containImage ? "object-contain" : "object-cover"}`}
+            draggable={false}
             src={image}
-            alt="Enkelt, snabbt och effektivt"
+            alt={title}
           />
         </div>
       </div>
