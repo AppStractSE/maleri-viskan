@@ -5,9 +5,7 @@ export interface Breadcrumb {
   label: string;
 }
 
-const serviceBreadcrumbs = services
-  .filter((x) => x.name !== "Sprutmålning")
-  .map((service) => ({ path: service.id, label: service.name }));
+const serviceBreadcrumbs = services.map((service) => ({ path: service.id, label: service.name }));
 const projectBreadcrumbs = projects.map((project) => ({ path: project.id, label: project.title }));
 
 export const breadcrumbs: Breadcrumb[] = [

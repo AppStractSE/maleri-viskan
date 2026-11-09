@@ -46,63 +46,6 @@ export const services: Service[] = [
           "Förse ditt våtrum med en uppfräschning som inte bara är estetiskt tillfredsställande utan också strängt anpassad för att möta kraven i fuktiga miljöer. Våra högkvalitativa produkter är särskilt utformade för att motstå fukt och håller höga standarder för hållbarhet. Genom att kombinera funktion och form skapar vi målningslösningar som skyddar ditt våtrum från fuktrelaterade skador och samtidigt skapar en fräsch och inbjudande atmosfär.",
       },
       {
-        image: "/tjanster/malning/sprutmalning.png",
-        smallImage: "/tjanster/malning/sprutmalning_small.png",
-        title: "Sprutmålning",
-        description:
-          "Oavsett om det är tak, element, dörrar eller köksluckor, använder vi avancerad sprutmålsteknik för att säkerställa en professionell finish som resulterar i ett effektivt och jämnt resultat. Vår tidsbesparande och effektiva metod är idealisk för både stora och små projekt, och vi strävar efter att leverera en slående och enhetlig yta som uppfyller dina förväntningar.",
-      },
-      {
-        image: "/tjanster/malning/utomhus.png",
-        smallImage: "/tjanster/malning/utomhus_small.png",
-        title: "Utvändig målning",
-        description:
-          "Ge ditt utomhusutrymme nytt liv! Oavsett om det är träfasader, puts, tegel eller takfot, behandlar vi varje yta med noggrannhet och omsorg. Våra högkvalitativa färgprodukter är speciellt formulerade för att stå emot väderpåverkan och skapa en hållbar och vacker yta. Vår erfarna personal kombinerar teknisk kompetens med konstnärlig känsla för att förvandla ditt utomhusutrymme och skydda det mot påfrestningar över tid.",
-      },
-      {
-        image: "/tjanster/malning/linolje.png",
-        smallImage: "/tjanster/malning/linolje_small.png",
-        title: "Linoljemålning",
-        description:
-          "Anlita oss för att måla med linolja för att ge dina ytor en unik och tidlös finish. Vi kombinerar traditionellt hantverk med moderna tekniker för att skapa vackra och hållbara resultat. Linolja ger rika färger och en djup glans samtidigt som den skyddar ytan. Speciellt lämplig för trädetaljer, resultatet ger en naturlig skönhet som åldras elegant över tiden.",
-      },
-    ],
-  },
-  {
-    id: "malning",
-    name: "Sprutmålning",
-    servicePageTitle: "Målning",
-    image: "/tjanster/malning/sprutmalning.png",
-    smallImage: "/tjanster/malning/sprutmalning.png",
-    shortDescription: "Ge professionell finish till tak, element, dörrar och köksluckor.",
-    description:
-      "Oavsett om det är tak, element, dörrar eller köksluckor, använder vi avancerad sprutmålsteknik för att säkerställa en professionell finish som resulterar i ett effektivt och jämnt resultat. Vår tidsbesparande och effektiva metod är idealisk för både stora och små projekt, och vi strävar efter att leverera en slående och enhetlig yta som uppfyller dina förväntningar.",
-    link: "tjanster/malning",
-    colors: ["#696969", "#212121"],
-    colorBg: "from-slate-600 to-slate-700",
-    features: [
-      {
-        image: "/tjanster/malning/inomhus.png",
-        smallImage: "/tjanster/malning/inomhus_small.png",
-        title: "Invändig målning",
-        description:
-          "Skapa en inbjudande och stilfull atmosfär i ditt hem med hjälp av vår expertis! Vi använder noggrant utvalda målningsprodukter som garanterar inte bara visuell tilltalande resultat utan även långvarig kvalitet. Med ett brett utbud av färgnyanser och finishalternativ anpassar vi varje projekt för att matcha olika ytor och skapa den önskade atmosfären i ditt utrymme. De slitstarka och lättskötta produkter vi använder ger inte bara ett estetiskt lyft utan förbättrar även övergripande kvalitet och livslängd.",
-      },
-      {
-        image: "/tjanster/malning/vatrum.png",
-        smallImage: "/tjanster/malning/vatrum_small.png",
-        title: "Våtrumsmålning",
-        description:
-          "Förse ditt våtrum med en uppfräschning som inte bara är estetiskt tillfredsställande utan också strängt anpassad för att möta kraven i fuktiga miljöer. Våra högkvalitativa produkter är särskilt utformade för att motstå fukt och håller höga standarder för hållbarhet. Genom att kombinera funktion och form skapar vi målningslösningar som skyddar ditt våtrum från fuktrelaterade skador och samtidigt skapar en fräsch och inbjudande atmosfär.",
-      },
-      {
-        image: "/tjanster/malning/sprutmalning.png",
-        smallImage: "/tjanster/malning/sprutmalning_small.png",
-        title: "Sprutmålning",
-        description:
-          "Oavsett om det är tak, element, dörrar eller köksluckor, använder vi avancerad sprutmålsteknik för att säkerställa en professionell finish som resulterar i ett effektivt och jämnt resultat. Vår tidsbesparande och effektiva metod är idealisk för både stora och små projekt, och vi strävar efter att leverera en slående och enhetlig yta som uppfyller dina förväntningar.",
-      },
-      {
         image: "/tjanster/malning/utomhus.png",
         smallImage: "/tjanster/malning/utomhus_small.png",
         title: "Utvändig målning",

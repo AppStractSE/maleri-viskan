@@ -7,7 +7,7 @@ import { HiHome } from "react-icons/hi2";
 
 const Breadcrumbs = () => {
   const pathname = usePathname();
-  const pathnames = pathname.split("/").filter((path) => path !== "" && path !== "Sprutmålning");
+  const pathnames = pathname.split("/").filter((path) => path !== "");
 
   const renderedBreadcrumbs = breadcrumbs
     .filter((breadcrumb) => pathname.includes(breadcrumb.path))
