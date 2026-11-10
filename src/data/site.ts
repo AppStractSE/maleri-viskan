@@ -11,14 +11,13 @@ export const site = {
   email: "info@maleriviskan.se",
   address: {
     street: "Stationsgatan 8",
-    // TODO: confirm the postal code for Stationsgatan 8 before launch.
-    postalCode: "",
+    postalCode: "511 54",
     city: "Kinna",
     region: "Västra Götalands län",
     country: "SE",
   },
-  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Stationsgatan%208%2C%20Kinna",
-  mapsEmbedUrl: "https://maps.google.com/maps?hl=sv&q=Stationsgatan%208%2C%20Kinna&z=15&output=embed",
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Stationsgatan%208%2C%20511%2054%20Kinna",
+  mapsEmbedUrl: "https://maps.google.com/maps?hl=sv&q=Stationsgatan%208%2C%20511%2054%20Kinna&z=15&output=embed",
   areaServed: ["Kinna", "Skene", "Marks kommun"],
   socials: {
     instagram: "https://instagram.com/maleriviskan",

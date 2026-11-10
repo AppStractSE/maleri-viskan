@@ -81,7 +81,7 @@ export default function Home() {
                 src="/coat-hanger.jpg"
                 alt="Arbetsjacka med Måleri Viskans logga"
                 fill
-                priority
+                preload
                 sizes="(min-width: 1280px) 560px, (min-width: 1024px) 45vw, 100vw"
                 className="object-cover"
               />
@@ -127,20 +127,20 @@ export default function Home() {
           <div className="grid grid-cols-5 gap-4 lg:col-span-6">
             <div className="relative col-span-3 aspect-[3/4] overflow-hidden rounded-panel bg-mist-100">
               <Image
-                src="/20240119_074238.jpg"
+                src="/tb01.png"
                 alt="Torbjörn från Måleri Viskan målar en vägg"
                 fill
                 sizes="(min-width: 1024px) 340px, 60vw"
-                className="object-cover object-[50%_30%]"
+                className="object-cover"
               />
             </div>
             <div className="relative col-span-2 mt-16 aspect-[3/4] overflow-hidden rounded-panel bg-mist-100">
               <Image
-                src="/20240119_074402.jpg"
-                alt="Torbjörn målar vid en golvlist"
+                src="/tb02.png"
+                alt="Torbjörn maskerar golvlisten inför målning"
                 fill
                 sizes="(min-width: 1024px) 220px, 40vw"
-                className="object-cover object-[100%_50%]"
+                className="object-cover"
               />
             </div>
           </div>

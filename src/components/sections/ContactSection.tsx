@@ -44,7 +44,10 @@ const ContactSection = ({
   // Keep heading levels sequential: the form title sits one level below the section title.
   const FormHeading = Tag === "h1" ? "h2" : "h3";
   return (
-  <section id="kontakt" className="container-site py-20 lg:py-28">
+  <section
+    id="kontakt"
+    className={`container-site ${Tag === "h1" ? "pt-8 pb-20 lg:pt-10 lg:pb-28" : "py-20 lg:py-28"}`}
+  >
     <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
       <div className="lg:col-span-5">
         <p className="eyebrow mb-4">Kontakt</p>

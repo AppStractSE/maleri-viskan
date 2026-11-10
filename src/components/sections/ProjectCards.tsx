@@ -12,7 +12,7 @@ interface Props {
 }
 
 const bentoSpans = [
-  "lg:col-span-7 lg:row-span-2",
+  "col-span-2 lg:col-span-7 lg:row-span-2",
   "lg:col-span-5",
   "lg:col-span-5",
   "lg:col-span-4",
@@ -26,7 +26,7 @@ const ProjectCards = ({ projects = allProjects, layout = "grid", headingLevel: H
     <ul
       className={
         bento
-          ? "grid gap-4 sm:grid-cols-2 sm:gap-5 lg:auto-rows-[260px] lg:grid-cols-12"
+          ? "grid grid-cols-2 gap-3 sm:gap-5 lg:auto-rows-[260px] lg:grid-cols-12"
           : "grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-3"
       }
     >
@@ -50,12 +50,12 @@ const ProjectCards = ({ projects = allProjects, layout = "grid", headingLevel: H
                 className="object-cover transition-transform duration-700 ease-[var(--ease-out-soft)] group-hover/link:scale-[1.04]"
               />
               {bento && (
-                <div className="absolute inset-0 flex items-end bg-gradient-to-t from-ink/70 via-ink/0 to-ink/0 p-5 sm:p-6">
-                  <div className="flex w-full items-end justify-between gap-4 text-chalk">
-                    <Heading className={`text-display ${index === 0 ? "text-3xl sm:text-4xl" : "text-2xl"}`}>
+                <div className="absolute inset-0 flex items-end bg-gradient-to-t from-ink/70 via-ink/0 to-ink/0 p-3 sm:p-6">
+                  <div className="flex w-full items-end justify-between gap-2 text-chalk sm:gap-4">
+                    <Heading className={`text-display ${index === 0 ? "text-2xl sm:text-4xl" : "text-sm leading-tight sm:text-2xl"}`}>
                       {project.title}
                     </Heading>
-                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-chalk/15 backdrop-blur transition-colors group-hover/link:bg-chalk group-hover/link:text-ink">
+                    <span className="hidden h-10 w-10 shrink-0 place-items-center rounded-full bg-chalk/15 backdrop-blur sm:grid transition-colors group-hover/link:bg-chalk group-hover/link:text-ink">
                       <Arrow />
                     </span>
                   </div>

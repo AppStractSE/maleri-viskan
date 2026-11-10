@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     type: "website",
     locale: "sv_SE",
-    images: [{ url: "/20240119_074238.jpg", width: 1800, height: 2400, alt: "Torbjörn på Måleri Viskan målar en vägg" }],
+    images: [{ url: "/tb01.png", width: 365, height: 500, alt: "Torbjörn på Måleri Viskan målar en vägg" }],
   },
 };
 
@@ -44,7 +44,7 @@ const localBusiness = {
   name: site.name,
   url: site.url,
   logo: `${site.url}/logo.png`,
-  image: `${site.url}/20240119_074238.jpg`,
+  image: `${site.url}/tb01.png`,
   description: site.description,
   telephone: site.phoneE164,
   email: site.email,

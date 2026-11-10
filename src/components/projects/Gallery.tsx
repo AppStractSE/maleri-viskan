@@ -67,7 +67,7 @@ const Gallery = ({ title, images }: Props) => {
                     : "(min-width: 1024px) 420px, 50vw"
                 }
                 className="object-cover transition-transform duration-700 ease-[var(--ease-out-soft)] group-hover:scale-[1.03]"
-                priority={i < 3}
+                loading={i < 3 ? "eager" : undefined}
               />
             </button>
           </li>

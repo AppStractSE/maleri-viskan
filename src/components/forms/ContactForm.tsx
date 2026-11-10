@@ -3,7 +3,7 @@
 import type { ContactPayload } from "@/app/api/contact-form/route";
 import { services } from "@/data/services";
 import { site } from "@/data/site";
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { useForm } from "react-hook-form";
 import { buttonClasses } from "../ui/Button";
 
@@ -26,6 +26,13 @@ interface Props {
 const ContactForm = ({ defaultService = "", onDone, autoFocus }: Props) => {
   const id = useId();
   const [status, setStatus] = useState<Status>({ state: "idle" });
+
+  // Focus the first field only for mouse/keyboard users: on phones an autofocused field pops the
+  // keyboard and pushes the dialog heading out of view.
+  useEffect(() => {
+    if (!autoFocus || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    document.getElementById(`${id}-name`)?.focus();
+  }, [autoFocus, id]);
   const {
     register,
     handleSubmit,
@@ -126,7 +133,6 @@ const ContactForm = ({ defaultService = "", onDone, autoFocus }: Props) => {
           {...field("name")}
           className={inputClass}
           autoComplete="name"
-          autoFocus={autoFocus}
           placeholder="För- och efternamn"
           {...register("name", {
             required: "Ange ditt namn",

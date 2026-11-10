@@ -7,7 +7,7 @@ interface Props {
   title: ReactNode;
   lead?: ReactNode;
   breadcrumbs: Crumb[];
-  image?: { src: string; alt: string; position?: string };
+  image?: { src: string; alt: string; position?: string; aspect?: "portrait" | "landscape" };
   actions?: ReactNode;
   children?: ReactNode;
 }
@@ -22,7 +22,7 @@ const PageHero = ({ eyebrow, title, lead, breadcrumbs, image, actions, children 
       >
         <div className={image ? "lg:col-span-7" : "max-w-4xl"}>
           {eyebrow && <p className="eyebrow mb-5">{eyebrow}</p>}
-          <h1 className="text-display animate-fade-up text-[2.6rem] leading-[1.04] text-balance hyphens-auto sm:text-6xl lg:text-7xl">
+          <h1 className="text-display animate-fade-up text-[2.25rem] leading-[1.04] text-balance min-[400px]:text-[2.6rem] sm:text-6xl lg:text-7xl">
             {title}
           </h1>
           {lead && (
@@ -35,12 +35,16 @@ const PageHero = ({ eyebrow, title, lead, breadcrumbs, image, actions, children 
         </div>
         {image && (
           <div className="relative lg:col-span-5">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-panel bg-mist-100 shadow-lift lg:aspect-[4/5]">
+            <div
+              className={`relative aspect-[4/3] overflow-hidden rounded-panel bg-mist-100 shadow-lift ${
+                image.aspect === "landscape" ? "" : "lg:aspect-[4/5]"
+              }`}
+            >
               <Image
                 src={image.src}
                 alt={image.alt}
                 fill
-                priority
+                preload
                 sizes="(min-width: 1280px) 500px, (min-width: 1024px) 40vw, 100vw"
                 className="object-cover"
                 style={image.position ? { objectPosition: image.position } : undefined}

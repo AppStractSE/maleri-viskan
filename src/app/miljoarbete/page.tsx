@@ -37,7 +37,7 @@ export default function EnvironmentPage() {
         title="Hållbar målning, ett penseldrag i taget"
         lead="Vi tar aktivt ansvar för miljön. Vårt mål är inte bara att skapa vackra ytor, utan också att minska vår påverkan på planeten."
         breadcrumbs={[{ label: "Miljöarbete", href: "/miljoarbete" }]}
-        image={{ src: "/nature.jpg", alt: "Klippor och skog vid vattnet" }}
+        image={{ src: "/nature.jpg", alt: "Klippor och skog vid vattnet", aspect: "landscape" }}
       />
       <section className="container-site space-y-20 pb-20 lg:space-y-28 lg:pb-28">
         {blocks.map((block, index) => (

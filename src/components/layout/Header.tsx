@@ -137,7 +137,7 @@ const Header = () => {
               alt={site.name}
               width={428}
               height={224}
-              priority
+              preload
               sizes="88px"
               className="h-auto w-[76px] lg:w-[88px]"
             />
