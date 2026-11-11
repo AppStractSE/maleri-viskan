@@ -38,14 +38,14 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <>
       <PageHero
-        eyebrow={`Projekt · ${project.images.length} bilder`}
+        eyebrow={`Projekt · ${project.images.length} ${project.images.length === 1 ? "bild" : "bilder"}`}
         title={project.title}
         lead={project.description}
         breadcrumbs={[
           { label: "Projekt", href: "/projekt" },
           { label: project.title, href: projectHref(project) },
         ]}
-        actions={<QuoteButton size="lg">Begär offert på liknande</QuoteButton>}
+        actions={<QuoteButton size="lg">Boka nu</QuoteButton>}
       />
       <section className="container-site pb-20 lg:pb-28">
         <Gallery title={project.title} images={project.images} />

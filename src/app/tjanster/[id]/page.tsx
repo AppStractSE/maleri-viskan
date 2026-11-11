@@ -50,7 +50,7 @@ export default async function ServicePage({ params }: Props) {
         actions={
           <>
             <QuoteButton size="lg" service={service.name}>
-              Begär kostnadsfri offert
+              Boka nu
             </QuoteButton>
             <a href={site.phoneHref} className={buttonClasses({ variant: "secondary", size: "lg" })}>
               Ring {site.phone}
@@ -85,7 +85,7 @@ export default async function ServicePage({ params }: Props) {
             reverse={index % 2 === 1}
             actions={
               <QuoteButton variant="secondary" service={service.name}>
-                Begär offert
+                Boka nu
               </QuoteButton>
             }
           >

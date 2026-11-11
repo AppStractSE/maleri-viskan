@@ -135,7 +135,7 @@ const RotCalculator = () => {
         </p>
         <div className="mt-auto pt-8">
           <QuoteButton variant="light" size="lg" className="w-full">
-            Begär offert
+            Boka nu
           </QuoteButton>
         </div>
       </div>

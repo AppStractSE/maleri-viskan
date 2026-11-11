@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Kontakt",
   description:
-    "Kontakta Måleri Viskan för en kostnadsfri offert. Ring 073-030 96 66, mejla info@maleriviskan.se eller fyll i formuläret.",
+    "Kontakta Måleri Viskan för att boka målare. Ring 073-030 96 66, mejla info@maleriviskan.se eller fyll i formuläret.",
   alternates: { canonical: "/kontakt" },
 };
 

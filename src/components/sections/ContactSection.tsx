@@ -84,8 +84,8 @@ const ContactSection = ({
 
       <div className="lg:col-span-7">
         <div className="rounded-panel bg-paper p-6 shadow-soft ring-1 ring-line sm:p-10">
-          <FormHeading className="text-display text-2xl sm:text-3xl">Begär en kostnadsfri offert</FormHeading>
-          <p className="mt-2 mb-7 text-muted">Fyll i formuläret så kontaktar vi dig så snart vi kan.</p>
+          <FormHeading className="text-display text-2xl sm:text-3xl">Boka nu</FormHeading>
+          <p className="mt-2 mb-7 text-muted">Vi utför jobb i hela Marks kommun. Skicka en bokningsförfrågan så kontaktar vi dig för att planera arbetet.</p>
           <ContactForm defaultService={defaultService} />
         </div>
       </div>

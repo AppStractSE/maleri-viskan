@@ -66,7 +66,7 @@ const ProjectCards = ({ projects = allProjects, layout = "grid", headingLevel: H
               <div className="mt-4">
                 <div className="flex items-baseline justify-between gap-4">
                   <Heading className="text-display text-2xl">{project.title}</Heading>
-                  <span className="shrink-0 text-sm text-muted">{project.images.length} bilder</span>
+                  <span className="shrink-0 text-sm text-muted">{project.images.length} {project.images.length === 1 ? "bild" : "bilder"}</span>
                 </div>
                 <p className="mt-2 line-clamp-2 text-muted">{project.description}</p>
                 <span className="mt-3 flex items-center gap-2 text-sm font-semibold text-brand-600">

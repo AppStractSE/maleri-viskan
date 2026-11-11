@@ -11,7 +11,7 @@ interface Props {
 /** Closing call to action used at the bottom of subpages. */
 const CtaBand = ({
   title = "Redo att sätta igång?",
-  text = "Berätta om ditt projekt så återkommer vi med en kostnadsfri offert.",
+  text = "Berätta om ditt projekt så kontaktar vi dig för att planera arbetet.",
   service,
 }: Props) => (
   <section className="container-site pb-20 lg:pb-28">
@@ -26,7 +26,7 @@ const CtaBand = ({
       </div>
       <div className="relative mt-9 flex flex-wrap gap-3 lg:mt-0 lg:shrink-0">
         <QuoteButton variant="light" size="lg" service={service}>
-          Begär offert
+          Boka nu
         </QuoteButton>
         <a href={site.phoneHref} className={buttonClasses({ variant: "outlineLight", size: "lg" })}>
           Ring {site.phone}

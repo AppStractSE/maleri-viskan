@@ -23,7 +23,7 @@ export default function ServicesPage() {
         title="Måleritjänster för hem och företag"
         lead="Skräddarsydda målerilösningar för privatpersoner och företag i Kinna, Skene och Marks kommun. Oavsett om det gäller inomhus- eller utomhusmålning sätter vi alltid kunden i fokus."
         breadcrumbs={[{ label: "Tjänster", href: "/tjanster" }]}
-        actions={<QuoteButton size="lg">Begär kostnadsfri offert</QuoteButton>}
+        actions={<QuoteButton size="lg">Boka nu</QuoteButton>}
       />
 
       <section className="container-site space-y-20 pb-20 lg:space-y-28 lg:pb-28">
@@ -41,7 +41,7 @@ export default function ServicesPage() {
                   Läs mer om {service.name.toLowerCase()} <Arrow />
                 </ButtonLink>
                 <QuoteButton variant="secondary" service={service.name}>
-                  Begär offert
+                  Boka nu
                 </QuoteButton>
               </>
             }

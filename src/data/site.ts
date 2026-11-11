@@ -3,8 +3,14 @@ export const site = {
   url: "https://maleriviskan.se",
   tagline: "Målare i Kinna, Skene och Marks kommun",
   description:
-    "Din lokala målare i Kinna, Skene och Marks kommun. Målning inne och ute, våtrum, tapetsering, spackling och fönsterrenovering. Begär en kostnadsfri offert.",
+    "Din lokala målare i Kinna, Skene och Marks kommun. Målning inne och ute, våtrum, tapetsering, spackling och fönsterrenovering. Boka nu.",
   owner: "Torbjörn Johansson",
+  award: {
+    title: "Årets nyföretagare i Mark 2026",
+    year: 2026,
+    sourceUrl: "https://se.linkedin.com/posts/foretagarna-i-mark_f%C3%B6r-en-vecka-sedan-korade-vi-%C3%A5rets-f%C3%B6retagare-activity-7521513170956472322-Sor7",
+    sourceName: "Företagarna i Mark",
+  },
   phone: "073-030 96 66",
   phoneHref: "tel:+46730309666",
   phoneE164: "+46730309666",
@@ -25,9 +31,8 @@ export const site = {
     messenger: "https://m.me/maleriviskan",
   },
   credentials: [
-    "Auktoriserade av Måleribranschens Yrkesnämnd (MYN)",
+    "Årets nyföretagare i Mark 2026",
     "Certifikat för våtrumsmålning (MVK)",
-    "Medlemmar i Måleriföretagen",
     "Innehar F-skattsedel",
   ],
 } as const;

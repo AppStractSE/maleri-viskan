@@ -4,9 +4,39 @@ export interface Project {
   description: string;
   image: string;
   images: string[];
+  /** Original public post; the date is publication, not completion of the work. */
+  source?: { url: string; publishedAt: string };
 }
 
 export const projects: Project[] = [
+  {
+    id: "interior-november-2026",
+    title: "Matsal i Örby",
+    description: "Förarbete och målning av en matsal i Örby, med röda väggar och vita snickerier.",
+    image: "/projekt/instagram-2026/interior-november.jpg",
+    images: [
+      "/projekt/instagram-2026/interior-november.jpg",
+      "/projekt/instagram-2026/matsal-orby-02.jpg",
+      "/projekt/instagram-2026/matsal-orby-03.jpg",
+      "/projekt/instagram-2026/matsal-orby-04.jpg",
+    ],
+    source: { url: "https://www.instagram.com/maleriviskan/p/Dfaoa5Cgh1c/", publishedAt: "2026-11-06" },
+  },
+  {
+    id: "rod-trafasad-2026",
+    title: "Fasad- och fönstermålning i Hyssna",
+    description: "Fasad- och fönstermålning av en stuga i Hyssna, med röd träfasad och vita detaljer.",
+    image: "/projekt/instagram-2026/rod-trafasad-maj.jpg",
+    images: [
+      "/projekt/instagram-2026/rod-trafasad-maj.jpg",
+      "/projekt/instagram-2026/hyssna-02.jpg",
+      "/projekt/instagram-2026/hyssna-03.jpg",
+      "/projekt/instagram-2026/hyssna-04.jpg",
+      "/projekt/instagram-2026/hyssna-05.jpg",
+      "/projekt/instagram-2026/hyssna-06.jpg",
+    ],
+    source: { url: "https://www.instagram.com/maleriviskan/p/DX_FKOLAn7C/", publishedAt: "2026-05-06" },
+  },
   {
     id: "brosaeter-bnb",
     title: "Brosäter BnB",

@@ -16,8 +16,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-const trust = ["MYN-auktoriserade", "MVK-certifierade för våtrum", "F-skatt och ROT-avdrag"];
-
 const highlights = [
   {
     title: "Rätt färg för varje yta",
@@ -58,46 +56,36 @@ export default function Home() {
               rätt behandling för varje yta är det som gör att du blir nöjd med resultatet.
             </p>
             <div className="mt-6 flex animate-fade-up flex-wrap gap-3 [animation-delay:180ms] sm:mt-8">
-              <QuoteButton size="lg">Begär kostnadsfri offert</QuoteButton>
+              <QuoteButton size="lg">Boka nu</QuoteButton>
               <ButtonLink href="/tjanster" variant="secondary" size="lg">
                 Våra tjänster <Arrow />
               </ButtonLink>
             </div>
-            <ul className="mt-6 flex animate-fade-up flex-wrap gap-x-6 gap-y-2 text-sm text-ink-soft [animation-delay:240ms] sm:mt-9">
-              {trust.map((item) => (
-                <li key={item} className="flex items-center gap-2">
-                  <svg aria-hidden viewBox="0 0 16 16" className="h-4 w-4 text-brand-500" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="m3.5 8.5 3 3 6-7" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div className="relative lg:col-span-6 lg:pl-6 xl:pl-12">
-            <div className="relative aspect-[5/4] overflow-hidden rounded-panel bg-mist-100 sm:aspect-square lg:aspect-[5/6]">
+            <div className="relative aspect-[9/10] overflow-hidden rounded-panel bg-mist-100">
               <Image
                 src="/coat-hanger.jpg"
                 alt="Arbetsjacka med Måleri Viskans logga"
                 fill
                 preload
                 sizes="(min-width: 1280px) 560px, (min-width: 1024px) 45vw, 100vw"
-                className="object-cover object-[center_65%] lg:object-center"
+                className="object-cover object-[center_65%] lg:object-[center_60%]"
               />
             </div>
-            <div className="relative mx-3 -mt-6 flex items-center gap-3 rounded-xl border border-line bg-paper p-3 shadow-soft sm:absolute sm:-bottom-6 sm:left-8 sm:mx-0 sm:mt-0 sm:gap-4 sm:p-4 sm:pr-6 lg:-left-6">
-              <Image
-                src="/MVK.png"
-                alt=""
-                width={400}
-                height={520}
-                sizes="40px"
-                className="h-12 w-auto"
-              />
-              <div>
-                <p className="text-sm font-semibold sm:text-base">Certifierade våtrumsmålare</p>
-                <p className="text-xs text-muted sm:text-sm">Måleribranschens Våtrumskontroll</p>
+            <div className="absolute bottom-20 left-3 flex max-w-[calc(100%-24px)] -rotate-2 items-center gap-2 rounded-lg border border-ink/10 bg-paper px-2.5 py-2 shadow-[0_10px_24px_-8px_rgba(8,28,35,0.3),0_2px_6px_rgba(8,28,35,0.08)] sm:bottom-24 sm:left-8 sm:-rotate-3 sm:gap-2.5 sm:px-3 lg:left-3">
+              <Image src="/MVK.png" alt="" width={400} height={520} sizes="(min-width: 640px) 28px, 25px" className="h-8 w-auto shrink-0 sm:h-9" />
+              <div className="min-w-0">
+                <p className="text-[11px] leading-snug font-semibold sm:text-xs">Certifierade våtrumsmålare</p>
+                <p className="mt-0.5 text-[10px] leading-snug text-muted">Måleribranschens Våtrumskontroll</p>
+              </div>
+            </div>
+            <div className="absolute right-3 bottom-3 flex max-w-[calc(100%-24px)] rotate-2 items-center gap-2 rounded-lg border border-ink/10 bg-paper px-2.5 py-2 shadow-[0_10px_24px_-8px_rgba(8,28,35,0.3),0_2px_6px_rgba(8,28,35,0.08)] sm:right-5 sm:bottom-4 sm:rotate-3 sm:gap-2.5 sm:px-3">
+              <Image src="/icons/f-skatt.svg" alt="" width={48} height={56} className="h-8 w-auto shrink-0 sm:h-9" />
+              <div className="min-w-0">
+                <p className="text-[11px] leading-snug font-semibold sm:text-xs">F-skatt</p>
+                <p className="mt-0.5 text-[10px] leading-snug text-muted">ROT-avdrag</p>
               </div>
             </div>
           </div>
@@ -119,11 +107,11 @@ export default function Home() {
             </div>
             <div className="relative mt-8 aspect-[365/500] overflow-hidden rounded-panel bg-mist-100 sm:mt-12">
               <Image
-                src="/tb02.png"
-                alt="Torbjörn maskerar golvlisten inför målning"
+                src="/coat-hanger.jpg"
+                alt="Arbetsjacka med Måleri Viskans logga"
                 fill
                 sizes="(min-width: 1280px) 280px, (min-width: 1024px) 23vw, 45vw"
-                className="object-cover"
+                className="object-cover object-[60%_center]"
               />
             </div>
           </div>
@@ -134,7 +122,7 @@ export default function Home() {
             </h2>
             <div className="prose-copy mt-6 space-y-4">
               <p>
-                Mitt namn är {site.owner}. Jag har arbetat inom branschen i många år och finslipat
+                Mitt namn är {site.owner} och jag arbetar tillsammans med Louise. Jag har arbetat inom branschen i många år och finslipat
                 mina färdigheter för att leverera ett resultat jag är stolt över. Mitt fokus ligger
                 på precision, noggrannhet och att möta varje kunds unika behov.
               </p>
@@ -144,7 +132,7 @@ export default function Home() {
               </p>
             </div>
             <div className="mt-9 flex flex-wrap gap-3">
-              <QuoteButton>Begär offert</QuoteButton>
+              <QuoteButton>Boka nu</QuoteButton>
               <ButtonLink href="/kontakt" variant="secondary">
                 Kontakta oss <Arrow />
               </ButtonLink>
@@ -152,6 +140,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <CredentialsBand />
 
       {/* Services */}
       <section className="container-site py-20 lg:py-28">
@@ -183,11 +173,9 @@ export default function Home() {
           }
         />
         <div className="mt-12">
-          <ProjectCards projects={projects.slice(0, 6)} layout="bento" />
+          <ProjectCards projects={projects} layout="bento" />
         </div>
       </section>
-
-      <CredentialsBand />
 
       {/* Highlights */}
       <section className="container-site py-20 lg:py-28">

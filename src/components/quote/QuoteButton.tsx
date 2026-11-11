@@ -12,7 +12,7 @@ interface Props {
   className?: string;
 }
 
-const QuoteButton = ({ children = "Begär offert", service, variant, size, className }: Props) => {
+const QuoteButton = ({ children = "Boka nu", service, variant, size, className }: Props) => {
   const { openQuote } = useQuote();
   return (
     <button

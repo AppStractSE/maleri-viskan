@@ -9,6 +9,7 @@ interface Props {
 }
 
 const Gallery = ({ title, images }: Props) => {
+  const uniformGrid = images.length > 3;
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [index, setIndex] = useState(0);
   const touchStart = useRef<{ x: number; y: number } | null>(null);
@@ -50,7 +51,7 @@ const Gallery = ({ title, images }: Props) => {
       {/* Row-major grid so "next" in the lightbox is the image to the right. */}
       <ul className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
         {images.map((src, i) => (
-          <li key={src} className={i === 0 ? "col-span-2 row-span-2" : ""}>
+          <li key={src} className={!uniformGrid && i === 0 ? "col-span-2 row-span-2" : ""}>
             <button
               type="button"
               onClick={() => open(i)}
@@ -62,7 +63,7 @@ const Gallery = ({ title, images }: Props) => {
                 alt={`${title}, bild ${i + 1}`}
                 fill
                 sizes={
-                  i === 0
+                  !uniformGrid && i === 0
                     ? "(min-width: 1024px) 840px, 100vw"
                     : "(min-width: 1024px) 420px, 50vw"
                 }

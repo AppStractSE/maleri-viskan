@@ -17,7 +17,7 @@ export const useQuote = () => {
   return context;
 };
 
-/** One quote dialog for the whole site, opened from any "Begär offert" button. */
+/** One quote dialog for the whole site, opened from any "Boka nu" button. */
 const QuoteProvider = ({ children }: { children: ReactNode }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [service, setService] = useState<string>();
@@ -56,11 +56,11 @@ const QuoteProvider = ({ children }: { children: ReactNode }) => {
         <div className="p-6 sm:p-9">
           <div className="mb-6 flex items-start justify-between gap-6">
             <div>
-              <p className="eyebrow mb-3">Kostnadsfri offert</p>
+              <p className="eyebrow mb-3">Bokningsförfrågan</p>
               <h2 id="quote-title" className="text-display text-3xl leading-tight sm:text-4xl">
                 Berätta om ditt projekt
               </h2>
-              <p className="mt-3 text-muted">Vi återkommer så snart vi kan.</p>
+              <p className="mt-3 text-muted">Skicka en bokningsförfrågan så kontaktar vi dig för att komma överens om tid och upplägg.</p>
               <p className="mt-1 text-muted">
                 Bråttom?{" "}
                 <a

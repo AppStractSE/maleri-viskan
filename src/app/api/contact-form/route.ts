@@ -85,7 +85,7 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         Name: data.name,
         Email: data.email,
-        Subject: `Kontaktformulär: ${data.service} - ${data.name}`,
+        Subject: `Bokningsförfrågan: ${data.service} - ${data.name}`,
         Message: `${data.message}\n\nTelefon: ${data.phone}`,
         MessageHtml: buildHtml(data),
       }),

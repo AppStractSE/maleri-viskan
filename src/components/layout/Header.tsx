@@ -249,7 +249,7 @@ const Header = () => {
                 className: `max-sm:px-4 ${mobileOpen ? "max-lg:invisible max-lg:opacity-0" : ""}`,
               })}
             >
-              Begär offert
+              Boka nu
             </button>
             <button
               type="button"
@@ -351,7 +351,7 @@ const Header = () => {
               Ring oss
             </a>
             <button type="button" onClick={startQuote} className={buttonClasses()}>
-              Begär offert
+              Boka nu
             </button>
           </div>
         </div>

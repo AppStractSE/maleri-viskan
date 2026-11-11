@@ -49,6 +49,7 @@ const localBusiness = {
   telephone: site.phoneE164,
   email: site.email,
   founder: { "@type": "Person", name: site.owner },
+  award: site.award.title,
   address: {
     "@type": "PostalAddress",
     streetAddress: site.address.street,

@@ -25,7 +25,7 @@ const blocks = [
   {
     title: "Överbliven färg",
     image: "/malarburk.webp",
-    text: "När du planerar ditt projekt kan du välja att använda överbliven färg från oss, till ett lägre pris. Nämn det i din offertförfrågan så anpassar vi projektet efter det.\n\nVi ser varje färgburk som en möjlighet att minska svinnet.",
+    text: "När du planerar ditt projekt kan du välja att använda överbliven färg från oss, till ett lägre pris. Nämn det i din bokningsförfrågan så anpassar vi projektet efter det.\n\nVi ser varje färgburk som en möjlighet att minska svinnet.",
   },
 ];
 

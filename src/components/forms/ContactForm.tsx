@@ -81,7 +81,7 @@ const ContactForm = ({ defaultService = "", onDone, autoFocus }: Props) => {
           </svg>
         </span>
         <div>
-          <p className="text-display text-3xl">Tack för ditt meddelande!</p>
+          <p className="text-display text-3xl">Tack för din bokningsförfrågan!</p>
           <p className="mt-2 text-muted">Vi återkommer till dig så snart vi kan.</p>
         </div>
         <button
@@ -247,7 +247,7 @@ const ContactForm = ({ defaultService = "", onDone, autoFocus }: Props) => {
           disabled={isSubmitting}
           className={buttonClasses({ size: "lg", className: "sm:shrink-0" })}
         >
-          {isSubmitting ? "Skickar…" : "Skicka förfrågan"}
+          {isSubmitting ? "Skickar…" : "Skicka bokningsförfrågan"}
         </button>
       </div>
     </form>
