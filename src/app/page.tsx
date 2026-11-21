@@ -122,7 +122,7 @@ export default function Home() {
             </h2>
             <div className="prose-copy mt-6 space-y-4">
               <p>
-                Mitt namn är {site.owner} och jag arbetar tillsammans med Louise. Jag har arbetat inom branschen i många år och finslipat
+                Mitt namn är {site.owner}. Jag har arbetat inom branschen i många år och finslipat
                 mina färdigheter för att leverera ett resultat jag är stolt över. Mitt fokus ligger
                 på precision, noggrannhet och att möta varje kunds unika behov.
               </p>
