@@ -74,17 +74,6 @@ export default function Home() {
                 className="object-cover object-[60%_45%]"
               />
             </div>
-            {/* Smaller photo of Torbjörn at work, overlapping the main image. */}
-            <div className="absolute top-4 right-3 w-[30%] max-w-[170px] rotate-3 overflow-hidden rounded-lg border-4 border-paper bg-mist-100 shadow-[0_14px_30px_-10px_rgba(8,28,35,0.35)] sm:top-6 sm:right-5">
-              <Image
-                src="/tb02.png"
-                alt="Torbjörn målar längs en golvlist"
-                width={365}
-                height={500}
-                sizes="170px"
-                className="h-auto w-full"
-              />
-            </div>
             <div className="absolute bottom-20 left-3 flex max-w-[calc(100%-24px)] -rotate-2 items-center gap-2 rounded-lg border border-ink/10 bg-paper px-2.5 py-2 shadow-[0_10px_24px_-8px_rgba(8,28,35,0.3),0_2px_6px_rgba(8,28,35,0.08)] sm:bottom-24 sm:left-8 sm:-rotate-3 sm:gap-2.5 sm:px-3 lg:left-3">
               <Image src="/MVK.png" alt="" width={400} height={520} sizes="(min-width: 640px) 28px, 25px" className="h-8 w-auto shrink-0 sm:h-9" />
               <div className="min-w-0">
