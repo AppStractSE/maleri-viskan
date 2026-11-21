@@ -122,13 +122,13 @@ export default function Home() {
             </h2>
             <div className="prose-copy mt-6 space-y-4">
               <p>
-                Mitt namn är {site.owner}. Jag har arbetat inom branschen i många år och finslipat
-                mina färdigheter för att leverera ett resultat jag är stolt över. Mitt fokus ligger
-                på precision, noggrannhet och att möta varje kunds unika behov.
+                Jag heter {site.owner} och har jobbat som målare i många år. Det jag bryr mig mest
+                om är att jobbet blir rätt gjort: noggrant förarbete, ett snyggt resultat och en yta
+                som håller länge.
               </p>
               <p>
-                Vi har lång erfarenhet av att måla fasader, tak, väggar, golv och mycket mer. Vi är
-                ett mångsidigt måleriföretag baserat i Kinna, och arbetar i hela Marks kommun.
+                Fasader, tak, väggar, golv och det mesta däremellan. Vi utgår från Kinna, jobbar i
+                hela Marks kommun och lyssnar alltid in vad just du vill ha.
               </p>
             </div>
             <div className="mt-9 flex flex-wrap gap-3">
