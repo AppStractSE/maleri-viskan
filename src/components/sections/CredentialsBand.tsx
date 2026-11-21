@@ -5,13 +5,15 @@ const CredentialsBand = () => (
   <section className="bg-deep text-chalk">
     <div className="container-site grid items-center gap-12 py-20 lg:grid-cols-12 lg:py-28">
       <div className="min-w-0 lg:col-span-7">
-        <p className="eyebrow mb-4 text-brand-400">Lokalt engagemang</p>
+        <p className="eyebrow mb-4 text-brand-400">Utmärkelse</p>
         <h2 className="text-display text-4xl leading-[1.05] text-balance sm:text-5xl">
           {site.award.title}
         </h2>
         <p className="mt-5 max-w-xl text-lg leading-relaxed text-chalk/75">
-          Torbjörn Johansson på Måleri Viskan har utsetts till Årets nyföretagare i Mark 2026.
-          Vi utför måleriarbeten åt privatpersoner och företag i hela Marks kommun.
+          Vi är otroligt stolta och glada över att ha blivit utsedda till Årets nyföretagare i
+          Mark 2026. Ett stort tack till alla kunder som har gett oss förtroendet, det är ni som
+          gör det möjligt. Vi fortsätter att måla hem och lokaler i hela Marks kommun, med samma
+          noggrannhet som alltid.
         </p>
         <ul className="mt-10 grid gap-x-8 gap-y-4 sm:grid-cols-2">
           {site.credentials.map((credential) => (

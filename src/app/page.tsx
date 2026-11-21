@@ -95,22 +95,23 @@ export default function Home() {
       {/* About */}
       <section className="border-b border-line py-16 sm:py-20 lg:py-24">
         <div className="container-site grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="grid grid-cols-2 items-start gap-3 sm:gap-5 lg:col-span-6">
-            <div className="relative aspect-[365/500] overflow-hidden rounded-panel bg-mist-100">
+          {/* Large portrait plus a smaller, lower square for an asymmetric pair. */}
+          <div className="grid grid-cols-5 items-end gap-3 sm:gap-5 lg:col-span-6">
+            <div className="relative col-span-3 aspect-[365/500] overflow-hidden rounded-panel bg-mist-100">
               <Image
                 src="/tb01.png"
                 alt="Torbjörn från Måleri Viskan målar en vägg"
                 fill
-                sizes="(min-width: 1280px) 280px, (min-width: 1024px) 23vw, 45vw"
+                sizes="(min-width: 1280px) 340px, (min-width: 1024px) 28vw, 58vw"
                 className="object-cover"
               />
             </div>
-            <div className="relative mt-8 aspect-[365/500] overflow-hidden rounded-panel bg-mist-100 sm:mt-12">
+            <div className="relative col-span-2 mb-6 aspect-square overflow-hidden rounded-panel bg-mist-100 sm:mb-10">
               <Image
                 src="/coat-hanger.jpg"
                 alt="Arbetsjacka med Måleri Viskans logga"
                 fill
-                sizes="(min-width: 1280px) 280px, (min-width: 1024px) 23vw, 45vw"
+                sizes="(min-width: 1280px) 220px, (min-width: 1024px) 18vw, 38vw"
                 className="object-cover object-[60%_center]"
               />
             </div>
