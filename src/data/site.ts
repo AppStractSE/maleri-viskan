@@ -31,7 +31,6 @@ export const site = {
     messenger: "https://m.me/maleriviskan",
   },
   credentials: [
-    "Årets nyföretagare i Mark 2026",
     "Certifikat för våtrumsmålning (MVK)",
     "Innehar F-skattsedel",
   ],
