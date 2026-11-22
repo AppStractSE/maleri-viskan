@@ -15,7 +15,7 @@ interface Props {
 // Frame per image shape. A panorama keeps its full width when stacked and only
 // crops to 3:2 in a wider side column, so it never gets zoomed into a tall frame.
 const frames = {
-  portrait: "aspect-[4/3] lg:aspect-[4/5]",
+  portrait: "aspect-[4/3] lg:aspect-[5/4]",
   panorama: "aspect-[2/1] sm:aspect-[1920/570] lg:aspect-[3/2]",
 };
 
@@ -23,11 +23,11 @@ const frames = {
 const PageHero = ({ eyebrow, title, lead, breadcrumbs, image, actions, children }: Props) => {
   const wide = image?.aspect === "panorama";
   return (
-  <section className="relative overflow-hidden pt-28 pb-14 sm:pt-32 lg:pt-36 lg:pb-20">
+  <section className="relative overflow-hidden pt-24 pb-14 sm:pt-28 lg:pb-20">
     <div className="container-site">
       <Breadcrumbs items={breadcrumbs} />
       <div
-        className={`grid items-end gap-10 ${breadcrumbs.length > 1 ? "mt-8 lg:mt-10" : ""} ${image ? "lg:grid-cols-12 lg:gap-14" : ""}`}
+        className={`grid items-center gap-10 ${breadcrumbs.length > 1 ? "mt-8 lg:mt-10" : ""} ${image ? "lg:grid-cols-12 lg:gap-14" : ""}`}
       >
         <div className={image ? (wide ? "lg:col-span-6" : "lg:col-span-7") : "max-w-4xl"}>
           {eyebrow && <p className="eyebrow mb-5">{eyebrow}</p>}
