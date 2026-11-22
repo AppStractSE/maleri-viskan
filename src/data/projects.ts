@@ -54,9 +54,9 @@ export const projects: Project[] = [
   },
   {
     id: "badrumsrenovering",
-    title: "Badrumsrenovering",
+    title: "Målning av badrum",
     description:
-      "Vi har förvandlat flera slitna badrum till lyxiga oaser. Med fokus på detaljer och högkvalitativa material skapar vi badrum som inte bara är vackra, utan också funktionella och hållbara rum att använda varje dag.",
+      "Målning av väggar och tak i flera badrum. Vi är certifierade för våtrumsmålning och använder färg som är framtagen för fuktiga miljöer, så att ytorna står emot fukt och håller sig fina länge.",
     image: "/projekt/badrumsrenovering/badrumsrenovering01.jpg",
     images: [
       "/projekt/badrumsrenovering/badrumsrenovering01.jpg",

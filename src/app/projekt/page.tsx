@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Projekt",
   description:
-    "Se ett urval av Måleri Viskans projekt: fasadmålning, badrumsrenovering, fönsterrenovering, nyproduktion och mer i Marks kommun.",
+    "Se ett urval av Måleri Viskans projekt: fasadmålning, badrumsmålning, fönsterrenovering, nyproduktion och mer i Marks kommun.",
   alternates: { canonical: "/projekt" },
 };
 
