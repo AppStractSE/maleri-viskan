@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import MapEmbed from "../consent/MapEmbed";
 import ContactForm from "../forms/ContactForm";
 import SocialLinks from "../layout/SocialLinks";
+import { Arrow } from "../ui/Button";
 
 interface Props {
   title?: ReactNode;
@@ -54,23 +55,30 @@ const ContactSection = ({
         <Tag className="text-display text-4xl leading-[1.05] text-balance sm:text-5xl">{title}</Tag>
         <p className="mt-5 text-lg leading-relaxed text-muted">{lead}</p>
 
-        <ul className="mt-10 space-y-3">
+        {/* Plain rows split by hairlines instead of boxed cards. */}
+        <ul className="mt-10 divide-y divide-line border-y border-line">
           {methods.map((method) => (
             <li key={method.label}>
               <a
                 href={method.href}
                 {...(method.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="group flex items-center gap-4 rounded-xl border border-line bg-paper/60 p-4 transition-colors hover:border-ink/20 hover:bg-paper"
+                className="group/link flex cursor-pointer items-center gap-4 py-5 sm:gap-5"
               >
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-brand-50 text-brand-600 transition-colors group-hover:bg-brand-600 group-hover:text-chalk">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-ink text-chalk transition-colors duration-200 group-hover/link:bg-brand-600">
                   <svg aria-hidden viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round">
                     <path d={method.icon} />
                   </svg>
                 </span>
-                <span>
+                <span className="min-w-0 flex-1">
                   <span className="block text-sm text-muted">{method.label}</span>
-                  <span className="block font-semibold text-ink">{method.value}</span>
+                  <span className="block text-lg font-semibold wrap-break-word text-ink transition-colors duration-200 group-hover/link:text-brand-600 sm:text-xl">
+                    {method.value}
+                  </span>
                 </span>
+                <span className="shrink-0 text-muted transition-colors duration-200 group-hover/link:text-brand-600">
+                  <Arrow />
+                </span>
+                {method.external && <span className="sr-only">(öppnas i ny flik)</span>}
               </a>
             </li>
           ))}
