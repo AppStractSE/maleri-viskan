@@ -21,9 +21,9 @@ export const services: Service[] = [
   {
     id: "malning",
     name: "Målning",
-    shortDescription: "All typ av målning, både in- och utvändigt.",
+    shortDescription: "Målning inne och ute, från väggar och tak till fasad.",
     description:
-      "Vi är proffs på målning, oavsett om det är inomhus eller utomhus. Vårt mål är att alltid leverera hög kvalitet, hålla vad vi lovar och bli klara i tid. Vi är dessutom MVK-certifierade för att måla i våtrum, så även badrummet blir både snyggt och säkert.",
+      "Vi målar både inne och ute: väggar, tak, snickerier och fasader. Du ska kunna lita på att resultatet blir snyggt, att vi håller det vi lovar och att vi blir klara i tid. Vi är också MVK-certifierade för våtrumsmålning, så badrummet blir målat på ett sätt som tål fukten.",
     image: "/utomhusmålning01.jpg",
     thumbnail: "/tjanster/malning/utomhus_small.png",
     features: [
