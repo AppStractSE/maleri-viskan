@@ -34,7 +34,6 @@ export default function CookiesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Integritet"
         title="Cookies"
         lead="En cookie är en liten textfil som sparas i din webbläsare. Vi använder bara cookies för statistik och karta om du har godkänt det."
         breadcrumbs={[{ label: "Cookies", href: "/cookies" }]}

@@ -71,7 +71,6 @@ export default function RotPage() {
       <section id="kalkylator" className="border-t border-line">
         <div className="container-site py-20 lg:py-28">
           <SectionHeading
-            eyebrow="Kalkylator"
             title="Räkna ut ditt ROT-avdrag"
             lead="En arbetskostnad på 100 000 kr ger en skattereduktion på 30 000 kr. Dra i reglagen för att se vad ditt projekt kan kosta efter avdrag."
           />

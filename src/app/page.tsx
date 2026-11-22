@@ -48,7 +48,7 @@ export default function Home() {
         <div className="container-site grid items-center gap-8 pb-12 sm:gap-12 sm:pb-16 lg:grid-cols-12 lg:gap-10 lg:pb-20">
           <div className="lg:col-span-6 xl:col-span-6">
             <p className="eyebrow mb-4 animate-fade-up sm:mb-6">Målerifirma i Marks kommun</p>
-            <h1 className="text-display animate-fade-up text-[clamp(2.25rem,10vw,3rem)] leading-[1.05] text-balance [animation-delay:60ms] sm:text-6xl lg:text-7xl xl:text-[4.75rem]">
+            <h1 className="text-display animate-fade-up text-[clamp(2.25rem,10vw,3rem)] leading-[1.05] text-balance [animation-delay:60ms] sm:text-5xl lg:text-[3.5rem] xl:text-6xl">
               Målare i Kinna, Skene och Marks kommun
             </h1>
             <p className="mt-5 max-w-xl animate-fade-up text-base leading-relaxed text-muted [animation-delay:120ms] sm:mt-7 sm:text-lg">
@@ -118,7 +118,7 @@ export default function Home() {
           </div>
           <div className="lg:col-span-5 lg:col-start-8">
             <p className="eyebrow mb-4">Om oss</p>
-            <h2 className="text-display text-4xl leading-[1.05] text-balance sm:text-5xl">
+            <h2 className="text-display text-3xl leading-[1.08] text-balance sm:text-4xl">
               Vi kan måleri, och vi kan det bra
             </h2>
             <div className="prose-copy mt-6 space-y-4">
@@ -199,7 +199,7 @@ export default function Home() {
                     className="object-cover transition-transform duration-700 ease-[var(--ease-out-soft)] group-hover/link:scale-[1.04]"
                   />
                 </div>
-                <h3 className="text-display mt-6 text-2xl">{item.title}</h3>
+                <h3 className="text-display mt-5 text-xl sm:text-2xl">{item.title}</h3>
                 <p className="mt-3 leading-relaxed text-muted">{item.text}</p>
                 <span className="mt-4 flex items-center gap-2 self-start text-sm font-semibold text-brand-600">
                   {item.cta} <Arrow />

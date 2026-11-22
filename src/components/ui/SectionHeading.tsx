@@ -32,13 +32,13 @@ const SectionHeading = ({
           <p className={`eyebrow mb-4 ${tone === "light" ? "text-brand-400" : ""}`}>{eyebrow}</p>
         )}
         <Tag
-          className={`text-display text-4xl leading-[1.05] text-balance sm:text-5xl ${tone === "light" ? "text-chalk" : "text-ink"}`}
+          className={`text-display text-3xl leading-[1.08] text-balance sm:text-4xl ${tone === "light" ? "text-chalk" : "text-ink"}`}
         >
           {title}
         </Tag>
         {lead && (
           <p
-            className={`mt-5 text-lg leading-relaxed text-pretty ${tone === "light" ? "text-chalk/75" : "text-muted"}`}
+            className={`mt-5 text-base leading-relaxed sm:text-lg text-pretty ${tone === "light" ? "text-chalk/75" : "text-muted"}`}
           >
             {lead}
           </p>

@@ -32,7 +32,7 @@ const FeatureRow = ({ id, eyebrow, title, children, image, imageAlt = "", revers
     </div>
     <div className={`lg:col-span-5 ${reverse ? "lg:col-start-1 lg:row-start-1" : "lg:col-start-8"}`}>
       {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
-      <h2 className="text-display text-3xl leading-[1.1] text-balance sm:text-4xl">{title}</h2>
+      <h2 className="text-display text-2xl leading-[1.12] text-balance sm:text-3xl">{title}</h2>
       <div className="prose-copy mt-5 space-y-4 whitespace-pre-line">{children}</div>
       {actions && <div className="mt-8 flex flex-wrap gap-3">{actions}</div>}
     </div>

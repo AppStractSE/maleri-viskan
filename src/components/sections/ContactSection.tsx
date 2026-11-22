@@ -52,8 +52,8 @@ const ContactSection = ({
     <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
       <div className="lg:col-span-5">
         <p className="eyebrow mb-4">Kontakt</p>
-        <Tag className="text-display text-4xl leading-[1.05] text-balance sm:text-5xl">{title}</Tag>
-        <p className="mt-5 text-lg leading-relaxed text-muted">{lead}</p>
+        <Tag className="text-display text-3xl leading-[1.08] text-balance sm:text-4xl">{title}</Tag>
+        <p className="mt-5 text-base leading-relaxed sm:text-lg text-muted">{lead}</p>
 
         {/* Plain rows split by hairlines instead of boxed cards. */}
         <ul className="mt-10 divide-y divide-line border-y border-line">
@@ -71,7 +71,7 @@ const ContactSection = ({
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="block text-sm text-muted">{method.label}</span>
-                  <span className="block text-lg font-semibold wrap-break-word text-ink transition-colors duration-200 group-hover/link:text-brand-600 sm:text-xl">
+                  <span className="block text-base font-semibold wrap-break-word text-ink transition-colors duration-200 group-hover/link:text-brand-600 sm:text-lg">
                     {method.value}
                   </span>
                 </span>

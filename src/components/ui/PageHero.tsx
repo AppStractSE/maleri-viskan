@@ -31,11 +31,11 @@ const PageHero = ({ eyebrow, title, lead, breadcrumbs, image, actions, children 
       >
         <div className={image ? (wide ? "lg:col-span-6" : "lg:col-span-7") : "max-w-4xl"}>
           {eyebrow && <p className="eyebrow mb-5">{eyebrow}</p>}
-          <h1 className="text-display animate-fade-up text-[2.25rem] leading-[1.04] text-balance min-[400px]:text-[2.6rem] sm:text-6xl lg:text-7xl">
+          <h1 className="text-display animate-fade-up text-[2rem] leading-[1.08] text-balance sm:text-[2.75rem] lg:text-5xl">
             {title}
           </h1>
           {lead && (
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-pretty whitespace-pre-line text-muted sm:text-xl">
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-pretty whitespace-pre-line text-muted sm:text-lg">
               {lead}
             </p>
           )}

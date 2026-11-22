@@ -5,10 +5,10 @@ const RotTeaser = () => (
     <div className="grid items-center gap-10 rounded-panel bg-brand-50 p-6 ring-1 ring-brand-100 sm:p-12 lg:grid-cols-12 lg:gap-16 lg:p-16">
       <div className="min-w-0 lg:col-span-7">
         <p className="eyebrow mb-4">ROT-avdrag</p>
-        <h2 className="text-display text-4xl leading-[1.05] text-balance sm:text-5xl">
+        <h2 className="text-display text-3xl leading-[1.08] text-balance sm:text-4xl">
           Betala bara 70&nbsp;% av arbetskostnaden
         </h2>
-        <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
+        <p className="mt-5 max-w-xl text-base leading-relaxed sm:text-lg text-ink-soft">
           Äger och bor du i bostaden får du en skattereduktion på 30&nbsp;% av arbetskostnaden, upp
           till 50&nbsp;000&nbsp;kr per person och år. Målning och tapetsering passar extra bra,
           eftersom det mesta av kostnaden är arbete.

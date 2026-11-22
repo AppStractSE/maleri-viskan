@@ -132,5 +132,5 @@
 }
 
 @utility prose-copy {
-  @apply text-ink-soft text-base leading-relaxed sm:text-lg;
+  @apply text-ink-soft text-base leading-relaxed;
 }

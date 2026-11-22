@@ -21,8 +21,8 @@ const CtaBand = ({
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_120%_at_100%_0%,rgb(11_180_230/0.28),transparent_55%)]"
       />
       <div className="relative max-w-2xl">
-        <h2 className="text-display text-4xl leading-[1.05] text-balance sm:text-5xl">{title}</h2>
-        <p className="mt-4 text-lg text-chalk/75">{text}</p>
+        <h2 className="text-display text-3xl leading-[1.08] text-balance sm:text-4xl">{title}</h2>
+        <p className="mt-4 text-base text-chalk/75 sm:text-lg">{text}</p>
       </div>
       <div className="relative mt-9 flex flex-wrap gap-3 lg:mt-0 lg:shrink-0">
         <QuoteButton variant="light" size="lg" service={service}>

@@ -54,7 +54,7 @@ const ProjectCards = ({ projects = allProjects, layout = "grid", headingLevel: H
             </div>
             {bento && (
               <div className="mt-3 flex items-end justify-between gap-2 text-ink sm:absolute sm:inset-0 sm:mt-0 sm:gap-4 sm:rounded-card sm:bg-gradient-to-t sm:from-ink/70 sm:via-ink/0 sm:to-ink/0 sm:p-6 sm:text-chalk">
-                <Heading className={`leading-snug font-medium sm:font-display sm:font-normal sm:tracking-[-0.02em] ${index === 0 ? "text-lg sm:text-4xl" : "text-base sm:text-2xl"}`}>
+                <Heading className={`leading-snug font-medium sm:font-display sm:font-normal sm:tracking-[-0.02em] ${index === 0 ? "text-lg sm:text-3xl" : "text-base sm:text-2xl"}`}>
                   {project.title}
                 </Heading>
                 <span className="hidden h-10 w-10 shrink-0 place-items-center rounded-full bg-chalk/15 backdrop-blur transition-colors group-hover/link:bg-chalk group-hover/link:text-ink sm:grid">

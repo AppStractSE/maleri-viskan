@@ -39,7 +39,6 @@ export default async function ServicePage({ params }: Props) {
   return (
     <>
       <PageHero
-        eyebrow="Tjänst"
         title={service.name}
         lead={service.description}
         breadcrumbs={[
@@ -99,7 +98,7 @@ export default async function ServicePage({ params }: Props) {
       </div>
 
       <section className="container-site pb-20 lg:pb-28">
-        <SectionHeading eyebrow="Fler tjänster" title="Vi hjälper dig även med" />
+        <SectionHeading title="Vi hjälper dig även med" />
         <div className="mt-10">
           <ServiceCards exclude={service.id} />
         </div>

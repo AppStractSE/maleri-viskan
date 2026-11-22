@@ -38,7 +38,6 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <>
       <PageHero
-        eyebrow={`Projekt · ${project.images.length} ${project.images.length === 1 ? "bild" : "bilder"}`}
         title={project.title}
         lead={project.description}
         breadcrumbs={[
@@ -52,7 +51,7 @@ export default async function ProjectPage({ params }: Props) {
       </section>
       <section className="border-t border-line">
         <div className="container-site py-20 lg:py-28">
-          <SectionHeading eyebrow="Fler projekt" title="Se mer av vårt arbete" />
+          <SectionHeading title="Se mer av vårt arbete" />
           <div className="mt-10">
             <ProjectCards projects={others} />
           </div>
