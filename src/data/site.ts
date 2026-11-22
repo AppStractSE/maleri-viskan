@@ -30,10 +30,6 @@ export const site = {
     facebook: "https://www.facebook.com/maleriviskan",
     messenger: "https://m.me/maleriviskan",
   },
-  credentials: [
-    "Certifikat för våtrumsmålning (MVK)",
-    "Innehar F-skattsedel",
-  ],
 } as const;
 
 /**

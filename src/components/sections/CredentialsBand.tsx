@@ -15,23 +15,11 @@ const CredentialsBand = () => (
           gör det möjligt. Vi fortsätter att måla hem och lokaler i hela Marks kommun, med samma
           noggrannhet som alltid.
         </p>
-        <ul className="mt-10 grid gap-x-8 gap-y-4 sm:grid-cols-2">
-          {site.credentials.map((credential) => (
-            <li key={credential} className="flex items-start gap-3">
-              <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-brand-500/20 text-brand-400">
-                <svg aria-hidden viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="m3.5 8.5 3 3 6-7" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
-              <span className="text-chalk/90">{credential}</span>
-            </li>
-          ))}
-        </ul>
         <a
           href={site.award.sourceUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className={buttonClasses({ variant: "outlineLight", className: "mt-8 min-h-11 max-w-full whitespace-normal text-left" })}
+          className={buttonClasses({ variant: "outlineLight", className: "mt-10 min-h-11 max-w-full whitespace-normal text-left" })}
         >
           <span className="min-w-0 whitespace-normal">Se utmärkelsen hos {site.award.sourceName}</span>
           <svg aria-hidden viewBox="0 0 20 20" className="h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
