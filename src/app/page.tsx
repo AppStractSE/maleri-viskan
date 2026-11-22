@@ -185,10 +185,11 @@ export default function Home() {
           title="Din målare längs Viskan"
           align="center"
         />
-        <ul className="mt-14 grid gap-8 md:grid-cols-3">
+        {/* Subgrid lines up image, title, text and link across the three cards. */}
+        <ul className="mt-14 grid gap-x-8 gap-y-12 md:grid-cols-3 md:gap-y-0">
           {highlights.map((item) => (
-            <li key={item.title}>
-              <Link href={item.href} className="group/link block">
+            <li key={item.title} className="md:row-span-4 md:grid md:grid-rows-subgrid">
+              <Link href={item.href} className="group/link block md:row-span-4 md:grid md:grid-rows-subgrid">
                 <div className="relative aspect-[4/3] overflow-hidden rounded-card bg-mist-100">
                   <Image
                     src={item.image}
@@ -200,7 +201,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-display mt-6 text-2xl">{item.title}</h3>
                 <p className="mt-3 leading-relaxed text-muted">{item.text}</p>
-                <span className="mt-4 flex items-center gap-2 text-sm font-semibold text-brand-600">
+                <span className="mt-4 flex items-center gap-2 self-start text-sm font-semibold text-brand-600">
                   {item.cta} <Arrow />
                 </span>
               </Link>
