@@ -15,7 +15,7 @@ interface Props {
 // Frame per image shape. A panorama keeps its full width when stacked and only
 // crops to 3:2 in a wider side column, so it never gets zoomed into a tall frame.
 const frames = {
-  portrait: "aspect-[4/3] lg:aspect-[5/4]",
+  portrait: "aspect-[4/3] lg:aspect-square",
   panorama: "aspect-[2/1] sm:aspect-[1920/570] lg:aspect-[3/2]",
 };
 
