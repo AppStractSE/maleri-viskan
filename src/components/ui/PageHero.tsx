@@ -7,20 +7,24 @@ interface Props {
   title: ReactNode;
   lead?: ReactNode;
   breadcrumbs: Crumb[];
-  image?: { src: string; alt: string; position?: string; aspect?: "portrait" | "landscape" };
+  image?: { src: string; alt: string; position?: string; aspect?: "portrait" | "panorama" };
   actions?: ReactNode;
   children?: ReactNode;
 }
 
 /** Hero used on all subpages: breadcrumbs, display heading, lead and an optional image. */
-const PageHero = ({ eyebrow, title, lead, breadcrumbs, image, actions, children }: Props) => (
+const PageHero = ({ eyebrow, title, lead, breadcrumbs, image, actions, children }: Props) => {
+  // A panorama is too wide to crop into the side column, so it spans the full width below the text.
+  const panorama = image?.aspect === "panorama";
+  const side = image && !panorama ? image : undefined;
+  return (
   <section className="relative overflow-hidden pt-28 pb-14 sm:pt-32 lg:pt-36 lg:pb-20">
     <div className="container-site">
       <Breadcrumbs items={breadcrumbs} />
       <div
-        className={`mt-8 grid items-end gap-10 lg:mt-10 ${image ? "lg:grid-cols-12 lg:gap-14" : ""}`}
+        className={`mt-8 grid items-end gap-10 lg:mt-10 ${side ? "lg:grid-cols-12 lg:gap-14" : ""}`}
       >
-        <div className={image ? "lg:col-span-7" : "max-w-4xl"}>
+        <div className={side ? "lg:col-span-7" : "max-w-4xl"}>
           {eyebrow && <p className="eyebrow mb-5">{eyebrow}</p>}
           <h1 className="text-display animate-fade-up text-[2.25rem] leading-[1.04] text-balance min-[400px]:text-[2.6rem] sm:text-6xl lg:text-7xl">
             {title}
@@ -33,28 +37,38 @@ const PageHero = ({ eyebrow, title, lead, breadcrumbs, image, actions, children 
           {actions && <div className="mt-9 flex flex-wrap gap-3">{actions}</div>}
           {children}
         </div>
-        {image && (
+        {side && (
           <div className="relative lg:col-span-5">
-            <div
-              className={`relative aspect-[4/3] overflow-hidden rounded-panel bg-mist-100 shadow-lift ${
-                image.aspect === "landscape" ? "" : "lg:aspect-[4/5]"
-              }`}
-            >
+            <div className="relative aspect-[4/3] overflow-hidden rounded-panel bg-mist-100 shadow-lift lg:aspect-[4/5]">
               <Image
-                src={image.src}
-                alt={image.alt}
+                src={side.src}
+                alt={side.alt}
                 fill
                 preload
                 sizes="(min-width: 1280px) 500px, (min-width: 1024px) 40vw, 100vw"
                 className="object-cover"
-                style={image.position ? { objectPosition: image.position } : undefined}
+                style={side.position ? { objectPosition: side.position } : undefined}
               />
             </div>
           </div>
         )}
       </div>
+      {panorama && image && (
+        <div className="relative mt-12 aspect-[2/1] overflow-hidden rounded-panel bg-mist-100 sm:aspect-[1920/570] lg:mt-16">
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            preload
+            sizes="(min-width: 1280px) 1216px, 100vw"
+            className="object-cover"
+            style={{ objectPosition: image.position ?? "55% center" }}
+          />
+        </div>
+      )}
     </div>
   </section>
-);
+  );
+};
 
 export default PageHero;
