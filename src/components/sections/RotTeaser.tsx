@@ -9,7 +9,7 @@ const RotTeaser = () => (
           Betala bara 70&nbsp;% av arbetskostnaden
         </h2>
         <p className="mt-5 max-w-xl text-base leading-relaxed sm:text-lg text-ink-soft">
-          Äger och bor du i bostaden får du en skattereduktion på 30&nbsp;% av arbetskostnaden, upp
+          Äger du bostaden eller fritidshuset får du en skattereduktion på 30&nbsp;% av arbetskostnaden, upp
           till 50&nbsp;000&nbsp;kr per person och år. Målning och tapetsering passar extra bra,
           eftersom det mesta av kostnaden är arbete.
         </p>
