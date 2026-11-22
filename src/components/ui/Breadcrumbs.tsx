@@ -7,36 +7,41 @@ export interface Crumb {
   href: string;
 }
 
-/** Visible breadcrumbs plus BreadcrumbList structured data. "Hem" is added automatically. */
+/**
+ * BreadcrumbList structured data, plus a visible trail on nested pages. "Hem" is added
+ * automatically. Top-level pages skip the visible trail since the menu already covers it.
+ */
 const Breadcrumbs = ({ items }: { items: Crumb[] }) => {
   const all = [{ label: "Hem", href: "/" }, ...items];
   return (
     <>
-      <nav aria-label="Brödsmulor" className="text-sm text-muted">
-        <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
-          {all.map((crumb, index) => {
-            const last = index === all.length - 1;
-            return (
-              <li key={crumb.href} className="flex items-center gap-2">
-                {last ? (
-                  <span aria-current="page" className="text-ink">
-                    {crumb.label}
-                  </span>
-                ) : (
-                  <>
-                    <Link href={crumb.href} className="transition-colors hover:text-ink">
+      {items.length > 1 && (
+        <nav aria-label="Brödsmulor" className="text-sm text-muted">
+          <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
+            {all.map((crumb, index) => {
+              const last = index === all.length - 1;
+              return (
+                <li key={crumb.href} className="flex items-center gap-2">
+                  {last ? (
+                    <span aria-current="page" className="text-ink">
                       {crumb.label}
-                    </Link>
-                    <span aria-hidden className="text-mist-300">
-                      /
                     </span>
-                  </>
-                )}
-              </li>
-            );
-          })}
-        </ol>
-      </nav>
+                  ) : (
+                    <>
+                      <Link href={crumb.href} className="transition-colors hover:text-ink">
+                        {crumb.label}
+                      </Link>
+                      <span aria-hidden className="text-mist-300">
+                        /
+                      </span>
+                    </>
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+        </nav>
+      )}
       <JsonLd
         data={{
           "@context": "https://schema.org",

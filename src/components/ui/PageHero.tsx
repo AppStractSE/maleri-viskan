@@ -27,7 +27,7 @@ const PageHero = ({ eyebrow, title, lead, breadcrumbs, image, actions, children 
     <div className="container-site">
       <Breadcrumbs items={breadcrumbs} />
       <div
-        className={`mt-8 grid items-end gap-10 lg:mt-10 ${image ? "lg:grid-cols-12 lg:gap-14" : ""}`}
+        className={`grid items-end gap-10 ${breadcrumbs.length > 1 ? "mt-8 lg:mt-10" : ""} ${image ? "lg:grid-cols-12 lg:gap-14" : ""}`}
       >
         <div className={image ? (wide ? "lg:col-span-6" : "lg:col-span-7") : "max-w-4xl"}>
           {eyebrow && <p className="eyebrow mb-5">{eyebrow}</p>}
