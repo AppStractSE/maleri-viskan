@@ -133,7 +133,7 @@ export const services: Service[] = [
           "Rätt kittning gör att fönstren blir täta och skyddade mot väder och vind. Vi applicerar kittet noggrant för en tät och hållbar försegling runt bågar och karmar.",
       },
       {
-        title: "Målning av fönsterbågar och karm",
+        title: "Målning av bågar och karmar",
         image: "/tjanster/fonsterrenovering/wibo.jpg",
         description:
           "Vi målar bågar och karmar med högkvalitativa produkter i den kulör du önskar. Målningen utförs med precision för jämn täckning och ett resultat som håller länge.",
