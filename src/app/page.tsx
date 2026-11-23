@@ -74,20 +74,6 @@ export default function Home() {
                 className="object-cover object-[60%_45%]"
               />
             </div>
-            <div className="absolute bottom-20 left-3 flex max-w-[calc(100%-24px)] -rotate-2 items-center gap-2 rounded-lg border border-ink/10 bg-paper px-2.5 py-2 shadow-[0_10px_24px_-8px_rgba(8,28,35,0.3),0_2px_6px_rgba(8,28,35,0.08)] sm:bottom-24 sm:left-8 sm:-rotate-3 sm:gap-2.5 sm:px-3 lg:left-3">
-              <Image src="/MVK.png" alt="" width={400} height={520} sizes="(min-width: 640px) 28px, 25px" className="h-8 w-auto shrink-0 sm:h-9" />
-              <div className="min-w-0">
-                <p className="text-[11px] leading-snug font-semibold sm:text-xs">Certifierade våtrumsmålare</p>
-                <p className="mt-0.5 text-[10px] leading-snug text-muted">Måleribranschens Våtrumskontroll</p>
-              </div>
-            </div>
-            <div className="absolute right-3 bottom-3 flex max-w-[calc(100%-24px)] rotate-2 items-center gap-2 rounded-lg border border-ink/10 bg-paper px-2.5 py-2 shadow-[0_10px_24px_-8px_rgba(8,28,35,0.3),0_2px_6px_rgba(8,28,35,0.08)] sm:right-5 sm:bottom-4 sm:rotate-3 sm:gap-2.5 sm:px-3">
-              <Image src="/icons/f-skatt.svg" alt="" width={48} height={56} className="h-8 w-auto shrink-0 sm:h-9" />
-              <div className="min-w-0">
-                <p className="text-[11px] leading-snug font-semibold sm:text-xs">F-skatt</p>
-                <p className="mt-0.5 text-[10px] leading-snug text-muted">ROT-avdrag</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
