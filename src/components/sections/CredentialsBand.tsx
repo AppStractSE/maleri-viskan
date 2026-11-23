@@ -31,8 +31,8 @@ const CredentialsBand = () => (
       <div className="min-w-0 lg:col-span-4 lg:col-start-9">
         <div className="rounded-panel border border-chalk/20 p-8 text-center sm:p-10">
           <p className="text-display text-6xl text-brand-400 sm:text-7xl">{site.award.year}</p>
-          <p className="mt-5 text-lg font-semibold">Årets nyföretagare</p>
-          <p className="mt-2 text-chalk/75">Mark · Torbjörn Johansson</p>
+          <p className="mt-5 text-lg font-semibold">Årets nyföretagare i Mark</p>
+          <p className="mt-2 text-chalk/75">{site.owner}</p>
           <p className="mt-1 text-chalk/75">Måleri Viskan</p>
         </div>
       </div>
