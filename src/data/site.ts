@@ -5,6 +5,8 @@ export const site = {
   description:
     "Din lokala målare i Kinna, Skene och Marks kommun. Målning inne och ute, våtrum, tapetsering, spackling och fönsterrenovering. Boka nu.",
   owner: "Torbjörn Johansson",
+  /** Year Torbjörn started as a painter; "X år" on the site counts from this. */
+  paintingSince: 2014,
   award: {
     title: "Årets nyföretagare i Mark 2026",
     year: 2026,

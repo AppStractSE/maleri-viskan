@@ -45,12 +45,6 @@ export const services: Service[] = [
         description:
           "Ge huset nytt liv. Oavsett om det gäller träfasad, puts, tegel eller takfot behandlar vi varje yta med noggrannhet och omsorg. Vi använder färger som är framtagna för att stå emot väder och vind, och kombinerar teknisk kunskap med känsla för helheten så att fasaden både blir vacker och skyddas över tid.",
       },
-      {
-        title: "Linoljemålning",
-        image: "/tjanster/malning/linolje.png",
-        description:
-          "Måla med linoljefärg för en unik och tidlös finish. Vi kombinerar traditionellt hantverk med moderna tekniker för vackra och hållbara resultat. Linoljefärg ger djupa kulörer och en mjuk glans samtidigt som den skyddar ytan. Den passar särskilt bra på trädetaljer och åldras vackert med tiden.",
-      },
     ],
   },
   {
@@ -62,12 +56,6 @@ export const services: Service[] = [
     image: "/tjanster/tapetsering/tapetsering.jpg",
     thumbnail: "/tjanster/tapetsering/tapetsering_small.png",
     features: [
-      {
-        title: "Papperstapetsering",
-        image: "/tjanster/tapetsering/tapetsering01.jpg",
-        description:
-          "Papperstapet ger rummet en klassisk och tidlös känsla. Vi sätter upp den med precision och känsla för detaljer, oavsett om det gäller en accentvägg eller hela rummet. Målet är en sömlös och vacker yta som passar din stil.",
-      },
       {
         title: "Non-woven-tapetsering",
         image: "/tjanster/tapetsering/tapetsering.jpg",

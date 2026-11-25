@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
+// Re-render daily so the "X år" count rolls over on New Year without a redeploy.
+export const revalidate = 86400;
+
 const highlights = [
   {
     title: "Rätt färg för varje yta",
@@ -109,7 +112,7 @@ export default function Home() {
             </h2>
             <div className="prose-copy mt-6 space-y-4">
               <p>
-                Jag heter {site.owner} och har jobbat som målare i många år. Det jag bryr mig mest
+                Jag heter {site.owner} och har jobbat som målare i {new Date().getFullYear() - site.paintingSince} år. Det jag bryr mig mest
                 om är att jobbet blir rätt gjort: noggrant förarbete, ett snyggt resultat och en yta
                 som håller länge.
               </p>
